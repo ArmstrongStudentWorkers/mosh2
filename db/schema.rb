@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217223424) do
+ActiveRecord::Schema.define(:version => 20131217224214) do
 
   create_table "hardware_statuses", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(:version => 20131217223424) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "hardwares", :force => true do |t|
+    t.string   "name"
+    t.string   "serial_number"
+    t.string   "aasu_number"
+    t.string   "manufacturer"
+    t.string   "model_number"
+    t.string   "assigned_to"
+    t.text     "specs"
+    t.integer  "hardware_type_id"
+    t.integer  "hardware_status_id"
+    t.text     "hardware_status_comment"
+    t.integer  "workstation_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|

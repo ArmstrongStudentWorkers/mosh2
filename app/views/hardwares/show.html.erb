@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @hardware.name %>
+</p>
+
+<p>
+  <b>Serial number:</b>
+  <%= @hardware.serial_number %>
+</p>
+
+<p>
+  <b>Aasu number:</b>
+  <%= @hardware.aasu_number %>
+</p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @hardware.manufacturer %>
+</p>
+
+<p>
+  <b>Model number:</b>
+  <%= @hardware.model_number %>
+</p>
+
+<p>
+  <b>Assigned to:</b>
+  <%= @hardware.assigned_to %>
+</p>
+
+<p>
+  <b>Specs:</b>
+  <%= @hardware.specs %>
+</p>
+
+<p>
+  <b>Hardware type:</b>
+  <%= @hardware.hardware_type_id %>
+</p>
+
+<p>
+  <b>Hardware status:</b>
+  <%= @hardware.hardware_status_id %>
+</p>
+
+<p>
+  <b>Hardware status comment:</b>
+  <%= @hardware.hardware_status_comment %>
+</p>
+
+<p>
+  <b>Workstation:</b>
+  <%= @hardware.workstation_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_hardware_path(@hardware) %> |
+<%= link_to 'Back', hardwares_path %>

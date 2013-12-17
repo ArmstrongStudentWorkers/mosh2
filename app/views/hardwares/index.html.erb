@@ -1,0 +1,43 @@
+<h1>Listing hardwares</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Serial number</th>
+    <th>Aasu number</th>
+    <th>Manufacturer</th>
+    <th>Model number</th>
+    <th>Assigned to</th>
+    <th>Specs</th>
+    <th>Hardware type</th>
+    <th>Hardware status</th>
+    <th>Hardware status comment</th>
+    <th>Workstation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hardwares.each do |hardware| %>
+  <tr>
+    <td><%= hardware.name %></td>
+    <td><%= hardware.serial_number %></td>
+    <td><%= hardware.aasu_number %></td>
+    <td><%= hardware.manufacturer %></td>
+    <td><%= hardware.model_number %></td>
+    <td><%= hardware.assigned_to %></td>
+    <td><%= hardware.specs %></td>
+    <td><%= hardware.hardware_type_id %></td>
+    <td><%= hardware.hardware_status_id %></td>
+    <td><%= hardware.hardware_status_comment %></td>
+    <td><%= hardware.workstation_id %></td>
+    <td><%= link_to 'Show', hardware %></td>
+    <td><%= link_to 'Edit', edit_hardware_path(hardware) %></td>
+    <td><%= link_to 'Destroy', hardware, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hardware', new_hardware_path %>

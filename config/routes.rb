@@ -1,5 +1,8 @@
 Mosh2::Application.routes.draw do
 
+  resources :hardwares
+
+
   resources :hardware_statuses
 
 

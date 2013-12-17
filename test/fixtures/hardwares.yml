@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  serial_number: MyString
+  aasu_number: MyString
+  manufacturer: MyString
+  model_number: MyString
+  assigned_to: MyString
+  specs: MyText
+  hardware_type_id: 1
+  hardware_status_id: 1
+  hardware_status_comment: MyText
+  workstation_id: 1
+
+two:
+  name: MyString
+  serial_number: MyString
+  aasu_number: MyString
+  manufacturer: MyString
+  model_number: MyString
+  assigned_to: MyString
+  specs: MyText
+  hardware_type_id: 1
+  hardware_status_id: 1
+  hardware_status_comment: MyText
+  workstation_id: 1
