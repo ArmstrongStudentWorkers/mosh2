@@ -29,6 +29,9 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'rails_admin'
 
+# SORRY! But the 'datetimepicker-rails' name in RubyGems repo already taken.
+gem 'datetimepicker-rails', :require => 'datetimepicker-rails', :git => 'git://github.com/zpaulovics/datetimepicker-rails.git'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
