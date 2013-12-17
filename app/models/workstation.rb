@@ -1,5 +1,5 @@
 class Workstation < ActiveRecord::Base
-  attr_accessible :name, :number, :workstation_type_id
+  attr_accessible :name, :number, :workstation_type_id, :location_id
   belongs_to :location
   belongs_to :workstation_type
   has_many :hardwares
