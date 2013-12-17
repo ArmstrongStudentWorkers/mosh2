@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @location.name %>
+</p>
+
+<p>
+  <b>Room:</b>
+  <%= @location.room %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @location.comment %>
+</p>
+
+<p>
+  <b>Location type:</b>
+  <%= @location.location_type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>

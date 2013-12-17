@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  room: MyString
+  comment: MyText
+  location_type_id: 1
+
+two:
+  name: MyString
+  room: MyString
+  comment: MyText
+  location_type_id: 1
