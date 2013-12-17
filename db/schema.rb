@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217222420) do
+ActiveRecord::Schema.define(:version => 20131217222815) do
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(:version => 20131217222420) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "workstations", :force => true do |t|
+    t.string   "name"
+    t.string   "number"
+    t.integer  "workstation_type_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
 end

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @workstation.name %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @workstation.number %>
+</p>
+
+<p>
+  <b>Workstation type:</b>
+  <%= @workstation.workstation_type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_workstation_path(@workstation) %> |
+<%= link_to 'Back', workstations_path %>
