@@ -1,0 +1,23 @@
+<h1>Listing hardware_statuses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hardware_statuses.each do |hardware_status| %>
+  <tr>
+    <td><%= hardware_status.name %></td>
+    <td><%= link_to 'Show', hardware_status %></td>
+    <td><%= link_to 'Edit', edit_hardware_status_path(hardware_status) %></td>
+    <td><%= link_to 'Destroy', hardware_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hardware status', new_hardware_status_path %>
