@@ -1,0 +1,23 @@
+<h1>Listing location_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @location_types.each do |location_type| %>
+  <tr>
+    <td><%= location_type.name %></td>
+    <td><%= link_to 'Show', location_type %></td>
+    <td><%= link_to 'Edit', edit_location_type_path(location_type) %></td>
+    <td><%= link_to 'Destroy', location_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Location type', new_location_type_path %>

@@ -1,5 +1,8 @@
 Mosh2::Application.routes.draw do
 
+  resources :location_types
+
+
   resources :hardwares
 
 
