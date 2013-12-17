@@ -1,5 +1,8 @@
 Mosh2::Application.routes.draw do
 
+  resources :workstation_types
+
+
   devise_for :users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

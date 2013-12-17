@@ -1,0 +1,2 @@
+module WorkstationTypesHelper
+end
