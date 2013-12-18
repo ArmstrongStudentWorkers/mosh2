@@ -1,46 +1,46 @@
 <div id="container" style="height:530px">
-  <% if user_signed_in? %>
-    <h2>Welcome <%= current_user.email %></h2>
-  <% end %>
-  <div id="Column1" class="column">
-    <div class="sections">
-      <div class="title-box">
+  <!--<% if user_signed_in? %>->
+    <!-- <h2>Welcome <%= current_user.email %></h2>->
+    <!--<% end %>-->
+    <div id="Column1" class="column">
+      <div class="sections">
+        <div class="title-box">
                            Services
-      </div>div>
-      <div class="comment-box">
+        </div>
+        <div class="comment-box">
                                 Labs<br><br>
-        <ol>
-          <li><%= link_to 'Lab Overview', locations_path %></li>
-          <li><%= link_to 'Hardware', hardwares_path %></li>
-          <li><%= link_to 'Image', images_path %></li>
-          <li><%= link_to 'After Hours', after_hours_accesses_path %></li>
-        </ol>
+          <ol>
+            <li><%= link_to 'Lab Overview', '#' %></li>
+            <li><%= link_to 'Hardware', '#' %></li>
+            <li><%= link_to 'Image', '#' %></li>
+            <li><%= link_to 'After Hours', '#' %></li>
+          </ol>
 
-        <%= link_to 'Posters', posters_path %> <br><br>
+          <%= link_to 'Posters', '#' %> <br><br>
                                 Work Orders<br><br>
                                 Supplies<br><br>
                                 Advisement
+        </div>
       </div>
     </div>
-  </div>
-  <div id="Column2" class="column">
-    <div class="sections">
-      <div class="title-box">
+    <div id="Column2" class="column">
+      <div class="sections">
+        <div class="title-box">
                            Deadlines
-      </div>
-      <div class="comment-box">
+        </div>
+        <div class="comment-box">
                                 No Deadlines
+        </div>
       </div>
-    </div>
 
-    <div class="sections">
-      <div class="title-box">
+      <div class="sections">
+        <div class="title-box">
                            Need Help?
-      </div>
-      <div class="comment-box">
+        </div>
+        <div class="comment-box">
                                 Faqs <br/>
                                 See Online Manual <br/>
                                 Email Tech Team <br/>
+        </div>
       </div>
     </div>
-  </div>
