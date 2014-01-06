@@ -1,1 +1,32 @@
 <h2>Inventory</h2>
+
+<%= form_tag(inventory_index_path, method: 'get', class: 'form-inline') do %>
+  <%= select_tag('location',
+  options_from_collection_for_select(@locations, :id, :name)) %>
+  <%= submit_tag('Search', class: 'btn btn-primary') %>
+<% end %>
+
+<% if @location %>
+  <div class="accordion" id="accordion2">
+    <% @location.workstations.each.with_index do |workstation,i| %>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= i %>">
+            <%= p "#{workstation.name}" %>
+          </a>
+        </div>
+        <div id="collapse<%= i %>" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <ul>
+              <% workstation.hardwares.each do |hardware| %>
+                <li><%= link_to hardware.name, hardware %></li>
+              <% end%>
+              <li><%= link_to 'Add Hardware to Workstation', new_workstation_hardware_path(workstation) %></li>
+              <li><%= link_to 'Edit Workstation', edit_workstation_path(workstation) %></li>
+            <ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

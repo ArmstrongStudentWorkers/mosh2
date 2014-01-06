@@ -1,0 +1,94 @@
+[RailsAdmin] RailsAdmin initialization disabled by default. Pass SKIP_RAILS_ADMIN_INITIALIZER=false if you need it.
+              rails_admin        /admin                                                     RailsAdmin::Engine
+    location_workstations GET    /locations/:location_id/workstations(.:format)             workstations#index
+                          POST   /locations/:location_id/workstations(.:format)             workstations#create
+ new_location_workstation GET    /locations/:location_id/workstations/new(.:format)         workstations#new
+edit_location_workstation GET    /locations/:location_id/workstations/:id/edit(.:format)    workstations#edit
+     location_workstation GET    /locations/:location_id/workstations/:id(.:format)         workstations#show
+                          PUT    /locations/:location_id/workstations/:id(.:format)         workstations#update
+                          DELETE /locations/:location_id/workstations/:id(.:format)         workstations#destroy
+                locations GET    /locations(.:format)                                       locations#index
+                          POST   /locations(.:format)                                       locations#create
+             new_location GET    /locations/new(.:format)                                   locations#new
+            edit_location GET    /locations/:id/edit(.:format)                              locations#edit
+                 location GET    /locations/:id(.:format)                                   locations#show
+                          PUT    /locations/:id(.:format)                                   locations#update
+                          DELETE /locations/:id(.:format)                                   locations#destroy
+           location_types GET    /location_types(.:format)                                  location_types#index
+                          POST   /location_types(.:format)                                  location_types#create
+        new_location_type GET    /location_types/new(.:format)                              location_types#new
+       edit_location_type GET    /location_types/:id/edit(.:format)                         location_types#edit
+            location_type GET    /location_types/:id(.:format)                              location_types#show
+                          PUT    /location_types/:id(.:format)                              location_types#update
+                          DELETE /location_types/:id(.:format)                              location_types#destroy
+                hardwares GET    /hardwares(.:format)                                       hardwares#index
+                          POST   /hardwares(.:format)                                       hardwares#create
+             new_hardware GET    /hardwares/new(.:format)                                   hardwares#new
+            edit_hardware GET    /hardwares/:id/edit(.:format)                              hardwares#edit
+                 hardware GET    /hardwares/:id(.:format)                                   hardwares#show
+                          PUT    /hardwares/:id(.:format)                                   hardwares#update
+                          DELETE /hardwares/:id(.:format)                                   hardwares#destroy
+        hardware_statuses GET    /hardware_statuses(.:format)                               hardware_statuses#index
+                          POST   /hardware_statuses(.:format)                               hardware_statuses#create
+      new_hardware_status GET    /hardware_statuses/new(.:format)                           hardware_statuses#new
+     edit_hardware_status GET    /hardware_statuses/:id/edit(.:format)                      hardware_statuses#edit
+          hardware_status GET    /hardware_statuses/:id(.:format)                           hardware_statuses#show
+                          PUT    /hardware_statuses/:id(.:format)                           hardware_statuses#update
+                          DELETE /hardware_statuses/:id(.:format)                           hardware_statuses#destroy
+           hardware_types GET    /hardware_types(.:format)                                  hardware_types#index
+                          POST   /hardware_types(.:format)                                  hardware_types#create
+        new_hardware_type GET    /hardware_types/new(.:format)                              hardware_types#new
+       edit_hardware_type GET    /hardware_types/:id/edit(.:format)                         hardware_types#edit
+            hardware_type GET    /hardware_types/:id(.:format)                              hardware_types#show
+                          PUT    /hardware_types/:id(.:format)                              hardware_types#update
+                          DELETE /hardware_types/:id(.:format)                              hardware_types#destroy
+    workstation_hardwares GET    /workstations/:workstation_id/hardwares(.:format)          hardwares#index
+                          POST   /workstations/:workstation_id/hardwares(.:format)          hardwares#create
+ new_workstation_hardware GET    /workstations/:workstation_id/hardwares/new(.:format)      hardwares#new
+edit_workstation_hardware GET    /workstations/:workstation_id/hardwares/:id/edit(.:format) hardwares#edit
+     workstation_hardware GET    /workstations/:workstation_id/hardwares/:id(.:format)      hardwares#show
+                          PUT    /workstations/:workstation_id/hardwares/:id(.:format)      hardwares#update
+                          DELETE /workstations/:workstation_id/hardwares/:id(.:format)      hardwares#destroy
+             workstations GET    /workstations(.:format)                                    workstations#index
+                          POST   /workstations(.:format)                                    workstations#create
+          new_workstation GET    /workstations/new(.:format)                                workstations#new
+         edit_workstation GET    /workstations/:id/edit(.:format)                           workstations#edit
+              workstation GET    /workstations/:id(.:format)                                workstations#show
+                          PUT    /workstations/:id(.:format)                                workstations#update
+                          DELETE /workstations/:id(.:format)                                workstations#destroy
+        workstation_types GET    /workstation_types(.:format)                               workstation_types#index
+                          POST   /workstation_types(.:format)                               workstation_types#create
+     new_workstation_type GET    /workstation_types/new(.:format)                           workstation_types#new
+    edit_workstation_type GET    /workstation_types/:id/edit(.:format)                      workstation_types#edit
+         workstation_type GET    /workstation_types/:id(.:format)                           workstation_types#show
+                          PUT    /workstation_types/:id(.:format)                           workstation_types#update
+                          DELETE /workstation_types/:id(.:format)                           workstation_types#destroy
+          inventory_index GET    /inventory(.:format)                                       inventory#index
+         new_user_session GET    /users/sign_in(.:format)                                   devise/sessions#new
+             user_session POST   /users/sign_in(.:format)                                   devise/sessions#create
+     destroy_user_session DELETE /users/sign_out(.:format)                                  devise/sessions#destroy
+            user_password POST   /users/password(.:format)                                  devise/passwords#create
+        new_user_password GET    /users/password/new(.:format)                              devise/passwords#new
+       edit_user_password GET    /users/password/edit(.:format)                             devise/passwords#edit
+                          PUT    /users/password(.:format)                                  devise/passwords#update
+ cancel_user_registration GET    /users/cancel(.:format)                                    devise/registrations#cancel
+        user_registration POST   /users(.:format)                                           devise/registrations#create
+    new_user_registration GET    /users/sign_up(.:format)                                   devise/registrations#new
+   edit_user_registration GET    /users/edit(.:format)                                      devise/registrations#edit
+                          PUT    /users(.:format)                                           devise/registrations#update
+                          DELETE /users(.:format)                                           devise/registrations#destroy
+                     root        /                                                          home#index
+
+Routes for RailsAdmin::Engine:
+    dashboard GET         /                                      rails_admin/main#dashboard
+        index GET|POST    /:model_name(.:format)                 rails_admin/main#index
+          new GET|POST    /:model_name/new(.:format)             rails_admin/main#new
+       export GET|POST    /:model_name/export(.:format)          rails_admin/main#export
+  bulk_delete POST|DELETE /:model_name/bulk_delete(.:format)     rails_admin/main#bulk_delete
+history_index GET         /:model_name/history(.:format)         rails_admin/main#history_index
+  bulk_action POST        /:model_name/bulk_action(.:format)     rails_admin/main#bulk_action
+         show GET         /:model_name/:id(.:format)             rails_admin/main#show
+         edit GET|PUT     /:model_name/:id/edit(.:format)        rails_admin/main#edit
+       delete GET|DELETE  /:model_name/:id/delete(.:format)      rails_admin/main#delete
+ history_show GET         /:model_name/:id/history(.:format)     rails_admin/main#history_show
+  show_in_app GET         /:model_name/:id/show_in_app(.:format) rails_admin/main#show_in_app
