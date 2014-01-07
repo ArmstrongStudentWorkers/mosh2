@@ -1,32 +1,110 @@
 <h2>Inventory</h2>
 
-<%= form_tag(inventory_index_path, method: 'get', class: 'form-inline') do %>
-  <%= select_tag('location',
-  options_from_collection_for_select(@locations, :id, :name)) %>
-  <%= submit_tag('Search', class: 'btn btn-primary') %>
-<% end %>
+<p>View by:</p>
+<div id="tab" class="btn-group" data-toggle="buttons-radio">
+  <a href="#location2" class="btn btn-medium btn-info" data-toggle="tab">Location</a>
+  <a href="#status2" class="btn btn-medium btn-info" data-toggle="tab">Status</a>
+  <a href="#type2" class="btn btn-medium btn-info" data-toggle="tab">Hardware Type</a>
+  <br><br>
+</div>
 
-<% if @location %>
-  <div class="accordion" id="accordion2">
-    <% @location.workstations.each.with_index do |workstation,i| %>
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= i %>">
-            <%= p "#{workstation.name}" %>
-          </a>
-        </div>
-        <div id="collapse<%= i %>" class="accordion-body collapse">
-          <div class="accordion-inner">
-            <ul>
-              <% workstation.hardwares.each do |hardware| %>
-                <li><%= link_to hardware.name, hardware %></li>
-              <% end%>
-              <li><%= link_to 'Add Hardware to Workstation', new_workstation_hardware_path(workstation) %></li>
-              <li><%= link_to 'Edit Workstation', edit_workstation_path(workstation) %></li>
-            <ul>
+<div class="tab-content">
+
+  <div class="tab-pane active" id="location2">
+    <%= form_tag(inventory_index_path, method: 'get', class: 'form-inline') do %>
+      <%= select_tag('location',
+      options_from_collection_for_select(@locations, :id, :name)) %>
+      <%= submit_tag('Search', class: 'btn btn-medium btn-info') %>
+    <% end %>
+
+    <% if @location %>
+      <div class="accordion" id="accordion2">
+        <% @location.workstations.each.with_index do |workstation,i| %>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= i %>">
+                <%= p "#{workstation.name}" %>
+              </a>
+            </div>
+            <div id="collapse<%= i %>" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <ul>
+                  <% workstation.hardwares.each do |hardware| %>
+                    <li><%= link_to hardware.name, hardware %></li>
+                  <% end%>
+                  <li><%= link_to 'Add Hardware to Workstation', new_workstation_hardware_path(workstation) %></li>
+                  <li><%= link_to 'Edit Workstation', edit_workstation_path(workstation) %></li>
+                <ul>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
+      <%= link_to 'Add Workstation to Location', new_location_workstation_path(@location) %>
     <% end %>
   </div>
-<% end %>
+
+  <div class="tab-pane" id="status2">
+    <%= form_tag(inventory_index_path, method: 'get', class: 'form-inline') do %>
+      <%= select_tag('hardware_status',
+      options_from_collection_for_select(@hardware_statuses, :id, :name)) %>
+      <%= submit_tag('Search', class: 'btn btn-primary') %>
+    <% end %>
+
+    <% if @hardware_status %>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>Hardware</th>
+          <th>Workstation</th>
+          <th>Hardware Status Comment</th>
+          <th>Assigned to:</th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @hardware_status.hardwares.each do |hardware| %>
+          <tr>
+            <td><%= link_to hardware.name, hardware %></td>
+            <td><%= link_to hardware.workstation.name, hardware.workstation %></td>
+            <td><%= hardware.hardware_status_comment %></td>
+            <td><%= hardware.assigned_to %></td>
+            <td><%= link_to 'Edit', edit_hardware_path(hardware) %></td>
+            <td><%= link_to 'Destroy', hardware, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+
+  <div class="tab-pane" id="type2">
+    <%= form_tag(inventory_index_path, method: 'get', class: 'form-inline') do %>
+      <%= select_tag('hardware_type',
+      options_from_collection_for_select(@hardware_types, :id, :name)) %>
+      <%= submit_tag('Search', class: 'btn btn-primary') %>
+    <% end %>
+
+    <% if @hardware_type %>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>Hardware</th>
+          <th>Workstation</th>
+          <th>Hardware Status</th>
+          <th>Assigned to:</th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @hardware_type.hardwares.each do |hardware| %>
+          <tr>
+            <td><%= link_to hardware.name, hardware %></td>
+            <td><%= link_to hardware.workstation.name, hardware.workstation %></td>
+            <td><%= hardware.hardware_status.name %></td>
+            <td><%= hardware.assigned_to %></td>
+            <td><%= link_to 'Edit', edit_hardware_path(hardware) %></td>
+            <td><%= link_to 'Destroy', hardware, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</div>
