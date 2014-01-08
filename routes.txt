@@ -63,6 +63,14 @@ edit_workstation_hardware GET    /workstations/:workstation_id/hardwares/:id/edi
          workstation_type GET    /workstation_types/:id(.:format)                           workstation_types#show
                           PUT    /workstation_types/:id(.:format)                           workstation_types#update
                           DELETE /workstation_types/:id(.:format)                           workstation_types#destroy
+                    hours GET    /hours(.:format)                                           hours#index
+                          POST   /hours(.:format)                                           hours#create
+                 new_hour GET    /hours/new(.:format)                                       hours#new
+                edit_hour GET    /hours/:id/edit(.:format)                                  hours#edit
+                     hour GET    /hours/:id(.:format)                                       hours#show
+                          PUT    /hours/:id(.:format)                                       hours#update
+                          DELETE /hours/:id(.:format)                                       hours#destroy
+       lab_overview_index GET    /lab_overview(.:format)                                    lab_overview#index
           inventory_index GET    /inventory(.:format)                                       inventory#index
          new_user_session GET    /users/sign_in(.:format)                                   devise/sessions#new
              user_session POST   /users/sign_in(.:format)                                   devise/sessions#create

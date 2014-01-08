@@ -1,8 +1,5 @@
 Mosh2::Application.routes.draw do
 
-  resources :hours
-
-
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :locations do
@@ -16,7 +13,8 @@ Mosh2::Application.routes.draw do
     resources :hardwares
   end
   resources :workstation_types
-
+  resources :hours
+  resources :lab_overview, only: :index
   resources :inventory, only: :index
   devise_for :users
   root to: 'home#index'

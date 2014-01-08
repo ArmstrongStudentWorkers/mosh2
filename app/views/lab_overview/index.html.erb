@@ -1,0 +1,83 @@
+<h2>Lab Overview</h2>
+
+<div class="row">
+  <div class="span2.5" id="laboverviewlabel">
+    <p>Choose a location:</p>
+  </div>
+  <div class="span4">
+    <%= form_tag(lab_overview_index_path, method: 'get', class: 'form-inline') do %>
+      <%= select_tag('location',
+      options_from_collection_for_select(@locations, :id, :name)) %>
+      <%= submit_tag('Search', class: 'btn btn-medium btn-info') %>
+    <% end %>
+  </div>
+</div>
+
+<% if @location %>
+  <center><h3><%= @location.name %></h3></center><br>
+
+  <div class="row">
+
+    <% if @location.hour %>
+      <div class="span6">
+        <center><h4>Hours</h4></center>
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>Monday:</th>
+            <td><%= @location.hour.monday %></td>
+          </tr>
+          <tr>
+            <th>Tuesday:</th>
+            <td><%= @location.hour.tuesday %></td>
+          </tr>
+          <tr>
+            <th>Wednesday:</th>
+            <td><%= @location.hour.wednesday %></td>
+          </tr>
+          <tr>
+            <th>Thursday:</th>
+            <td><%= @location.hour.thursday %></td>
+          </tr>
+          <tr>
+            <th>Friday:</th>
+            <td><%= @location.hour.friday %></td>
+          </tr>
+          <% if @location.hour.saturday %>
+            <tr>
+              <th>Saturday:</th>
+              <td><%= @location.hour.saturday %></td>
+            </tr>
+          <% end %>
+          <% if @location.hour.sunday %>
+            <tr>
+              <th>Sunday:</th>
+              <td><%= @location.hour.sunday %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    <% end %>
+
+    <div class="span6">
+      <center><h4>Statistics</h4></center>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>Number of Workstations:</th>
+          <td><%= @location.workstations.count %></td>
+        </tr>
+        <tr>
+          <th>Hardware Setup:</th>
+          <td>
+            <% @location.workstations.second.hardwares.each do |hardware| %>
+              <%= link_to hardware.name, hardware %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>Software Setup:</th>
+          <td>
+          </td>
+        </tr>
+      </table>
+    </div>
+<% end %>

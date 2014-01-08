@@ -49,7 +49,7 @@ h1 {
 }
 
 #welcome {
-    h1{
+    h1 {
         font-size: 4em;
         margin-top: 37px;
         margin-left: 61px;
@@ -63,6 +63,11 @@ h2 {
     text-align: center;
     font-weight: normal;
     color: $grayLight;
+}
+
+h4 {
+    color: $grayLight;
+    font-weight: normal;
 }
 
 p {
