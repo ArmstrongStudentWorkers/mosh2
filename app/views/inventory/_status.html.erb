@@ -1,0 +1,21 @@
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Hardware</th>
+    <th>Workstation</th>
+    <th>Hardware Status Comment</th>
+    <th>Assigned to:</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @hardware_status.hardwares.each do |hardware| %>
+    <tr>
+      <td><%= link_to hardware.name, hardware %></td>
+      <td><%= link_to hardware.workstation.name, hardware.workstation %></td>
+      <td><%= hardware.hardware_status_comment %></td>
+      <td><%= hardware.assigned_to %></td>
+      <td><%= link_to 'Edit', edit_hardware_path(hardware) %></td>
+      <td><%= link_to 'Destroy', hardware, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
