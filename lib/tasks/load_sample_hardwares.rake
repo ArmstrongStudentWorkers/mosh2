@@ -11,7 +11,7 @@ namespace :test_data do
       name = "#{manufacturer}: #{model_number} #{hardware_type}"
       status = HardwareStatus.where(name: hardware_status).first
       type = HardwareType.where(name: hardware_type).first
-      workstation.hardwares.create!(aasu_number: aasu_number, assigned_to: assigned_to, hardware_status_comment: hardware_status_comment, hardware_status_id: status.id, hardware_type_id: type.id, manufacturer: manufacturer, model_number: model_number, serial_number: serial_number, specs: specs, name: name)
+      workstation.hardwares.create!(aasu_number: aasu_number, assigned_to: assigned_to, hardware_status_comment: hardware_status_comment, hardware_status_id: status.id, hardware_type_id: type.id, manufacturer: manufacturer, model_number: model_number, serial_number: serial_number, specs: specs, name: name, year: "2013")
       puts "Created hardware: #{name}"
     end
 

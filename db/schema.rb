@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131218014038) do
+ActiveRecord::Schema.define(:version => 20140108143105) do
 
   create_table "hardware_statuses", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20131218014038) do
     t.integer  "workstation_id"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.string   "year"
   end
 
   create_table "location_types", :force => true do |t|
