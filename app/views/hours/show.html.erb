@@ -1,0 +1,44 @@
+<h1>Hours for <%= @hour.location.name %></h1>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Monday:</th>
+        <td><%= @hour.monday %></td>
+      </tr>
+      <tr>
+        <th>Tuesday:</th>
+        <td><%= @hour.tuesday %></td>
+      </tr>
+      <tr>
+        <th>Wednesday:</th>
+        <td><%= @hour.wednesday %></td>
+      </tr>
+      <tr>
+        <th>Thursday:</th>
+        <td><%= @hour.thursday %></td>
+      </tr>
+      <tr>
+        <th>Friday:</th>
+        <td><%= @hour.friday %></td>
+      </tr>
+      <% if @hour.saturday %>
+        <tr>
+          <th>Saturday:</th>
+          <td><%= @hour.saturday %></td>
+        </tr>
+      <% end %>
+      <% if @hour.sunday %>
+        <tr>
+          <th>Sunday:</th>
+          <td><%= @hour.sunday %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= link_to 'Edit', edit_hour_path(@hour) %> |
+    <%= link_to 'Back', hours_path %>
+  </div>
+</div>

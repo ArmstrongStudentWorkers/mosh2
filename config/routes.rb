@@ -1,5 +1,8 @@
 Mosh2::Application.routes.draw do
 
+  resources :hours
+
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :locations do

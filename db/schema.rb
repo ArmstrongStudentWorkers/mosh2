@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140108143105) do
+ActiveRecord::Schema.define(:version => 20140108145144) do
 
   create_table "hardware_statuses", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(:version => 20140108143105) do
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.string   "year"
+  end
+
+  create_table "hours", :force => true do |t|
+    t.string   "monday"
+    t.string   "tuesday"
+    t.string   "wednesday"
+    t.string   "thursday"
+    t.string   "friday"
+    t.string   "saturday"
+    t.string   "sunday"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "location_id"
   end
 
   create_table "location_types", :force => true do |t|
