@@ -1,4 +1,9 @@
 class HardwareStatusesController < ApplicationController
+
+require "#{Rails.root}/lib/mosh_modules/management_module"
+include MoshModules::ManagementModule
+before_filter :management_filter
+
   # GET /hardware_statuses
   # GET /hardware_statuses.json
   def index
