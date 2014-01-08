@@ -1,7 +1,8 @@
+<% if user_signed_in? %>
 <div id="container" style="height:530px">
   <!--<% if user_signed_in? %>->
-    <!-- <h2>Welcome <%= current_user.email %></h2>->
-    <!--<% end %>-->
+  <!-- <h2>Welcome <%= current_user.email %></h2>->
+  <!--<% end %>-->
     <div id="Column1" class="column">
       <div class="sections">
         <div class="title-box">
@@ -44,3 +45,20 @@
         </div>
       </div>
     </div>
+<% else %>
+    <div class="center hero-unit">
+      <div id="headline" class="row">
+        <div id="welcome" class="span6">
+          <h1>Welcome to</h1>
+        </div>
+        <div class="span4">
+          <%= link_to image_tag("mosh-cropped.png", alt: "MOSH") %>
+        </div>
+      </div>
+
+      <h2>MOSH is the McCarthy Online Support Hub</h2>
+      <%= link_to "Sign in now!", new_user_session_path,
+      class: "btn btn-large btn-primary" %>
+    </div>
+
+<% end %>

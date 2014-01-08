@@ -1,13 +1,16 @@
-<%= simple_form_for(@workstation) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@workstation, html: { class: 'form-horizontal' }) do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :number %>
-    <%= f.input :workstation_type_id %>
-  </div>
+      <%= f.error_notification %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :number, label: 'Workstation number' %>
+        <%= f.association :workstation_type %>
+        <%= f.association :location %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+
 <% end %>

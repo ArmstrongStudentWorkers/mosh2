@@ -1,11 +1,11 @@
-<%= simple_form_for(@location) do |f| %>
+<%= simple_form_for(@location, html: { class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :room %>
     <%= f.input :comment %>
-    <%= f.input :location_type_id %>
+    <%= f.association :location_type %>
   </div>
 
   <div class="form-actions">

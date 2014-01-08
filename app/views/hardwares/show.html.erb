@@ -1,60 +1,52 @@
+<h1><%= @hardware.name %> Details</h1>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @hardware.name %>
-</p>
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Serial number:</th>
+        <td><%= @hardware.serial_number %></td>
+      </tr>
+      <tr>
+        <th>Aasu number:</th>
+        <td><%= @hardware.aasu_number %></td>
+      </tr>
+      <tr>
+        <th>Manufacturer:</th>
+        <td><%= @hardware.manufacturer %></td>
+      </tr>
+      <tr>
+        <th>Model number:</th>
+        <td><%= @hardware.model_number %></td>
+      </tr>
+      <tr>
+        <th>Assigned to:</th>
+        <td><%= @hardware.assigned_to %></td>
+      </tr>
+      <tr>
+        <th>Specs:</th>
+        <td><%= @hardware.specs %></td>
+      </tr>
+      <tr>
+        <th>Hardware type:</th>
+        <td><%= @hardware.hardware_type.name %></td>
+      </tr>
+      <tr>
+        <th>Hardware status:</th>
+        <td><%= @hardware.hardware_status.name %></td>
+      </tr>
+      <tr>
+        <th>Hardware status comment:</th>
+        <td><%= @hardware.hardware_status_comment %></td>
+      </tr>
+      <tr>
+        <th>Workstation:</th>
+        <td><%= link_to @hardware.workstation.name, @hardware.workstation %></td>
+      </tr>
+    </table>
 
-<p>
-  <b>Serial number:</b>
-  <%= @hardware.serial_number %>
-</p>
-
-<p>
-  <b>Aasu number:</b>
-  <%= @hardware.aasu_number %>
-</p>
-
-<p>
-  <b>Manufacturer:</b>
-  <%= @hardware.manufacturer %>
-</p>
-
-<p>
-  <b>Model number:</b>
-  <%= @hardware.model_number %>
-</p>
-
-<p>
-  <b>Assigned to:</b>
-  <%= @hardware.assigned_to %>
-</p>
-
-<p>
-  <b>Specs:</b>
-  <%= @hardware.specs %>
-</p>
-
-<p>
-  <b>Hardware type:</b>
-  <%= @hardware.hardware_type_id %>
-</p>
-
-<p>
-  <b>Hardware status:</b>
-  <%= @hardware.hardware_status_id %>
-</p>
-
-<p>
-  <b>Hardware status comment:</b>
-  <%= @hardware.hardware_status_comment %>
-</p>
-
-<p>
-  <b>Workstation:</b>
-  <%= @hardware.workstation_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_hardware_path(@hardware) %> |
-<%= link_to 'Back', hardwares_path %>
+    <%= link_to 'Edit', edit_hardware_path(@hardware) %> |
+    <%= link_to 'Back', hardwares_path %>
+  </div>
+</div>

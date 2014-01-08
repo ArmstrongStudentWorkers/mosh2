@@ -1,20 +1,28 @@
+<h1><%= @workstation.name %> Details</h1>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @workstation.name %>
-</p>
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Workstation name:</th>
+        <td><%= @workstation.name %></td>
+      </tr>
+      <tr>
+        <th>Workstation number:</th>
+        <td><%= @workstation.number %></td>
+      </tr>
+      <tr>
+        <th>Workstation type:</th>
+        <td><%= @workstation.workstation_type.name %></td>
+      </tr>
+      <tr>
+        <th>Location:</th>
+        <td><%= link_to @workstation.location.name, @workstation.location %></td>
+      </tr>
+    </table>
 
-<p>
-  <b>Number:</b>
-  <%= @workstation.number %>
-</p>
-
-<p>
-  <b>Workstation type:</b>
-  <%= @workstation.workstation_type_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_workstation_path(@workstation) %> |
-<%= link_to 'Back', workstations_path %>
+      <%= link_to 'Edit', edit_workstation_path(@workstation) %> |
+      <%= link_to 'Back', workstations_path %>
+  </div>
+</div>

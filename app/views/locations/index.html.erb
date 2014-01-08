@@ -1,8 +1,8 @@
 <h1>Listing locations</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <tr>
-    <th>Name</th>
+    <th>Location Name</th>
     <th>Room</th>
     <th>Comment</th>
     <th>Location type</th>
@@ -13,11 +13,11 @@
 
 <% @locations.each do |location| %>
   <tr>
-    <td><%= location.name %></td>
+    <td><%= link_to location.name, location %></td>
     <td><%= location.room %></td>
     <td><%= location.comment %></td>
-    <td><%= location.location_type_id %></td>
-    <td><%= link_to 'Show', location %></td>
+    <td><%= location.location_type.name %></td>
+    <td><%= link_to 'View Workstations', location_workstations_path(location) %></td>
     <td><%= link_to 'Edit', edit_location_path(location) %></td>
     <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

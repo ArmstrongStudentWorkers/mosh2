@@ -1,25 +1,28 @@
+<h1><%= @location.name %> Details</h1>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @location.name %>
-</p>
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Location name:</th>
+        <td><%= @location.name %></td>
+      </tr>
+      <tr>
+        <th>Room:</th>
+        <td><%= @location.room %></td>
+      </tr>
+      <tr>
+        <th>Comment:</th>
+        <td><%= @location.comment %></td>
+      </tr>
+      <tr>
+        <th>Location type:</th>
+        <td><%= @location.location_type.name %></td>
+      </tr>
+    </table>
 
-<p>
-  <b>Room:</b>
-  <%= @location.room %>
-</p>
-
-<p>
-  <b>Comment:</b>
-  <%= @location.comment %>
-</p>
-
-<p>
-  <b>Location type:</b>
-  <%= @location.location_type_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+    <%= link_to 'Edit', edit_location_path(@location) %> |
+    <%= link_to 'Back', locations_path %>
+  </div>
+</div>

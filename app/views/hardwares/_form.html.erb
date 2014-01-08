@@ -1,18 +1,18 @@
-<%= simple_form_for(@hardware) do |f| %>
+<%= simple_form_for(@hardware, html: { class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, label: 'Hardware name' %>
     <%= f.input :serial_number %>
     <%= f.input :aasu_number %>
     <%= f.input :manufacturer %>
     <%= f.input :model_number %>
     <%= f.input :assigned_to %>
     <%= f.input :specs %>
-    <%= f.input :hardware_type_id %>
-    <%= f.input :hardware_status_id %>
+    <%= f.association :hardware_type %>
+    <%= f.association :hardware_status %>
     <%= f.input :hardware_status_comment %>
-    <%= f.input :workstation_id %>
+    <%= f.association :workstation %>
   </div>
 
   <div class="form-actions">
