@@ -1,0 +1,40 @@
+<h1><%= @semester.name %> Details</h1>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Name:</th>
+        <td><%= @semester.name %></td>
+      </tr>
+      <tr>
+        <th>Term:</th>
+        <td><%= @semester.term.name %></td>
+      </tr>
+      <tr>
+        <th>Year:</th>
+        <td><%= @semester.year %></td>
+      </tr>
+      <tr>
+        <th>Start date:</th>
+        <td><%= @semester.start_date %></td>
+      </tr>
+      <tr>
+        <th>End date:</th>
+        <td><%= @semester.end_date %></td>
+      </tr>
+      <tr>
+        <th>Advisement start:</th>
+        <td><%= @semester.advisement_start %></td>
+      </tr>
+      <tr>
+        <th>Advisement end:</th>
+        <td><%= @semester.advisement_end %></td>
+      </tr>
+    </table>
+
+    <%= link_to 'Edit', edit_semester_path(@semester) %> |
+    <%= link_to 'Back', semesters_path %>
+  </div>
+</div>

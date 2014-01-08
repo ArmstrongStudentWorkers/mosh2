@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140108145144) do
+ActiveRecord::Schema.define(:version => 20140108211516) do
 
   create_table "hardware_statuses", :force => true do |t|
     t.string   "name"
@@ -82,6 +82,24 @@ ActiveRecord::Schema.define(:version => 20140108145144) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "semesters", :force => true do |t|
+    t.string   "name"
+    t.integer  "term_id"
+    t.string   "year"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "advisement_start"
+    t.datetime "advisement_end"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "terms", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

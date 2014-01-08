@@ -1,0 +1,17 @@
+<%= simple_form_for(@semester, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.association :term %>
+    <%= f.input :year %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :advisement_start %>
+    <%= f.input :advisement_end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
