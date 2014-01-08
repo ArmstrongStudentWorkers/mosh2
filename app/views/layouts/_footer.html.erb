@@ -5,19 +5,17 @@
         <%= link_to 'The McCarthy Online Support Hub', root_path %>
       </small>
       <nav>
-        <% if user_signed_in? %>
-          <ul>
-            <% if !current_user.noncsit %>
-              <li><%= link_to "Labs", "#" %></li>
-            <% end %>
+        <ul>
+          <li><%= link_to "Labs", "#" %></li>
+          <% if user_signed_in? %>
             <li><%= link_to "Posters", "#" %></li>
             <% if !current_user.noncsit %>
               <li><%= link_to "Work Orders", "#" %></li>
               <li><%= link_to "Supplies", "#" %></li>
               <li><%= link_to "Advisement", "#" %></li>
             <% end %>
-          </ul>
-        <% end %>
+          <% end %>
+        </ul>
       </nav>
     </footer>
   </div>

@@ -3,15 +3,16 @@
     <div class="container">
       <%= link_to "MOSH", root_path, id: "logo" %>
 
-      <% if user_signed_in? %>
-        <ul class="nav">
+      <ul class="nav">
           <%= render 'layouts/labs' %>
+        <% if user_signed_in? %>
           <%= render 'layouts/posters' %>
           <%= render 'layouts/workorders' %>
           <%= render 'layouts/supplies' %>
           <%= render 'layouts/advisement' %>
-        </ul>
-      <% end %>
+        <% end %>
+      </ul>
+
       <ul class="nav pull-right">
         <% if !user_signed_in? %>
           <li>
