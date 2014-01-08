@@ -1,0 +1,16 @@
+<%= simple_form_for(@after_hours_access, html: { class: 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :sid %>
+    <%= f.association :user, label: "Authorized By:" %>
+    <%= f.association :location %>
+    <%= f.association :semester %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

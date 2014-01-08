@@ -1,0 +1,36 @@
+<h1>After Hours Access Detail</h1>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>First name:</th>
+        <td><%= @after_hours_access.first_name %></td>
+      </tr>
+      <tr>
+        <th>Last name:</th>
+        <td><%= @after_hours_access.last_name %></td>
+      </tr>
+      <tr>
+        <th>Sid:</th>
+        <td><%= show_sid(@after_hours_access.sid) %></td>
+      </tr>
+      <tr>
+        <th>User:</th>
+        <td><%= @after_hours_access.user.name %></td>
+      </tr>
+      <tr>
+        <th>Location:</th>
+        <td><%= link_to @after_hours_access.location.name, @after_hours_access.location %></td>
+      </tr>
+      <tr>
+        <th>Semester:</th>
+        <td><%= link_to @after_hours_access.semester.name, @after_hours_access.semester %></td>
+      </tr>
+    </table>
+
+    <%= link_to 'Edit', edit_after_hours_access_path(@after_hours_access) %> |
+    <%= link_to 'Back', after_hours_accesses_path %>
+  </div>
+</div>

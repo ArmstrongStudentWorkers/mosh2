@@ -1,5 +1,8 @@
 Mosh2::Application.routes.draw do
 
+  resources :after_hours_accesses
+
+
   resources :semesters
 
 
