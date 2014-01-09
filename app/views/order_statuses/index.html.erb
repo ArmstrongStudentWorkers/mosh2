@@ -1,0 +1,23 @@
+<h1>Listing order_statuses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @order_statuses.each do |order_status| %>
+  <tr>
+    <td><%= order_status.name %></td>
+    <td><%= link_to 'Show', order_status %></td>
+    <td><%= link_to 'Edit', edit_order_status_path(order_status) %></td>
+    <td><%= link_to 'Destroy', order_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Order status', new_order_status_path %>
