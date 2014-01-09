@@ -1,4 +1,25 @@
 [RailsAdmin] RailsAdmin initialization disabled by default. Pass SKIP_RAILS_ADMIN_INITIALIZER=false if you need it.
+     after_hours_accesses GET    /after_hours_accesses(.:format)                            after_hours_accesses#index
+                          POST   /after_hours_accesses(.:format)                            after_hours_accesses#create
+   new_after_hours_access GET    /after_hours_accesses/new(.:format)                        after_hours_accesses#new
+  edit_after_hours_access GET    /after_hours_accesses/:id/edit(.:format)                   after_hours_accesses#edit
+       after_hours_access GET    /after_hours_accesses/:id(.:format)                        after_hours_accesses#show
+                          PUT    /after_hours_accesses/:id(.:format)                        after_hours_accesses#update
+                          DELETE /after_hours_accesses/:id(.:format)                        after_hours_accesses#destroy
+                semesters GET    /semesters(.:format)                                       semesters#index
+                          POST   /semesters(.:format)                                       semesters#create
+             new_semester GET    /semesters/new(.:format)                                   semesters#new
+            edit_semester GET    /semesters/:id/edit(.:format)                              semesters#edit
+                 semester GET    /semesters/:id(.:format)                                   semesters#show
+                          PUT    /semesters/:id(.:format)                                   semesters#update
+                          DELETE /semesters/:id(.:format)                                   semesters#destroy
+                    terms GET    /terms(.:format)                                           terms#index
+                          POST   /terms(.:format)                                           terms#create
+                 new_term GET    /terms/new(.:format)                                       terms#new
+                edit_term GET    /terms/:id/edit(.:format)                                  terms#edit
+                     term GET    /terms/:id(.:format)                                       terms#show
+                          PUT    /terms/:id(.:format)                                       terms#update
+                          DELETE /terms/:id(.:format)                                       terms#destroy
               rails_admin        /admin                                                     RailsAdmin::Engine
     location_workstations GET    /locations/:location_id/workstations(.:format)             workstations#index
                           POST   /locations/:location_id/workstations(.:format)             workstations#create

@@ -8,7 +8,7 @@
     <% if user_signed_in? && !current_user.noncsit %>
       <li><%= link_to 'Inventory', inventory_index_path %></li>
       <li><%= link_to 'Imaging', "#" %></li>
-      <li><%= link_to 'After Hours Access', "#" %></li>
+      <li><%= link_to 'After Hours Access', after_hours_accesses_path %></li>
     <% end %>
   </ul>
 </li>
