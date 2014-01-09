@@ -1,5 +1,8 @@
 Mosh2::Application.routes.draw do
 
+  resources :work_orders
+
+
   resources :order_statuses
 
 

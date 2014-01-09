@@ -1,4 +1,18 @@
 [RailsAdmin] RailsAdmin initialization disabled by default. Pass SKIP_RAILS_ADMIN_INITIALIZER=false if you need it.
+              work_orders GET    /work_orders(.:format)                                     work_orders#index
+                          POST   /work_orders(.:format)                                     work_orders#create
+           new_work_order GET    /work_orders/new(.:format)                                 work_orders#new
+          edit_work_order GET    /work_orders/:id/edit(.:format)                            work_orders#edit
+               work_order GET    /work_orders/:id(.:format)                                 work_orders#show
+                          PUT    /work_orders/:id(.:format)                                 work_orders#update
+                          DELETE /work_orders/:id(.:format)                                 work_orders#destroy
+           order_statuses GET    /order_statuses(.:format)                                  order_statuses#index
+                          POST   /order_statuses(.:format)                                  order_statuses#create
+         new_order_status GET    /order_statuses/new(.:format)                              order_statuses#new
+        edit_order_status GET    /order_statuses/:id/edit(.:format)                         order_statuses#edit
+             order_status GET    /order_statuses/:id(.:format)                              order_statuses#show
+                          PUT    /order_statuses/:id(.:format)                              order_statuses#update
+                          DELETE /order_statuses/:id(.:format)                              order_statuses#destroy
      after_hours_accesses GET    /after_hours_accesses(.:format)                            after_hours_accesses#index
                           POST   /after_hours_accesses(.:format)                            after_hours_accesses#create
    new_after_hours_access GET    /after_hours_accesses/new(.:format)                        after_hours_accesses#new

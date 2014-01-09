@@ -10,7 +10,7 @@
           <% if user_signed_in? %>
             <li><%= link_to "Posters", "#" %></li>
             <% if !current_user.noncsit %>
-              <li><%= link_to "Work Orders", "#" %></li>
+              <li><%= link_to "Work Orders", work_orders_path %></li>
               <li><%= link_to "Supplies", "#" %></li>
               <li><%= link_to "Advisement", "#" %></li>
             <% end %>

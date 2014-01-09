@@ -1,0 +1,32 @@
+<h2>Work Order Details</h2>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Identifier:</th>
+        <td><%= @work_order.name %></td>
+      </tr>
+      <tr>
+        <th>Order status:</th>
+        <td><%= @work_order.order_status.name %></td>
+      </tr>
+      <tr>
+        <th>Comment:</th>
+        <td><%= @work_order.comment %></td>
+      </tr>
+      <tr>
+        <th>Hardware:</th>
+        <td><%= link_to @work_order.hardware.name, @work_order.hardware %></td>
+      </tr>
+      <tr>
+        <th>Requested by:</th>
+        <td><%= @work_order.user.name %></td>
+      </tr>
+    </table>
+
+    <%= link_to 'Edit', edit_work_order_path(@work_order) %> |
+    <%= link_to 'Back', work_orders_path %>
+  </div>
+</div>

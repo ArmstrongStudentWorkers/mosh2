@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   validates :password, on: :update, length: {minimum: 8, maximum: 120}, allow_blank: true
 
   has_many :after_hours_accesses
+  has_many :work_orders
 end

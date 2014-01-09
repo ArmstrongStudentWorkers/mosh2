@@ -1,0 +1,33 @@
+<h2>Listing Work Orders</h2>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Identifier</th>
+    <th>Order status</th>
+    <th>Comment</th>
+    <th>Hardware</th>
+    <th>Requested by:</th>
+    <th>Closed date:</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @work_orders.each do |work_order| %>
+    <tr>
+      <td><%= link_to work_order.name, work_order %></td>
+      <td><%= work_order.order_status.name %></td>
+      <td><%= work_order.comment %></td>
+      <td><%= link_to work_order.hardware.name, work_order.hardware %></td>
+      <td><%= work_order.user.name %></td>
+      <td><%= work_order.closed_date.to_date %></td>
+      <td><%= link_to 'Edit', edit_work_order_path(work_order) %></td>
+      <td><%= link_to 'Destroy', work_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to new_work_order_path do %>
+  <i class="fa fa-plus"></i> New Work Order
+<% end %>

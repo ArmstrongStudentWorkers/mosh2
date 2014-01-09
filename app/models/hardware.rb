@@ -3,4 +3,5 @@ class Hardware < ActiveRecord::Base
   belongs_to :hardware_status
   belongs_to :hardware_type
   belongs_to :workstation
+  has_many :work_orders
 end
