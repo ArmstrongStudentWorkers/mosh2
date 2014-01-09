@@ -2,7 +2,14 @@ class AfterHoursAccessesController < ApplicationController
   # GET /after_hours_accesses
   # GET /after_hours_accesses.json
   def index
-    @after_hours_accesses = AfterHoursAccess.all
+
+    @locations = LocationType.where(name: 'Lab').first.locations
+    if params[:location]
+      @location = Location.find(params[:location])
+      @after_hours_accesses = AfterHoursAccess.where(location_id: @location.id)
+    end
+
+
 
     respond_to do |format|
       format.html # index.html.erb

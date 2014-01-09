@@ -1,5 +1,5 @@
-<div class="row">
-  <h2>Inventory</h2>
+<h2>Inventory</h2>
+<div>
   <div class="row">
     <%= form_tag(inventory_index_path, method: 'get', class: 'form-inline') do %>
       <div class="span4">
@@ -12,10 +12,12 @@
       <input name="search_type" type="hidden" id="search_type"/>
       <div class="span4 offset4">
         <%= select_tag('select', nil) %>
-        <%= submit_tag('Search', class: 'btn btn-medium btn-info') %>
+        <%= submit_tag('Search', class: 'btn btn-medium btn-info', id: 'select-btn') %>
       </div>
     <% end %>
+    <br><br>
   </div>
+
   <% if @location %>
     <%= render 'locations' %>
   <% end %>
