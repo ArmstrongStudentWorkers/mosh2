@@ -9,11 +9,12 @@ namespace :test_data do
     def make_workorder(status)
       3.times.with_index do |i|
         comment = "Comment#{i}"
-        hardware = Hardware.first
         name = "WorkOrder#{i}"
         user = User.first
+        assignee = "Assignee#{i}"
+        number = "Number#{i}"
         date = DateTime.now
-        WorkOrder.create!(comment: comment, hardware_id: hardware.id, name: name, order_status_id: status.id, user_id: user.id, closed_date: date)
+        WorkOrder.create!(other_number: number, assignee: assignee, comment: comment, name: name, order_status_id: status.id, user_id: user.id, closed_date: date)
        puts "Created WorkOrder: #{name} #{status.name}"
       end
     end

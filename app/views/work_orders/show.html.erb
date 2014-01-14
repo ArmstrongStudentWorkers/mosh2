@@ -17,12 +17,24 @@
         <td><%= @work_order.comment %></td>
       </tr>
       <tr>
-        <th>Hardware:</th>
-        <td><%= link_to @work_order.hardware.name, @work_order.hardware %></td>
-      </tr>
-      <tr>
         <th>Requested by:</th>
         <td><%= @work_order.user.name %></td>
+      </tr>
+      <tr>
+        <th>Request date:</th>
+        <td><%= @work_order.created_at.to_date %></td>
+      </tr>
+      <tr>
+        <th>Closed date:</th>
+        <td><%= @work_order.closed_date.to_date %></td>
+      </tr>
+      <tr>
+        <th>Assigned to:</th>
+        <td><%= @work_order.assignee %></td>
+      </tr>
+      <tr>
+        <th>Plant Ops/IT Services Number:</th>
+        <td><%= @work_order.other_number %></td>
       </tr>
     </table>
 

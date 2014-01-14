@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109075237) do
+ActiveRecord::Schema.define(:version => 20140114212610) do
 
   create_table "after_hours_accesses", :force => true do |t|
     t.string   "first_name"
@@ -144,11 +144,12 @@ ActiveRecord::Schema.define(:version => 20140109075237) do
     t.string   "name"
     t.integer  "order_status_id"
     t.text     "comment"
-    t.integer  "hardware_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "user_id"
     t.datetime "closed_date"
+    t.string   "assignee"
+    t.string   "other_number"
   end
 
   create_table "workstation_types", :force => true do |t|
