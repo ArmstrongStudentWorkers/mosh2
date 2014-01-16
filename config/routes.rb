@@ -14,9 +14,6 @@ Mosh2::Application.routes.draw do
 
   resources :terms
 
-
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
   resources :locations do
     resources :workstations
   end
