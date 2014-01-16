@@ -1,4 +1,3 @@
-[RailsAdmin] RailsAdmin initialization disabled by default. Pass SKIP_RAILS_ADMIN_INITIALIZER=false if you need it.
               work_orders GET    /work_orders(.:format)                                     work_orders#index
                           POST   /work_orders(.:format)                                     work_orders#create
            new_work_order GET    /work_orders/new(.:format)                                 work_orders#new
@@ -34,7 +33,6 @@
                      term GET    /terms/:id(.:format)                                       terms#show
                           PUT    /terms/:id(.:format)                                       terms#update
                           DELETE /terms/:id(.:format)                                       terms#destroy
-              rails_admin        /admin                                                     RailsAdmin::Engine
     location_workstations GET    /locations/:location_id/workstations(.:format)             workstations#index
                           POST   /locations/:location_id/workstations(.:format)             workstations#create
  new_location_workstation GET    /locations/:location_id/workstations/new(.:format)         workstations#new
@@ -121,17 +119,3 @@ edit_workstation_hardware GET    /workstations/:workstation_id/hardwares/:id/edi
                           PUT    /users(.:format)                                           devise/registrations#update
                           DELETE /users(.:format)                                           devise/registrations#destroy
                      root        /                                                          home#index
-
-Routes for RailsAdmin::Engine:
-    dashboard GET         /                                      rails_admin/main#dashboard
-        index GET|POST    /:model_name(.:format)                 rails_admin/main#index
-          new GET|POST    /:model_name/new(.:format)             rails_admin/main#new
-       export GET|POST    /:model_name/export(.:format)          rails_admin/main#export
-  bulk_delete POST|DELETE /:model_name/bulk_delete(.:format)     rails_admin/main#bulk_delete
-history_index GET         /:model_name/history(.:format)         rails_admin/main#history_index
-  bulk_action POST        /:model_name/bulk_action(.:format)     rails_admin/main#bulk_action
-         show GET         /:model_name/:id(.:format)             rails_admin/main#show
-         edit GET|PUT     /:model_name/:id/edit(.:format)        rails_admin/main#edit
-       delete GET|DELETE  /:model_name/:id/delete(.:format)      rails_admin/main#delete
- history_show GET         /:model_name/:id/history(.:format)     rails_admin/main#history_show
-  show_in_app GET         /:model_name/:id/show_in_app(.:format) rails_admin/main#show_in_app
