@@ -1,4 +1,5 @@
 <div class="accordion" id="accordion2">
+  <h4>Workstations:</h4>
   <% @location.workstations.each.with_index do |workstation,i| %>
     <div class="accordion-group">
       <div class="accordion-heading">
@@ -11,13 +12,23 @@
           <ul>
             <% workstation.hardwares.each do |hardware| %>
               <li><%= link_to hardware.name, hardware %></li>
-        <% end%>
-        <li><%= link_to 'Add Hardware to Workstation', new_workstation_hardware_path(workstation) %></li>
-        <li><%= link_to 'Edit Workstation', edit_workstation_path(workstation) %></li>
-        <ul>
+            <% end%>
+            <li>
+              <%= link_to new_workstation_hardware_path(workstation) do %>
+                <i class="fa fa-plus"></i> Add Hardware to Workstation
+              <% end %>
+            </li>
+            <li>
+              <%= link_to edit_workstation_path(workstation) do %>
+                <i class="fa fa-edit"></i> Edit Workstation
+              <% end %>
+            </li>
+           <ul>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-<%= link_to 'Add Workstation to Location', new_location_workstation_path(@location) %>
+<%= link_to new_location_workstation_path(@location) do %>
+  <i class="fa fa-plus"></i> Add Workstation
+<% end %>
