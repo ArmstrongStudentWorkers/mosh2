@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @poster.name %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%= @poster.length %>
+</p>
+
+<p>
+  <b>Width:</b>
+  <%= @poster.width %>
+</p>
+
+<p>
+  <b>Special request:</b>
+  <%= @poster.special_request %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%= @poster.job_id %>
+</p>
+
+<p>
+  <b>Poster status:</b>
+  <%= @poster.poster_status_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_poster_path(@poster) %> |
+<%= link_to 'Back', posters_path %>

@@ -11,7 +11,7 @@ namespace :test_data do
         first = "First#{i}"
         last = "Last#{i}"
         sid = "SID#{i}#{i}#{i}"
-        user = User.where(name: "Faith-Anne L. Kocadag").first
+        user = User.where(name: "Faith-Anne Kocadag").first
         AfterHoursAccess.create!(first_name: first, last_name: last, sid: sid, user_id: user.id, location_id: location.id, semester_id: semester.id)
        puts "Created After Hours Access: #{first} #{last}"
       end

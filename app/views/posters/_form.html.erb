@@ -1,0 +1,16 @@
+<%= simple_form_for(@poster) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :length %>
+    <%= f.input :width %>
+    <%= f.input :special_request %>
+    <%= f.input :job_id %>
+    <%= f.input :poster_status_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

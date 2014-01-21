@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  length: 1
+  width: 1
+  special_request: MyText
+  job_id: 1
+  poster_status_id: 1
+
+two:
+  name: MyString
+  length: 1
+  width: 1
+  special_request: MyText
+  job_id: 1
+  poster_status_id: 1

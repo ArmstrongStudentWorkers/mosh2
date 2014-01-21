@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  due_date: 2014-01-21 10:58:59
+
+two:
+  user_id: 1
+  due_date: 2014-01-21 10:58:59

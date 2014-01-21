@@ -1,5 +1,19 @@
 Mosh2::Application.routes.draw do
 
+  resources :poster_statuses
+
+
+  resources :posters
+
+
+  resources :job_statuses
+
+
+  resources :jobs do
+    resources :posters
+  end
+
+
   resources :work_orders
 
 

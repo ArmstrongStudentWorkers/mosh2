@@ -1,0 +1,23 @@
+<h1>Listing job_statuses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @job_statuses.each do |job_status| %>
+  <tr>
+    <td><%= job_status.name %></td>
+    <td><%= link_to 'Show', job_status %></td>
+    <td><%= link_to 'Edit', edit_job_status_path(job_status) %></td>
+    <td><%= link_to 'Destroy', job_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Job status', new_job_status_path %>

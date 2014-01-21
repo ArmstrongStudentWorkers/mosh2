@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116215249) do
+ActiveRecord::Schema.define(:version => 20140121165351) do
 
   create_table "after_hours_accesses", :force => true do |t|
     t.string   "first_name"
@@ -66,6 +66,20 @@ ActiveRecord::Schema.define(:version => 20140116215249) do
     t.integer  "location_id"
   end
 
+  create_table "job_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "due_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "job_status_id"
+  end
+
   create_table "location_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -85,6 +99,23 @@ ActiveRecord::Schema.define(:version => 20140116215249) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "poster_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "posters", :force => true do |t|
+    t.string   "name"
+    t.integer  "length"
+    t.integer  "width"
+    t.text     "special_request"
+    t.integer  "job_id"
+    t.integer  "poster_status_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "semesters", :force => true do |t|

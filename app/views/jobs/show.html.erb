@@ -1,0 +1,44 @@
+<h2>Poster Job Details</h2>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Job ID:</th>
+        <td><%= @job.id %></td>
+      </tr>
+      <tr>
+        <th>User:</th>
+        <td><%= @job.user.email %></td>
+      </tr>
+      <tr>
+        <th>Created at:</th>
+        <td><%= @job.created_at.to_date %></td>
+      </tr>
+      <tr>
+        <th>Due date:</th>
+        <td><%= @job.due_date %></td>
+      </tr>
+      <tr>
+        <th>Posters</th>
+        <td>
+          <%= @job.posters.each do |poster| %>
+            <%= link_to poster.name, poster %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>Job status</th>
+        <td><%= @job.job_status.name %></td>
+      </tr>
+    </table>
+
+    <%= link to "#" do %>
+      <i class="fa fa-plus"></i> Add Poster to Job
+    <% end %>
+
+    <%= link_to 'Edit', edit_job_path(@job) %> |
+    <%= link_to 'Back', jobs_path %>
+  </div>
+</div>
