@@ -1,35 +1,44 @@
+<h2>Poster Details</h2>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @poster.name %>
-</p>
+<div class="row">
+  <div class="span8 offset2">
+    <table class="table table-bordered">
+      <tr>
+        <th>Job:</th>
+        <td><%= link_to @poster.job_id, @poster.job %></td>
+      </tr>
+      <tr>
+        <th>User:</th>
+        <td><%= @poster.job.user.email %></td>
+      </tr>
+      <tr>
+        <th>Title:</th>
+        <td><%= @poster.name %></td>
+      </tr>
+      <tr>
+        <th>Length:</th>
+        <td><%= @poster.length %></td>
+      </tr>
+      <tr>
+        <th>Width:</th>
+        <td><%= @poster.width %></td>
+      </tr>
+      <tr>
+        <th>Special request:</th>
+        <td><%= @poster.special_request %></td>
+      </tr>
+      <tr>
+        <th>Poster status:</th>
+        <td><%= @poster.poster_status.name %></td>
+      </tr>
+      <tr>
+        <th>Attachment url:</th>
+        <td><%=link_to @poster.attachment.url, @poster.attachment.url %></td>
+      </tr>
+    </table>
 
-<p>
-  <b>Length:</b>
-  <%= @poster.length %>
-</p>
-
-<p>
-  <b>Width:</b>
-  <%= @poster.width %>
-</p>
-
-<p>
-  <b>Special request:</b>
-  <%= @poster.special_request %>
-</p>
-
-<p>
-  <b>Job:</b>
-  <%= @poster.job_id %>
-</p>
-
-<p>
-  <b>Poster status:</b>
-  <%= @poster.poster_status_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_poster_path(@poster) %> |
-<%= link_to 'Back', posters_path %>
+    <%= link_to 'Edit', edit_poster_path(@poster) %> |
+    <%= link_to 'Back', posters_path %>
+  </div>
+</div>

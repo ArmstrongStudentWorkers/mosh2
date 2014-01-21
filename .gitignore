@@ -16,3 +16,6 @@
 
 # Ignore all temporary Vim files
 *.swp
+
+# Ignore all attachments
+public/system/*
