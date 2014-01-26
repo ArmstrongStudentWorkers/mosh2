@@ -1,4 +1,4 @@
-<%= simple_form_for(@hardware, html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for([@workstation, @hardware], html: { class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

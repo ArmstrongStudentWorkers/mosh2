@@ -29,7 +29,9 @@ before_filter :management_filter
   # GET /hardwares/new
   # GET /hardwares/new.json
   def new
+    @workstation = Workstation.find(params[:workstation_id])
     @hardware = Hardware.new
+    @hardware.workstation = @workstation if @workstation
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +47,8 @@ before_filter :management_filter
   # POST /hardwares
   # POST /hardwares.json
   def create
-    @hardware = Hardware.new(params[:hardware])
+    workstation = Workstation.find(params[:workstation_id])
+    @hardware = workstation.hardwares.new(params[:hardware])
 
     respond_to do |format|
       if @hardware.save
