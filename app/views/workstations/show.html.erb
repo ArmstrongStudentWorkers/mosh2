@@ -1,4 +1,5 @@
 <h1><%= @workstation.name %> Details</h1>
+
 <p id="notice"><%= notice %></p>
 
 <div class="row">
@@ -18,7 +19,7 @@
       </tr>
       <tr>
         <th>Location:</th>
-        <td><%= link_to @workstation.location.name, @workstation.location %></td>
+        <td><%= link_to @workstation.location.name, @workstation.location if @workstation.location %></td>
       </tr>
     </table>
 

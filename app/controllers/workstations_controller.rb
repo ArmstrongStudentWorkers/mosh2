@@ -29,6 +29,7 @@ before_filter :management_filter
   # GET /workstations/new
   # GET /workstations/new.json
   def new
+    @location = Location.find(params[:location_id])
     @workstation = Workstation.new
 
     respond_to do |format|

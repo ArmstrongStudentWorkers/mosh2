@@ -13,7 +13,7 @@
   <tr>
     <td><%= link_to workstation.name, workstation %></td>
     <td><%= workstation.workstation_type.name %></td>
-    <td><%= link_to workstation.location.name, workstation.location %></td>
+    <td><%= link_to workstation.location.name, workstation.location if workstation.location %></td>
     <td><%= link_to 'Edit', edit_workstation_path(workstation) %></td>
     <td><%= link_to 'Destroy', workstation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

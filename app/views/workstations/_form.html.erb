@@ -1,4 +1,4 @@
-<%= simple_form_for(@workstation, html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for([@location, @workstation], html: { class: 'form-horizontal' }) do |f| %>
 
       <%= f.error_notification %>
 
@@ -6,7 +6,7 @@
         <%= f.input :name %>
         <%= f.input :number, label: 'Workstation number' %>
         <%= f.association :workstation_type %>
-        <%= f.association :location %>
+        <%= f.hidden_field :location_id, value: params[:location_id] %>
       </div>
 
       <div class="form-actions">
