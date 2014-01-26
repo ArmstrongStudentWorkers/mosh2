@@ -24,6 +24,7 @@ class PostersController < ApplicationController
   # GET /posters/new
   # GET /posters/new.json
   def new
+    @job = Job.find(params[:job_id])
     @poster = Poster.new
 
     respond_to do |format|
@@ -40,7 +41,9 @@ class PostersController < ApplicationController
   # POST /posters
   # POST /posters.json
   def create
-    @poster = Poster.new(params[:poster])
+    job = Job.find(params[:job_id])
+    @poster = job.posters.new(params[:poster])
+    @poster.set_pending
 
     respond_to do |format|
       if @poster.save

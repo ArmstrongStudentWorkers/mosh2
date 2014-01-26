@@ -19,7 +19,7 @@
     <td><%= job.created_at.to_date %></td>
     <td><%= job.due_date.to_date %></td>
     <td><%= job.posters.count %></td>
-    <td><%= job.status.name %></td>
+    <td><%= job.job_status.name if job.job_status_id %></td>
     <td><%= link_to 'Edit', edit_job_path(job) %></td>
     <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

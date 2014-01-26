@@ -1,4 +1,4 @@
-<%= simple_form_for(@poster, html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for([@job, @poster], html: { class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -6,8 +6,6 @@
     <%= f.input :length %>
     <%= f.input :width %>
     <%= f.input :special_request %>
-    <%= f.input :job_id %>
-    <%= f.association :poster_status %>
     <%= f.file_field :attachment %>
   </div>
 

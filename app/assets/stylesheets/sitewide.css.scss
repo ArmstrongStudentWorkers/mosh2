@@ -89,6 +89,20 @@ ul {
   }
 }
 
+#preview_doc {
+  iframe {
+    display: block;
+    width: 100%;
+    height: 500px;
+    margin: auto;
+  }
+  padding-bottom: 20px;
+}
+
+#poster_directions {
+  margin-bottom: 15px;
+}
+
 /* header */
 
 #logo {
