@@ -31,6 +31,7 @@ before_filter :management_filter
   def new
     @location = Location.find(params[:location_id])
     @workstation = Workstation.new
+    @workstation.location = @location if @location
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +47,8 @@ before_filter :management_filter
   # POST /workstations
   # POST /workstations.json
   def create
-    @workstation = Workstation.new(params[:workstation])
+    location = Location.find(params[:location_id])
+    @workstation = location.workstations.new(params[:workstation])
 
     respond_to do |format|
       if @workstation.save

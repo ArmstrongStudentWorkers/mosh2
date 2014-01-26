@@ -23,6 +23,9 @@
       </tr>
     </table>
 
+    <%= link_to new_workstation_hardware_path(@workstation) do %>
+      <i class="fa fa-plus"></i> Add Hardware to Workstation
+    <% end %><br>
       <%= link_to 'Edit', edit_workstation_path(@workstation) %> |
       <%= link_to 'Back', workstations_path %>
   </div>

@@ -6,7 +6,7 @@
         <%= f.input :name %>
         <%= f.input :number, label: 'Workstation number' %>
         <%= f.association :workstation_type %>
-        <%= f.hidden_field :location_id, value: params[:location_id] %>
+        <%= f.association :location %>  
       </div>
 
       <div class="form-actions">
