@@ -21,8 +21,8 @@
     <th>Authorized by:</th>
     <th>Location</th>
     <th>Expiration Semester</th>
-    <th></th>
-    <th></th>
+    <th>Edit</th>
+    <th>Destroy</th>
   </tr>
 
   <% @after_hours_accesses.each do |after_hours_access| %>
@@ -32,8 +32,16 @@
       <td><%= after_hours_access.user.name %></td>
       <td><%= link_to after_hours_access.location.name, after_hours_access.location %></td>
       <td><%= after_hours_access.semester.name %></td>
-      <td><%= link_to 'Edit', edit_after_hours_access_path(after_hours_access) %></td>
-      <td><%= link_to 'Destroy', after_hours_access, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <%= link_to edit_after_hours_access_path(after_hours_access) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to after_hours_access, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
