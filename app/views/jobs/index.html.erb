@@ -1,4 +1,4 @@
-<h1>Listing Jobs</h1>
+<h1>Listing Poster Jobs</h1>
 
 <table class="table table-bordered table-striped">
   <tr>
@@ -8,24 +8,34 @@
     <th>Due date</th>
     <th># Posters</th>
     <th>Status</th>
-    <th></th>
-    <th></th>
+    <th>Edit</th>
+    <th>Destroy</th>
   </tr>
 
-<% @jobs.each do |job| %>
-  <tr>
-    <td><%= link_to job.id, job %></td>
-    <td><%= job.user.email %></td>
-    <td><%= job.created_at.to_date %></td>
-    <td><%= job.due_date.to_date %></td>
-    <td><%= job.posters.count %></td>
-    <td><%= job.job_status.name if job.job_status_id %></td>
-    <td><%= link_to 'Edit', edit_job_path(job) %></td>
-    <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <% current_user.jobs.each do |job| %>
+    <tr>
+      <td><%= link_to job.id, job %></td>
+      <td><%= job.user.email if job.user %></td>
+      <td><%= job.created_at.to_date %></td>
+      <td><%= job.due_date.to_date if job.due_date %></td>
+      <td><%= job.posters.count %></td>
+      <td><%= job.job_status.name if job.job_status_id %></td>
+      <td>
+        <%= link_to edit_job_path(job) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to job, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Job', new_job_path %>
+<%= link_to new_job_path do %>
+  <i class="fa fa-plus"></i> Add New Poster Job
+<% end %>

@@ -10,6 +10,7 @@ Mosh2::Application.routes.draw do
 
 
   resources :jobs do
+    put "finish"
     resources :posters
   end
 

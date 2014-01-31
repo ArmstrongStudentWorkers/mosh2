@@ -2,9 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.input :due_date %>
-    <%= f.association :job_status %>
+    <%= f.input :due_date, label: 'When do you need it back?' %>
+    <p class="text-center"> Note: Jobs requested within 48 hours of due date are not guaranteed. </p>
   </div>
 
   <div class="form-actions">

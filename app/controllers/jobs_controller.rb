@@ -40,7 +40,8 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = Job.new(params[:job])
+    @job = current_user.jobs.new(params[:job])
+    @job.set_pending
 
     respond_to do |format|
       if @job.save
@@ -66,6 +67,17 @@ class JobsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def finish
+    @job = Job.find(params[:job_id])
+    @job.set_finished
+
+    if @job.save
+      redirect_to @job, notice: 'Job was successfully finished.'
+    else
+      redirect_to @job, notice: 'Job could not be finished.'
     end
   end
 
