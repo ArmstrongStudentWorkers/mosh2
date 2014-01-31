@@ -1,6 +1,6 @@
 <h2>Lab Overview</h2>
 
-<div class="row">
+<p><div class="row">
   <div class="span2.5" id="laboverviewlabel">
     <p>Choose a location:</p>
   </div>
@@ -11,13 +11,12 @@
       <%= submit_tag('Search', class: 'btn btn-medium btn-info') %>
     <% end %>
   </div>
-</div>
+</div></p>
 
 <% if @location %>
-  <center><h3><%= @location.name %></h3></center><br>
-
+  <h3 class="text-center"><%= @location.name %></h3>
+  <br>
   <div class="row">
-
     <% if @location.hour %>
       <div class="span6">
         <center><h4>Hours</h4></center>
@@ -57,7 +56,7 @@
         </table>
       </div>
     <% end %>
-
+    
     <div class="span6">
       <center><h4>Statistics</h4></center>
       <table class="table table-bordered table-striped">
