@@ -107,6 +107,48 @@ ul {
   margin-bottom: 15px;
 }
 
+/* job/poster progress */ 
+
+.progress-container {
+
+  padding-top: 20px;
+
+  ol {
+    list-style: none;
+    li {
+      display: inline-block; 
+    }
+  }
+
+  .step {
+    border-radius: 50%;
+    background-color: #2f96b4;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    vertical-align: center;
+    float: left;
+  }
+
+  .arrow {
+    font-size: 45px;
+    height: 120px;
+    width: 60px;
+    float: left;
+    margin-top: 33px;
+    margin-left: 13px;
+    color: $gray;
+  }
+
+  p {
+    color: $white;
+    font-size: 16px;
+    font-family: helvetica;
+    margin-top: 41px;
+  }
+}
+
+
 /* header */
 
 #logo {
