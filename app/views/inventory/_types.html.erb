@@ -4,8 +4,8 @@
     <th>Workstation</th>
     <th>Hardware Status</th>
     <th>Assigned to:</th>
-    <th></th>
-    <th></th>
+    <th>Edit</th>
+    <th>Destroy</th>
   </tr>
 
   <% @hardware_type.hardwares.each do |hardware| %>
@@ -14,8 +14,16 @@
       <td><%= link_to hardware.workstation.name, hardware.workstation %></td>
       <td><%= hardware.hardware_status.name %></td>
       <td><%= hardware.assigned_to %></td>
-      <td><%= link_to 'Edit', edit_hardware_path(hardware) %></td>
-      <td><%= link_to 'Destroy', hardware, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <%= link_to edit_hardware_path(hardware) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to hardware, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
