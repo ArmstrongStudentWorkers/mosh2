@@ -13,6 +13,7 @@ namespace :test_data do
         user = User.first
         assignee = "Assignee#{i}"
         number = "Number#{i}"
+        print status
         date = DateTime.now
         WorkOrder.create!(other_number: number, assignee: assignee, comment: comment, name: name, order_status_id: status.id, user_id: user.id, closed_date: date)
        puts "Created WorkOrder: #{name} #{status.name}"
