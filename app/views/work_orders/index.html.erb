@@ -10,22 +10,30 @@
     <th>Requested by:</th>
     <th>Request date:</th>
     <th>Closed date:</th>
-    <th></th>
-    <th></th>
+    <th>Edit</th>
+    <th>Destroy</th>
   </tr>
 
   <% @work_orders.each do |work_order| %>
     <tr>
       <td><%= link_to work_order.name, work_order %></td>
-      <td><%= work_order.order_status.name %></td>
+      <td><%= work_order.order_status.name if work_order.order_status %></td>
       <td><%= work_order.comment %></td>
       <td><%= work_order.assignee %></td>
       <td><%= work_order.other_number %></td>
       <td><%= work_order.user.name %></td>
       <td><%= work_order.created_at.to_date %></td>
       <td><%= work_order.closed_date.to_date %></td>
-      <td><%= link_to 'Edit', edit_work_order_path(work_order) %></td>
-      <td><%= link_to 'Destroy', work_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <%= link_to edit_work_order_path(work_order) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to work_order, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
