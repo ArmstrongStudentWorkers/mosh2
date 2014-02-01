@@ -48,18 +48,6 @@ h1 {
     text-align: center;
 }
 
-#select-btn {
-    margin-left: 4px;
-}
-
-#welcome {
-    h1 {
-        font-size: 4em;
-        margin-top: 37px;
-        margin-left: 61px;
-    }
-}
-
 h2 {
     font-size: 1.7em;
     letter-spacing: -1px;
@@ -83,15 +71,38 @@ ul {
     list-style-type: none;
 }
 
+/* Home/Welcome Page hero unit */
+
+#welcome {
+  h1 {
+    font-size: 4em;
+    margin-top: 37px;
+    margin-left: 61px;
+  }
+}
+
+/* Job.show buttons */
+
 .job-actions {
   padding-bottom: 10px;
 }
+
+/* Inventory view */
+
+#select-btn {
+  margin-left: 4px;
+}
+
+
+/* Inventory -> Location -> Workstation accordion */
 
 #accordion2 {
   li {
     padding-top: 10px;
   }
 }
+
+/* Posters.show */
 
 #preview_doc {
   iframe {
@@ -128,6 +139,9 @@ ul {
     text-align: center;
     vertical-align: center;
     float: left;
+    border-style: double;
+    border-color: white;
+    border-width: 4px;
   }
 
   .arrow {
@@ -135,8 +149,8 @@ ul {
     height: 120px;
     width: 60px;
     float: left;
-    margin-top: 33px;
-    margin-left: 13px;
+    margin-top: 38px;
+    margin-left: 15px;
     color: $gray;
   }
 
@@ -144,10 +158,9 @@ ul {
     color: $white;
     font-size: 16px;
     font-family: helvetica;
-    margin-top: 41px;
+    margin-top: 43px;
   }
 }
-
 
 /* header */
 
