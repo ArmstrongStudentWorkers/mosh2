@@ -19,6 +19,8 @@
                job_status GET    /job_statuses/:id(.:format)                                job_statuses#show
                           PUT    /job_statuses/:id(.:format)                                job_statuses#update
                           DELETE /job_statuses/:id(.:format)                                job_statuses#destroy
+               job_finish PUT    /jobs/:job_id/finish(.:format)                             jobs#finish
+                 job_deny PUT    /jobs/:job_id/deny(.:format)                               jobs#deny
               job_posters GET    /jobs/:job_id/posters(.:format)                            posters#index
                           POST   /jobs/:job_id/posters(.:format)                            posters#create
            new_job_poster GET    /jobs/:job_id/posters/new(.:format)                        posters#new

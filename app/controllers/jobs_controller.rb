@@ -81,6 +81,17 @@ class JobsController < ApplicationController
     end
   end
 
+  def deny
+    @job = Job.find(params[:job_id])
+    @job.set_denied
+
+    if @job.save
+      redirect_to @job, notice: 'Job was denied.'
+    else
+      redirect_to @job, notice: 'Job could not be denied.'
+    end
+  end
+  
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
