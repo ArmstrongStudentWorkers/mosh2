@@ -1,0 +1,44 @@
+<h1><%= @user.name %> Details</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>User name:</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>Admin:</th>
+        <td><%= @user.admin %></td>
+      </tr>
+      <tr>
+        <th>Management:</th>
+        <td><%= @user.management %></td>
+      </tr>
+      <tr>
+        <th>Non-CSIT Faculty or Staff:</th>
+        <td><%= @user.noncsit %></td>
+      </tr>
+      <tr>
+        <th>Created at:</th>
+        <td><%= @user.created_at %></td>
+      </tr>
+      <tr>
+        <th>Last sign-in at:</th>
+        <td><%= @user.last_sign_in_at %></td>
+      </tr>
+      <tr>
+        <th>Last sign-in IP:</th>
+        <td><%= @user.last_sign_in_ip %></td>
+      </tr>
+    </table>
+    
+    <%= link_to 'Edit', edit_admin_user_path(@user) %> |
+    <%= link_to 'Back', admin_user_path %>
+
+  </div>
+</div>

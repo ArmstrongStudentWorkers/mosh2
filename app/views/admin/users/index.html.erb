@@ -1,0 +1,37 @@
+<h2>Users</h2>
+
+<div class="new-user-button">
+  <%= link_to new_admin_user_path, class: 'btn btn-medium btn-info' do %>
+    <i class="fa fa-plus"></i> Add User
+  <% end %>
+</div>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Admin</th>
+    <th>Management</th>
+    <th>Non-CSIT</th>
+    <th>Created at</th>
+    <th>Last sign-in</th>
+    <th>Last IP</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, admin_user_path(user) %></td>
+      <td><%= user.email %></td>
+      <td><%= user.admin %></td>
+      <td><%= user.management %></td>
+      <td><%= user.noncsit %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <td><%= user.last_sign_in_ip %></td>
+      <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+      <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

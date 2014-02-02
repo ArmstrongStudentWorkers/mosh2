@@ -1,3 +1,10 @@
+              admin_users GET    /admin/users(.:format)                                     admin/users#index
+                          POST   /admin/users(.:format)                                     admin/users#create
+           new_admin_user GET    /admin/users/new(.:format)                                 admin/users#new
+          edit_admin_user GET    /admin/users/:id/edit(.:format)                            admin/users#edit
+               admin_user GET    /admin/users/:id(.:format)                                 admin/users#show
+                          PUT    /admin/users/:id(.:format)                                 admin/users#update
+                          DELETE /admin/users/:id(.:format)                                 admin/users#destroy
           poster_statuses GET    /poster_statuses(.:format)                                 poster_statuses#index
                           POST   /poster_statuses(.:format)                                 poster_statuses#create
         new_poster_status GET    /poster_statuses/new(.:format)                             poster_statuses#new

@@ -1,4 +1,7 @@
 Mosh2::Application.routes.draw do
+  namespace :admin do
+    resources :users
+  end
 
   resources :poster_statuses
 
