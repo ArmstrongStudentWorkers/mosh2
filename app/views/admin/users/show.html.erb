@@ -13,15 +13,15 @@
       </tr>
       <tr>
         <th>Admin:</th>
-        <td><%= @user.admin %></td>
+        <td><%= get_admin(@user.admin) %></td>
       </tr>
       <tr>
         <th>Management:</th>
-        <td><%= @user.management %></td>
+        <td><%= get_management(@user.management) %></td>
       </tr>
       <tr>
         <th>Non-CSIT Faculty or Staff:</th>
-        <td><%= @user.noncsit %></td>
+        <td><%= get_noncsit(@user.noncsit) %></td>
       </tr>
       <tr>
         <th>Created at:</th>

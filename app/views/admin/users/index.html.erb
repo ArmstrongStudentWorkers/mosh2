@@ -24,9 +24,9 @@
     <tr>
       <td><%= link_to user.name, admin_user_path(user) %></td>
       <td><%= user.email %></td>
-      <td><%= user.admin %></td>
-      <td><%= user.management %></td>
-      <td><%= user.noncsit %></td>
+      <td><%= get_admin(user.admin) %></td>
+      <td><%= get_management(user.management) %></td>
+      <td><%= get_noncsit(user.noncsit) %></td>
       <td><%= user.created_at %></td>
       <td><%= user.last_sign_in_at %></td>
       <td><%= user.last_sign_in_ip %></td>
