@@ -4,7 +4,7 @@
       <%= link_to "MOSH", root_path, id: "logo" %>
 
       <ul class="nav">
-          <%= render 'layouts/labs' %>
+        <%= render 'layouts/labs' %>
         <% if user_signed_in? %>
           <%= render 'layouts/posters' %>
           <%= render 'layouts/workorders' %>
@@ -16,28 +16,34 @@
       <ul class="nav pull-right">
         <% if !user_signed_in? %>
           <li>
-            <%= link_to new_user_session_path do %>
-              <i class="fa fa-sign-in"></i> Sign In
-            <% end %>
+          <%= link_to new_user_session_path do %>
+            <i class="fa fa-sign-in"></i> Sign In
+          <% end %>
           </li>
         <% else %>
           <li id="fat-menu" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Hello, <%= current_user.name %><b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to edit_user_registration_path do %>
-                  <i class="fa fa-edit"></i> Edit User Info
-                <% end %>
-              </li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Hello, <%= current_user.name %> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+            <%= link_to edit_user_registration_path do %>
+              <i class="fa fa-edit"></i> Edit Your Info
+            <% end %>
+            </li>
+            <% if current_user.admin? %>
               <li class="divider"></li>
               <li>
-                <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out"></i> Sign Out
-                <% end %>
+              <%= link_to 'Manage Users', admin_users_path %>
               </li>
-            </ul>
+            <% end %>
+            <li class="divider"></li>
+            <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i> Sign Out
+            <% end %>
+            </li>
+          </ul>
           </li>
         <% end %>
       </ul>
