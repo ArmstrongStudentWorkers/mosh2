@@ -9,8 +9,12 @@
 
       <%= link_to 'Add Poster to Job', new_job_poster_path(@job), class: 'btn btn-medium btn-primary' %>
       <% if current_user.management %>
-        <%= link_to 'Finish Job', job_finish_path(@job), method: :put, class: 'btn btn-medium btn-success' %>
-        <%= link_to 'Deny Job', job_deny_path(@job), method: :put, class: 'btn btn-medium btn-danger' %>
+        <% if @job.job_status.name == "Pending" %>
+          <%= link_to 'Finish Job', job_finish_path(@job), method: :put, class: 'btn btn-medium btn-success' %>
+          <%= link_to 'Deny Job', job_deny_path(@job), method: :put, class: 'btn btn-medium btn-danger' %>
+        <% else %>
+          <%= link_to 'Pend Job', job_pend_path(@job), method: :put, class: 'btn btn-medium btn-warning' %>
+        <% end %>
       <% end %>
     </div>
 

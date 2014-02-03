@@ -14,5 +14,4 @@ module JobsHelper
 
     end
   end
-
 end

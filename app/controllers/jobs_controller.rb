@@ -91,7 +91,18 @@ class JobsController < ApplicationController
       redirect_to @job, notice: 'Job could not be denied.'
     end
   end
-  
+
+  def pend
+    @job = Job.find(params[:job_id])
+    @job.set_pending
+
+    if @job.save
+      redirect_to @job, notice: 'Job is pending.'
+    else
+      redirect_to @job, notice: 'Job could not be pended.'
+    end
+  end
+
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
