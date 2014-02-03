@@ -44,6 +44,10 @@
           <th>Job status:</th>
           <td><%= @job.job_status.name %></td>
         </tr>
+        <tr>
+          <th>Your number in the queue:</th>
+          <td><%= get_queue(@job) %></td>
+        </tr>
       </table>
     </div>
 
