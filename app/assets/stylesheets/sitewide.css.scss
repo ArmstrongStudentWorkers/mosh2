@@ -49,9 +49,9 @@ h1 {
 }
 
 h2 {
-    font-size: 1.7em;
+    font-size: 1.9em;
     letter-spacing: -1px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
     font-weight: normal;
     color: $grayLight;
@@ -107,15 +107,15 @@ ul {
 #preview_doc {
   iframe {
     display: block;
-    width: 100%;
-    height: 500px;
+    width: 90%;
+    height: 350px;
     margin: auto;
   }
   padding-bottom: 20px;
 }
 
 #poster_directions {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 /* job/poster progress */ 

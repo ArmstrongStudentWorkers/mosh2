@@ -7,4 +7,10 @@ class Poster < ActiveRecord::Base
   def set_pending
     self.poster_status = PosterStatus.where(name: "Pending").first
   end
+  def set_finished
+    self.poster_status = PosterStatus.where(name: "Finished").first
+  end
+  def set_denied
+    self.poster_status = PosterStatus.where(name: "Denied").first
+  end
 end

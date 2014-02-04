@@ -72,6 +72,39 @@ class PostersController < ApplicationController
     end
   end
 
+  def finish
+    @poster = Poster.find(params[:poster_id])
+    @poster.set_finished
+
+    if @poster.save
+      redirect_to @poster, notice: 'Poster was successfully finished.'
+    else
+      redirect_to @poster, notice: 'Poster could not be finished.'
+    end
+  end
+
+  def deny
+    @poster = Poster.find(params[:poster_id])
+    @poster.set_denied
+
+    if @poster.save
+      redirect_to @poster, notice: 'Poster was denied.'
+    else
+      redirect_to @poster, notice: 'Poster could not be denied.'
+    end
+  end
+
+  def pend
+    @poster = Poster.find(params[:poster_id])
+    @poster.set_pending
+
+    if @poster.save
+      redirect_to @poster, notice: 'Poster is pending.'
+    else
+      redirect_to @poster, notice: 'Poster could not be pended.'
+    end
+  end
+
   # DELETE /posters/1
   # DELETE /posters/1.json
   def destroy

@@ -12,6 +12,9 @@
             poster_status GET    /poster_statuses/:id(.:format)                             poster_statuses#show
                           PUT    /poster_statuses/:id(.:format)                             poster_statuses#update
                           DELETE /poster_statuses/:id(.:format)                             poster_statuses#destroy
+            poster_finish PUT    /posters/:poster_id/finish(.:format)                       posters#finish
+              poster_deny PUT    /posters/:poster_id/deny(.:format)                         posters#deny
+              poster_pend PUT    /posters/:poster_id/pend(.:format)                         posters#pend
                   posters GET    /posters(.:format)                                         posters#index
                           POST   /posters(.:format)                                         posters#create
                new_poster GET    /posters/new(.:format)                                     posters#new
