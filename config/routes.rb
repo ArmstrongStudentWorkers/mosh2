@@ -36,6 +36,7 @@ Mosh2::Application.routes.draw do
 
   resources :locations do
     resources :workstations
+    resources :after_hours_accesses
   end
   resources :location_types
   resources :hardwares

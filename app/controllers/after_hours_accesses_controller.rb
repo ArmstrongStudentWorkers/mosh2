@@ -31,7 +31,9 @@ class AfterHoursAccessesController < ApplicationController
   # GET /after_hours_accesses/new
   # GET /after_hours_accesses/new.json
   def new
+    @location = Location.find(params[:location_id])
     @after_hours_access = AfterHoursAccess.new
+    @after_hours_access.location = @location if @location
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +49,8 @@ class AfterHoursAccessesController < ApplicationController
   # POST /after_hours_accesses
   # POST /after_hours_accesses.json
   def create
-    @after_hours_access = AfterHoursAccess.new(params[:after_hours_access])
+    location = Location.find(params[:location_id])
+    @after_hours_access = location.after_hours_accesses.new(params[:after_hours_access])
 
     respond_to do |format|
       if @after_hours_access.save

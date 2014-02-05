@@ -7,48 +7,54 @@
   <div class="span4">
     <%= form_tag(after_hours_accesses_path, method: 'get', class: 'form-inline') do %>
       <%= select_tag('location',
-      options_from_collection_for_select(@locations, :id, :name)) %>
+                     options_from_collection_for_select(@locations, :id, :name)) %>
       <%= submit_tag('Search', class: 'btn btn-medium btn-info') %>
     <% end %>
   </div>
+
+  <% if @location %>
+    <div class="span2.5 add-access-button offset3">
+      <%= link_to new_location_after_hours_access_path(@location), class: 'btn btn-medium btn-success' do %>
+        <i class="fa fa-plus"></i> Add to the List
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <% if @location %>
-<table class="table table-striped table-bordered">
-  <tr>
-    <th>Name</th>
-    <th>Sid</th>
-    <th>Authorized by:</th>
-    <th>Location</th>
-    <th>Expiration Semester</th>
-    <th>Edit</th>
-    <th>Destroy</th>
-  </tr>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th>Name</th>
+          <th>Sid</th>
+          <th>Authorized by:</th>
+          <th>Location</th>
+          <th>Expiration Semester</th>
+          <th>Edit</th>
+          <th>Destroy</th>
+        </tr>
 
-  <% @after_hours_accesses.each do |after_hours_access| %>
-    <tr>
-      <td><%= link_to "#{after_hours_access.first_name} #{after_hours_access.last_name}", after_hours_access %></td>
-      <td><%= show_sid(after_hours_access.sid) %></td>
-      <td><%= after_hours_access.user.name %></td>
-      <td><%= link_to after_hours_access.location.name, after_hours_access.location %></td>
-      <td><%= after_hours_access.semester.name %></td>
-      <td>
-        <%= link_to edit_after_hours_access_path(after_hours_access) do %>
-          <i class="fa fa-edit"></i>
+        <% @after_hours_accesses.each do |after_hours_access| %>
+          <tr>
+            <td><%= link_to "#{after_hours_access.first_name} #{after_hours_access.last_name}", after_hours_access %></td>
+            <td><%= show_sid(after_hours_access.sid) %></td>
+            <td><%= after_hours_access.user.name %></td>
+            <td><%= link_to after_hours_access.location.name, after_hours_access.location %></td>
+            <td><%= after_hours_access.semester.name %></td>
+            <td>
+              <%= link_to edit_after_hours_access_path(after_hours_access) do %>
+                <i class="fa fa-edit"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to after_hours_access, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="fa fa-trash-o"></i>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-      </td>
-      <td>
-        <%= link_to after_hours_access, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="fa fa-trash-o"></i>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
-<br />
-<% end %>
-
-<%= link_to new_after_hours_access_path do %>
-  <i class="fa fa-plus"></i> Add to the List
+      </table>
+    </div>
+  </div>
 <% end %>
