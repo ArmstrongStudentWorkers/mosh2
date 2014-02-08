@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem 'rails', '3.2.16'
 gem 'paperclip'
 
 # Bundle edge Rails instead:
@@ -27,7 +27,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'font-awesome-rails'
 gem 'simple_form'
-gem 'bootstrap-datetimepicker-rails'
+gem 'bootstrap-datepicker-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
