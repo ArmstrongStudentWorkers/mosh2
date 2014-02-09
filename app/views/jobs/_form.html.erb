@@ -1,8 +1,8 @@
 <%= simple_form_for(@job, html: { class: 'form-horizontal' }) do |f| %>
-  <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :due_date, label: 'When do you need it back?' %>
+    <%= f.input :due_date, as: :string, input_html: { data: { behavior: 'datepicker' } } %>
+
     <p class="text-center"> Note: Jobs requested within 48 hours of due date are not guaranteed. </p>
   </div>
 

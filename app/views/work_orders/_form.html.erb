@@ -8,7 +8,7 @@
     <%= f.association :user %>
     <%= f.input :assignee %>
     <%= f.input :other_number %>
-    <%= f.input :closed_date %>
+    <%= f.input :closed_date, as: :string, input_html: { data: { behavior: 'datepicker' } } %>
   </div>
 
   <div class="form-actions">

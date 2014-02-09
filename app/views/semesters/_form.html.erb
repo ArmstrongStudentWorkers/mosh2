@@ -5,10 +5,10 @@
     <%= f.input :name %>
     <%= f.association :term %>
     <%= f.input :year %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :advisement_start %>
-    <%= f.input :advisement_end %>
+
+    <% [:start_date, :end_date, :advisement_start, :advisement_end].each do |d| %>
+      <%= f.input d, as: :string, input_html: { data: { behavior: 'datepicker' } } %>
+    <% end %>
   </div>
 
   <div class="form-actions">
