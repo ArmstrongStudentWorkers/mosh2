@@ -3,9 +3,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :password %>
+    <%= f.input :name, placeholder: 'Full name' %>
+    <%= f.input :email, placeholder: 'you@armstrong.edu' %>
+    <%= f.input :password, placeholder: 'at least 8 characters, please' %>
     <%= f.input :password_confirmation %>
     <%= f.input :management %>
     <%= f.input :admin %>

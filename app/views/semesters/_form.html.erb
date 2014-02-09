@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: 'e.g. Spring 2014' %>
     <%= f.association :term %>
-    <%= f.input :year %>
+    <%= f.input :year, placeholder: 'e.g. 2014' %>
 
     <% [:start_date, :end_date, :advisement_start, :advisement_end].each do |d| %>
       <%= f.input d, as: :string, input_html: { data: { behavior: 'datepicker' } } %>

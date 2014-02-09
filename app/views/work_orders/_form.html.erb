@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: 'e.g. Printer transfer 2/13/2014' %>
     <%= f.association :order_status %>
     <%= f.input :comment %>
     <%= f.association :user %>
