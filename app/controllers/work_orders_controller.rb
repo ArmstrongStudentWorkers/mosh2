@@ -41,8 +41,9 @@ class WorkOrdersController < ApplicationController
   # POST /work_orders.json
   def create
     @work_order = WorkOrder.new(params[:work_order])
+    @work_order.closed_date = DateTime.strptime[:work_order][:closed_date], '%m/%d/%Y').to_date
 
-    respond_to do |format|
+  respond_to do |format|
       if @work_order.save
         format.html { redirect_to @work_order, notice: 'Work order was successfully created.' }
         format.json { render json: @work_order, status: :created, location: @work_order }
@@ -57,6 +58,7 @@ class WorkOrdersController < ApplicationController
   # PUT /work_orders/1.json
   def update
     @work_order = WorkOrder.find(params[:id])
+    @work_order.closed_date = DateTime.strptime[:work_order][:closed_date], '%m/%d/%Y').to_date
 
     respond_to do |format|
       if @work_order.update_attributes(params[:work_order])
