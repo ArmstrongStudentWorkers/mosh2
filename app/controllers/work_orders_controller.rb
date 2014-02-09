@@ -41,7 +41,7 @@ class WorkOrdersController < ApplicationController
   # POST /work_orders.json
   def create
     @work_order = WorkOrder.new(params[:work_order])
-    @work_order.closed_date = DateTime.strptime[:work_order][:closed_date], '%m/%d/%Y').to_date
+    #@work_order.closed_date = DateTime.strptime(params[:work_order][:closed_date], '%m/%d/%Y').to_date if @work_order.closed_date
 
   respond_to do |format|
       if @work_order.save
@@ -58,7 +58,7 @@ class WorkOrdersController < ApplicationController
   # PUT /work_orders/1.json
   def update
     @work_order = WorkOrder.find(params[:id])
-    @work_order.closed_date = DateTime.strptime[:work_order][:closed_date], '%m/%d/%Y').to_date
+    #@work_order.closed_date = DateTime.strptime(params[:work_order][:closed_date], '%m/%d/%Y').to_date
 
     respond_to do |format|
       if @work_order.update_attributes(params[:work_order])
