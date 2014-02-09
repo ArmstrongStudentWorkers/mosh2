@@ -42,6 +42,7 @@ class JobsController < ApplicationController
   def create
     @job = current_user.jobs.new(params[:job])
     @job.set_pending
+    @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
 
     respond_to do |format|
       if @job.save
@@ -58,6 +59,7 @@ class JobsController < ApplicationController
   # PUT /jobs/1.json
   def update
     @job = Job.find(params[:id])
+    @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
 
     respond_to do |format|
       if @job.update_attributes(params[:job])
