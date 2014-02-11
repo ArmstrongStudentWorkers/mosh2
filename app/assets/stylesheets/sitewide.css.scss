@@ -125,7 +125,7 @@ ul {
   margin-bottom: 20px;
 }
 
-/* job/poster progress */ 
+/* job/poster progress */
 
 .progress-container {
 
@@ -134,7 +134,7 @@ ul {
   ol {
     list-style: none;
     li {
-      display: inline-block; 
+      display: inline-block;
     }
   }
 
@@ -159,6 +159,10 @@ ul {
     margin-top: 38px;
     margin-left: 15px;
     color: $gray;
+  }
+
+  .active {
+    background-color: $green;
   }
 
   p {
