@@ -148,7 +148,7 @@ ul {
     float: left;
     border-style: double;
     border-color: white;
-    border-width: 4px;
+    border-width: 6px;
   }
 
   .arrow {
@@ -162,7 +162,7 @@ ul {
   }
 
   .active {
-    background-color: $green;
+    background-color: $orange;
   }
 
   p {
