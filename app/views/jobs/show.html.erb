@@ -39,7 +39,7 @@
           <th>Posters:</th>
           <td>
             <% @job.posters.each do |poster| %>
-              <%= link_to poster.name, poster %><br>
+              <%= link_to poster.name, poster %> <%= poster.poster_status.name %><br>
             <% end %>
           </td>
         </tr>

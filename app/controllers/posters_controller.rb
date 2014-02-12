@@ -77,7 +77,7 @@ class PostersController < ApplicationController
     @poster.set_finished
 
     if @poster.save
-      redirect_to @poster, notice: 'Poster was successfully finished.'
+      redirect_to @poster.job, notice: 'Poster was successfully finished.'
     else
       redirect_to @poster, notice: 'Poster could not be finished.'
     end
@@ -88,7 +88,7 @@ class PostersController < ApplicationController
     @poster.set_denied
 
     if @poster.save
-      redirect_to @poster, notice: 'Poster was denied.'
+      redirect_to @poster.job, notice: 'Poster was denied.'
     else
       redirect_to @poster, notice: 'Poster could not be denied.'
     end
