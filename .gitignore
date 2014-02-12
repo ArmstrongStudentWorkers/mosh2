@@ -19,3 +19,6 @@
 
 # Ignore all attachments
 public/system/*
+
+# Ignore database.yml
+config/database.yml
