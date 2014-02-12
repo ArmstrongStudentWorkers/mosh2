@@ -2,6 +2,8 @@ namespace :test_data do
   desc 'Load example users'
   task :users => :environment do
 
+    puts 'Deleting all Users.'
+    User.delete_all
     puts 'Creating sample Users.'
 
     def make_user(email, name, management, admin, noncsit)

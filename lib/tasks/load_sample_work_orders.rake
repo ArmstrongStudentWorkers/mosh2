@@ -1,10 +1,10 @@
 namespace :test_data do
-  desc 'Load example work orders'
+  desc 'Load sample work orders'
   task :work_orders => :environment do
 
     puts 'Deleting all WorkOrders'
     WorkOrder.delete_all
-    puts 'Creating example WorkOrders'
+    puts 'Creating sample WorkOrders'
 
     def make_workorder(status)
       3.times.with_index do |i|
@@ -13,10 +13,9 @@ namespace :test_data do
         user = User.first
         assignee = "Assignee#{i}"
         number = "Number#{i}"
-        print status
         date = DateTime.now
         WorkOrder.create!(other_number: number, assignee: assignee, comment: comment, name: name, order_status_id: status.id, user_id: user.id, closed_date: date)
-       puts "Created WorkOrder: #{name} #{status.name}"
+        puts "Created WorkOrder: #{name} #{status.name}"
       end
     end
 
