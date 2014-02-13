@@ -39,4 +39,4 @@ Add test data to the development database
 
     rake test_data:all
 
-And you're done!
+Now get developing!
