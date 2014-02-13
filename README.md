@@ -1,5 +1,5 @@
 # MOSH
-=====
+
 The McCarthy Online Support Hub
 
 MOSH is a Ruby on Rails application offering the following services for the [Armstrong Atlantic State University] (http://www.armstrong.edu/) [Department of Computer Science and Information Technology] (http://www.armstrong.edu/Science_and_Technology/ice/ice_welcome).
@@ -38,5 +38,11 @@ Create the database
 Add test data to the development database
 
     rake test_data:all
+
+Copy the config/database.yml.example file to config/database.yml
+
+    cp config/database.yml.example config/database.yml
+
+Use your text editor to change the development, test, and/or production database configurations. Ask [faith.anne@gmail.com](http://github.com/faithanne) if you have any questions, or if you need access to the MOSH mysql server.
 
 Now get developing!
