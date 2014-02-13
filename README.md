@@ -21,6 +21,7 @@ Go into your projects directory
     cd projects
 
 Clone the repo
+
     git clone https://github.com/ArmstrongStudentWorkers/mosh2.git
 
 Go into the project
