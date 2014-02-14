@@ -23,7 +23,7 @@
     <td><%= hardware.assigned_to %></td>
     <td><%= hardware.specs %></td>
     <td><%= hardware.year %></td>
-    <td><%= hardware.hardware_status.name %></td>
+    <td><%= show_status(hardware.hardware_status.name) %></td>
     <td><%= hardware.hardware_status_comment %></td>
     <td><%= link_to hardware.workstation.name, hardware.workstation if hardware.workstation %></td>
     <td><%= link_to 'Edit', edit_hardware_path(hardware) %></td>

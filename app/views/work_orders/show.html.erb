@@ -10,7 +10,7 @@
       </tr>
       <tr>
         <th>Order status:</th>
-        <td><%= @work_order.order_status.name %></td>
+        <td><%= show_status(@work_order.order_status.name) %></td>
       </tr>
       <tr>
         <th>Comment:</th>

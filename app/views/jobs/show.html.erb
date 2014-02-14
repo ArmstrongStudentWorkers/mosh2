@@ -39,13 +39,13 @@
           <th>Posters:</th>
           <td>
             <% @job.posters.each do |poster| %>
-              <%= link_to poster.name, poster %> <%= poster.poster_status.name %><br>
+              <%= show_status(poster.poster_status.name) %>  <%= link_to poster.name, poster %><br>
             <% end %>
           </td>
         </tr>
         <tr>
           <th>Job status:</th>
-          <td><%= @job.job_status.name %></td>
+          <td><%= show_status(@job.job_status.name) %></td>
         </tr>
         <tr>
           <th>Your number in the queue:</th>

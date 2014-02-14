@@ -19,7 +19,7 @@
       <td><%= job.created_at.to_date %></td>
       <td><%= job.due_date.to_date if job.due_date %></td>
       <td><%= job.posters.count %></td>
-      <td><%= job.job_status.name if job.job_status_id %></td>
+      <td><%= show_status(job.job_status.name) %></td>
       <td>
         <%= link_to edit_job_path(job) do %>
           <i class="fa fa-edit"></i>

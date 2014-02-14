@@ -17,7 +17,7 @@
   <% @work_orders.each do |work_order| %>
     <tr>
       <td><%= link_to work_order.name, work_order %></td>
-      <td><%= work_order.order_status.name if work_order.order_status %></td>
+      <td><%= show_status(work_order.order_status.name) %></td>
       <td><%= work_order.comment %></td>
       <td><%= work_order.assignee %></td>
       <td><%= work_order.other_number %></td>

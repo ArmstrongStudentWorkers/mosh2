@@ -22,7 +22,7 @@
       <td><%= poster.length %></td>
       <td><%= poster.width %></td>
       <td><%= poster.special_request %></td>
-      <td><%= poster.poster_status.name if poster.poster_status %></td>
+      <td><%= show_status(poster.poster_status.name) %></td>
       <td><%= link_to 'Attachment url', poster.attachment.url %></td>
       <td><%= link_to 'Edit', edit_poster_path(poster) %></td>
       <td><%= link_to 'Destroy', poster, method: :delete, data: { confirm: 'Are you sure?' } %></td>

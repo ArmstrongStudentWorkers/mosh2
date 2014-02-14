@@ -12,7 +12,7 @@
     <tr>
       <td><%= link_to hardware.name, hardware %></td>
       <td><%= link_to hardware.workstation.name, hardware.workstation %></td>
-      <td><%= hardware.hardware_status.name %></td>
+      <td><%= show_status(hardware.hardware_status.name) %></td>
       <td><%= hardware.assigned_to %></td>
       <td>
         <%= link_to edit_hardware_path(hardware) do %>
