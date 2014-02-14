@@ -2,17 +2,25 @@
 
 The McCarthy Online Support Hub
 
-MOSH is a Ruby on Rails application offering the following services for the [Armstrong Atlantic State University] (http://www.armstrong.edu/) [Department of Computer Science and Information Technology] (http://www.armstrong.edu/Science_and_Technology/ice/ice_welcome).
+MOSH is a Ruby on Rails application offering the following services for the [Armstrong Atlantic State University] (http://www.armstrong.edu/) Department of [Computer Science and Information Technology] (http://www.armstrong.edu/Science_and_Technology/ice/ice_welcome):
 
   + Lab Module
     - Lab Overview
+    : An overview of CS/IT department computer labs, including lab hours, typical hardware setups, and installed software.
     - Inventory
+    : A list of CS/IT department hardware, organized by location, status, and hardware type.
     - Imaging
+    : An overview of software installed on CS/IT department computers, organized by lab.
     - After Hours Access
+    : A list of students granted access to CS/IT computer labs after hours.
   + Poster Module
+  : A module designed to allow faculty and staff of the College of Science and Technology to order posters.
   + Work Order Module
+  : A module designed to track interdepartmental work orders.
   + Supply Module
+  : A module designed to track printer ink and toner supplies.
   + Advisement Module
+  : A module designed to facilitate advisement for IT majors.
 
 ## Installation Instructions
 
