@@ -49,6 +49,7 @@ before_filter :management_filter
   def create
     workstation = Workstation.find(params[:workstation_id])
     @hardware = workstation.hardwares.new(params[:hardware])
+    @hardware.name_hardware
 
     respond_to do |format|
       if @hardware.save
