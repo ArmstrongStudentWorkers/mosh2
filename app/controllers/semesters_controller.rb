@@ -41,12 +41,13 @@ class SemestersController < ApplicationController
   # POST /semesters.json
   def create
     @semester = Semester.new(params[:semester])
-     @semester.start_date = DateTime.strptime(params[:semester][:start_date], '%m/%d/%Y').to_date
+    @semester.start_date = DateTime.strptime(params[:semester][:start_date], '%m/%d/%Y').to_date
     @semester.end_date = DateTime.strptime(params[:semester][:end_date], '%m/%d/%Y').to_date
     @semester.advisement_start = DateTime.strptime(params[:semester][:advisement_start], '%m/%d/%Y').to_date
     @semester.advisement_end = DateTime.strptime(params[:semester][:advisement_end], '%m/%d/%Y').to_date
+    @semester.name_semester
 
-   respond_to do |format|
+    respond_to do |format|
       if @semester.save
         format.html { redirect_to @semester, notice: 'Semester was successfully created.' }
         format.json { render json: @semester, status: :created, location: @semester }
