@@ -49,6 +49,7 @@ before_filter :management_filter
   def create
     location = Location.find(params[:location_id])
     @workstation = location.workstations.new(params[:workstation])
+    @workstation.name_workstation
 
     respond_to do |format|
       if @workstation.save

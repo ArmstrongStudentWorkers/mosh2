@@ -22,4 +22,7 @@ class Workstation < ActiveRecord::Base
     workstation_type = WorkstationType.where(name: type).first
     workstation_type.workstations.where(location_id: location_id)
   end
+  def name_workstation
+    self.name = "#{self.location.name} - #{self.number}"
+  end
 end
