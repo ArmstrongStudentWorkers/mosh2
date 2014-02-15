@@ -4,9 +4,10 @@ class AfterHoursAccessesController < ApplicationController
   def index
 
     @locations = LocationType.where(name: 'Lab').first.locations
+
     if params[:location]
       @location = Location.find(params[:location])
-      @after_hours_accesses = AfterHoursAccess.where(location_id: @location.id)
+      @after_hours_accesses = AfterHoursAccess.where(location_id: @location.id).paginate(page: params[:page])
     end
 
 

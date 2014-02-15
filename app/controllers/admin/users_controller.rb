@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   before_filter :admin_filter
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   def show

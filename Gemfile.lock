@@ -38,6 +38,8 @@ GEM
       railties (>= 3.0)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.0.4)
     capistrano (3.1.0)
       i18n
@@ -165,6 +167,7 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
   ruby
@@ -173,6 +176,7 @@ DEPENDENCIES
   annotate (>= 2.5.0)
   bootstrap-datepicker-rails
   bootstrap-sass (~> 2.3.2.0)
+  bootstrap-will_paginate
   capistrano (~> 3.1)
   capistrano-bundler (~> 1.1)
   capistrano-rails (~> 1.1)
@@ -189,3 +193,4 @@ DEPENDENCIES
   therubyracer
   thin
   uglifier (>= 1.0.3)
+  will_paginate

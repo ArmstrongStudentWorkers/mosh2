@@ -21,7 +21,7 @@ namespace :test_data do
     labs.each do |location|
       users.each do |user|
         Semester.all.each do |semester|
-          make_access(user, location, semester)
+          make_access(location, user, semester)
         end
       end
     end
