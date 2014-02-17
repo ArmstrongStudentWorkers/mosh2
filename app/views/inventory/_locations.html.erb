@@ -1,6 +1,6 @@
 <div class="accordion" id="accordion2">
   <h4>Workstations:</h4>
-  <% @location.workstations.each.with_index do |workstation,i| %>
+  <% @workstations.each.with_index do |workstation,i| %>
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= i %>">
@@ -32,3 +32,5 @@
 <%= link_to new_location_workstation_path(@location) do %>
   <i class="fa fa-plus"></i> Add Workstation
 <% end %>
+
+<%= will_paginate @workstations %>
