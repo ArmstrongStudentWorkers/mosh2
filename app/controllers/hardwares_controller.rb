@@ -7,7 +7,7 @@ before_filter :management_filter
   # GET /hardwares
   # GET /hardwares.json
   def index
-    @hardwares = Hardware.all
+    @hardwares = Hardware.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

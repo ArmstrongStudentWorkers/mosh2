@@ -7,7 +7,7 @@ before_filter :management_filter
   # GET /hours
   # GET /hours.json
   def index
-    @hours = Hour.all
+    @hours = Hour.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -7,7 +7,7 @@ class AfterHoursAccessesController < ApplicationController
 
     if params[:location]
       @location = Location.find(params[:location])
-      @after_hours_accesses = AfterHoursAccess.where(location_id: @location.id).paginate(page: params[:page])
+      @after_hours_accesses = AfterHoursAccess.where(location_id: @location.id).page(params[:page])
     end
 
 

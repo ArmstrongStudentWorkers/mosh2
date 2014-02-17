@@ -2,7 +2,7 @@ class PostersController < ApplicationController
   # GET /posters
   # GET /posters.json
   def index
-    @posters = Poster.all
+    @posters = Poster.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

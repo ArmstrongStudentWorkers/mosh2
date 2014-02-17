@@ -7,7 +7,7 @@ before_filter :management_filter
   # GET /workstations
   # GET /workstations.json
   def index
-    @workstations = Workstation.all
+    @workstations = Workstation.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

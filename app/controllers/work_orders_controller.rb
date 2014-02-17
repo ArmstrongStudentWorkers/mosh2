@@ -2,7 +2,7 @@ class WorkOrdersController < ApplicationController
   # GET /work_orders
   # GET /work_orders.json
   def index
-    @work_orders = WorkOrder.all
+    @work_orders = WorkOrder.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

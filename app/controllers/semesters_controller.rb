@@ -2,7 +2,7 @@ class SemestersController < ApplicationController
   # GET /semesters
   # GET /semesters.json
   def index
-    @semesters = Semester.all
+    @semesters = Semester.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
