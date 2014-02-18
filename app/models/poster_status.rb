@@ -11,4 +11,5 @@
 class PosterStatus < ActiveRecord::Base
   attr_accessible :name
   has_many :posters
+  has_paper_trail
 end

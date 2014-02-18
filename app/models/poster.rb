@@ -23,6 +23,7 @@ class Poster < ActiveRecord::Base
   belongs_to :poster_status
   has_attached_file :attachment
   validates_attachment :attachment, content_type: { content_type: "application/pdf" }
+  has_paper_trail
 
   def set_pending
     self.poster_status = PosterStatus.where(name: "Pending").first

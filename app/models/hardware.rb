@@ -25,7 +25,8 @@ class Hardware < ActiveRecord::Base
   belongs_to :hardware_type
   belongs_to :workstation
   has_many :work_orders
-
+  has_paper_trail
+  
   def name_hardware
     self.name = "#{self.manufacturer}: #{self.model_number} #{self.hardware_type.name}"
   end

@@ -15,6 +15,7 @@ class Job < ActiveRecord::Base
   has_many :posters
   belongs_to :user
   belongs_to :job_status
+  has_paper_trail
 
   def set_pending
     self.job_status = JobStatus.where(name: "Pending").first

@@ -11,4 +11,5 @@
 class Term < ActiveRecord::Base
   attr_accessible :name
   has_many :semesters
+  has_paper_trail
 end

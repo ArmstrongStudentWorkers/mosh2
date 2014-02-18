@@ -11,4 +11,5 @@
 class HardwareType < ActiveRecord::Base
   attr_accessible :name
   has_many :hardwares
+  has_paper_trail
 end

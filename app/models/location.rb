@@ -17,4 +17,5 @@ class Location < ActiveRecord::Base
   has_many :workstations
   has_one :hour
   has_many :after_hours_accesses
+  has_paper_trail
 end
