@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'paper_trail', '~> 3.0.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
