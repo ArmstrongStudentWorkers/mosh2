@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <h1>Hello <%= "#{current_user.name}, your poster job # #{job.id}" %> has been received.</h1>
+  <p>The due date of this poster is <%= "#{job.due_date.to_date} %>. Please note that poster orders recieved within 48 hours of their due date are not guaranteed.</p>
+  <p>You may view the status of your job at this link: <% @url %>.</p>
+  <p>You will be notified once your order is complete. Please reply if you have any questions.</p><br>
+  <p>Thank you,</p>
+  <p>MOSH Admin</p?
+  </body>
+</html>
