@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'MOSH'
+set :application, 'mosh'
 set :repo_url, 'git@github.com:ArmstrongStudentWorkers/mosh2.git'
 set :branch, 'master'
 
