@@ -1,9 +1,12 @@
 class PosterMailer < ActionMailer::Base
   default from: "mosh.system@gmail.com"
 
-  def new_job(job)
-    @user = current_user
-    @url = 'http://mosh.c-mccarthy.com/jobs/#{job.id}'
-    mail(to: @user.email, subject: "Your Poster Job #{job.id}")
+  def new_job(poster_overview_id, current_user_id)
+  
+    @user = User.where(id: current_user_id).first
+    @poster_overview = PosterOverview.where(id: poster_overview_id).first
+    @job = @poster_overview.job
+    @url = 'http://mosh.c-mccarthy.com/poster_overview/#{poster_overview_id}'
+    mail(to: @user.email, subject: "Your Poster Job #{poster_overview_id}")
   end
 end
