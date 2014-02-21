@@ -1,4 +1,4 @@
-<h1>Listing Poster Jobs</h1>
+<h1>All Poster Jobs</h1>
 
 <table class="table table-bordered table-striped">
   <tr>
@@ -12,7 +12,7 @@
     <th>Destroy</th>
   </tr>
 
-  <% current_user.jobs.each do |job| %>
+  <% @jobs.each do |job| %>
     <tr>
       <td><%= link_to job.id, job %></td>
       <td><%= job.user.email if job.user %></td>
@@ -33,11 +33,5 @@
     </tr>
   <% end %>
 </table>
-
-<br />
-
-<%= link_to new_job_path do %>
-  <i class="fa fa-plus"></i> Add New Poster Job
-<% end %>
 
 <%= will_paginate @jobs %>

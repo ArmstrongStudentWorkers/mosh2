@@ -43,6 +43,7 @@ class JobsController < ApplicationController
     @job = current_user.jobs.new(params[:job])
     @job.set_pending
     @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
+    @job.finalize = false;
 
     respond_to do |format|
       if @job.save
@@ -69,6 +70,23 @@ class JobsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def finalize
+    @job = Job.find(params[:job_id])
+    @job.set_finalize
+
+    if @job.save
+
+      @poster_overview = PosterOverview.create!(id: @job.id, job_id: @job.id)
+      if @poster_overview.save
+        PosterMailer.new_job(@poster_overview.id, current_user.id).deliver 
+      end
+
+      redirect_to @poster_overview, notice: 'Your job was finalized.'
+    else
+      redirect_to @job, notice: 'Your job could not be finalized.'
     end
   end
 

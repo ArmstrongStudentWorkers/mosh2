@@ -11,7 +11,8 @@
 #
 
 class Job < ActiveRecord::Base
-  attr_accessible :due_date, :user_id, :job_status_id
+  attr_accessible :due_date, :user_id, :job_status_id, :finalize
+  has_one :poster_overview
   has_many :posters
   belongs_to :user
   belongs_to :job_status
@@ -26,4 +27,8 @@ class Job < ActiveRecord::Base
   def set_denied
     self.job_status = JobStatus.where(name: "Denied").first
   end
+  def set_finalize
+    self.finalize = true
+  end
+
 end
