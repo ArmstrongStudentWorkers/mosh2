@@ -22,3 +22,6 @@ public/system/*
 
 # Ignore database.yml
 config/database.yml
+
+# Ignore smtp settings initializer
+config/initializers/smtp_settings.rb
