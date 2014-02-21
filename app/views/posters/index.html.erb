@@ -10,8 +10,8 @@
     <th>Special request</th>
     <th>Poster status</th>
     <th></th>
-    <th></th>
-    <th></th>
+    <th>Edit</th>
+    <th>Destroy</th>
   </tr>
 
   <% @posters.each do |poster| %>
@@ -24,8 +24,16 @@
       <td><%= poster.special_request %></td>
       <td><%= show_status(poster.poster_status.name) %></td>
       <td><%= link_to 'Attachment url', poster.attachment.url %></td>
-      <td><%= link_to 'Edit', edit_poster_path(poster) %></td>
-      <td><%= link_to 'Destroy', poster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <%= link_to edit_poster_path(poster) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to poster, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
