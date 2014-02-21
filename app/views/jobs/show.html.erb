@@ -6,13 +6,27 @@
 
     <div class="row job-actions">
 
-      <%= link_to 'Add Poster to Job', new_job_poster_path(@job), class: 'btn btn-medium btn-primary' %>
+      <div class="span3">
+        <%= link_to 'Add Poster to Job', new_job_poster_path(@job), class: 'btn btn-block btn-large btn-primary' %>
+      </div>
+      <div class="span3">      
+        <%= link_to 'Finalize Job', job_finalize_path(@job), method: :put, class: 'btn btn-large btn-block btn-success' unless @job.finalize %>
+      </div>      
+    </div>      
+
+    <div class="row job-actions">
       <% if current_user.management %>
         <% if @job.job_status.name == "Pending" %>
-          <%= link_to 'Finish Job', job_finish_path(@job), method: :put, class: 'btn btn-medium btn-success' %>
-          <%= link_to 'Deny Job', job_deny_path(@job), method: :put, class: 'btn btn-medium btn-danger' %>
+          <div class="span3">
+            <%= link_to 'Finish Job', job_finish_path(@job), method: :put, class: 'btn btn-medium btn-block btn-info' %>
+          </div>
+          <div class="span3">        
+            <%= link_to 'Deny Job', job_deny_path(@job), method: :put, class: 'btn btn-medium btn-block btn-danger' %>
+          </div>
         <% else %>
-          <%= link_to 'Pend Job', job_pend_path(@job), method: :put, class: 'btn btn-medium btn-warning' %>
+          <div class="span3">  
+            <%= link_to 'Pend Job', job_pend_path(@job), method: :put, class: 'btn btn-block btn-medium btn-warning' %>
+          </div>
         <% end %>
       <% end %>
     </div>

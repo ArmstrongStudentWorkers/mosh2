@@ -3,7 +3,7 @@
 <h2>Poster Details</h2>
 
 <% if !current_user.management %>
-  <div class="row" id="poster_directions">
+  <div class="row text-center" id="poster_directions">
     <h5>Please review your poster specs. Press Edit to make changes, or Save once you are ready to submit.</h5>
   </div>
 <% end %>
@@ -48,19 +48,30 @@
         <td><%=link_to 'Attachment url', @poster.attachment.url %></td>
       </tr>
     </table>
-  </div>
 
-  <div class="span4">
-    <% if current_user.management %>
-      <% if @poster.poster_status.name == "Pending" %>
-        <%= link_to 'Finish Poster', poster_finish_path(@poster), method: :put, class: 'btn btn-medium btn-success' %>
-        <%= link_to 'Deny Poster', poster_deny_path(@poster), method: :put, class: 'btn btn-medium btn-danger' %>
-      <% else %>
-        <%= link_to 'Pend Poster', poster_pend_path(@poster), method: :put, class: 'btn btn-medium btn-inverse' %>
+    <div class="row job-actions">
+      <div class="span2">    
+        <%= link_to('Edit', edit_poster_path(@poster), :class => 'btn btn-block btn-medium btn-warning') %>
+      </div>
+      <div class="span2">
+        <%= link_to('Save', @poster.job, :class => 'btn btn-block btn-medium btn-success') %>
+      </div>
+    </div>
+    <div class="row">    
+      <% if current_user.management %>
+        <% if @poster.poster_status.name == "Pending" %>
+          <div class="span2">
+            <%= link_to 'Finish Poster', poster_finish_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-success' %>
+          </div>
+          <div class="span2">
+            <%= link_to 'Deny Poster', poster_deny_path(@poster), method: :put, class: 'btn btn-medium btn-block btn-danger' %>
+          </div>      
+        <% else %>
+          <div class="span2">
+            <%= link_to 'Pend Poster', poster_pend_path(@poster), method: :put, class: 'btn btn-medium btn-warning btn-block' %>
+          </div>
+        <% end %>
       <% end %>
-    <% else %>  
-      <%= link_to('Edit', edit_poster_path(@poster), :class => 'btn btn-medium btn-warning') %>
-      <%= link_to('Save', @poster.job, :class => 'btn btn-medium btn-success') %>
-    <% end %>
+    </div>
   </div>
 </div>
