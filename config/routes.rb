@@ -6,7 +6,7 @@ Mosh2::Application.routes.draw do
   resources :poster_statuses
   
   resources :posters do
-    put "finish", "deny", "pend"
+    put "finish", "deny", "pend", "print"
   end
 
   resources :job_statuses

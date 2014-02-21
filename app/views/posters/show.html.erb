@@ -58,13 +58,20 @@
       </div>
     </div>
     <div class="row">    
+      <div class="span1">
+        Set Status:
+      </div>
+      
       <% if current_user.management %>
         <% if @poster.poster_status.name == "Pending" %>
-          <div class="span2">
-            <%= link_to 'Finish Poster', poster_finish_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-success' %>
+          <div class="span1">
+            <%= link_to 'Printing', poster_print_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-info' %>
           </div>
-          <div class="span2">
-            <%= link_to 'Deny Poster', poster_deny_path(@poster), method: :put, class: 'btn btn-medium btn-block btn-danger' %>
+          <div class="span1">
+            <%= link_to 'Finished', poster_finish_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-success' %>
+          </div>
+          <div class="span1">
+            <%= link_to 'Denied', poster_deny_path(@poster), method: :put, class: 'btn btn-medium btn-block btn-danger' %>
           </div>      
         <% else %>
           <div class="span2">

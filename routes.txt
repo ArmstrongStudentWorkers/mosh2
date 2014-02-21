@@ -15,6 +15,7 @@
                    poster_finish PUT    /posters/:poster_id/finish(.:format)                            posters#finish
                      poster_deny PUT    /posters/:poster_id/deny(.:format)                              posters#deny
                      poster_pend PUT    /posters/:poster_id/pend(.:format)                              posters#pend
+                    poster_print PUT    /posters/:poster_id/print(.:format)                             posters#print
                          posters GET    /posters(.:format)                                              posters#index
                                  POST   /posters(.:format)                                              posters#create
                       new_poster GET    /posters/new(.:format)                                          posters#new

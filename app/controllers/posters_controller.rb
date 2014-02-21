@@ -72,6 +72,17 @@ class PostersController < ApplicationController
     end
   end
 
+  def print
+    @poster = Poster.find(params[:poster_id])
+    @poster.set_printing
+
+    if @poster.save
+      redirect_to @poster, notice: 'Poster is printing.'
+    else
+      redirect_to @poster, notice: 'Poster status could not be set to Printing.'
+    end
+  end
+  
   def finish
     @poster = Poster.find(params[:poster_id])
     @poster.set_finished
