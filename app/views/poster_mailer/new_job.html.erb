@@ -4,8 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-  <h1>Hello <%= @user.name %>, your poster job # <%= @poster_overview.id %> has been received.</h1>
-  <p>The due date of this poster is <%= @date %>. Please note that poster orders received within 48 hours of their due date are not guaranteed.</p>
+  <h1>Hello <%= @user.name %>, your poster job #<%= @poster_overview.id %> has been received.</h1>
+  <p>Your order contains the following:</p>
+  <ul>
+    <% @posters.each do |poster| %>
+      <li><%= poster.name %></li>
+    <% end %>
+  </ul>
+  <p>The due date of this poster job is <%= @date %>. Please note that poster orders received within 48 hours of their due date are not guaranteed.</p>
   <p>You may view the status of your job at this link: <%= @url %>.</p>
   <p>You will be notified once your order is complete. Please reply if you have any questions.</p><br>
   <p>Thank you,</p>

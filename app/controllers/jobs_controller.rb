@@ -82,7 +82,9 @@ class JobsController < ApplicationController
       @poster_overview = PosterOverview.create!(id: @job.id, job_id: @job.id)
       if @poster_overview.save
         @date = @job.format_date
-        PosterMailer.new_job(@poster_overview.id, current_user.id, @date).deliver 
+        @posters = @job.posters
+        PosterMailer.new_job(@poster_overview.id, current_user.id, @date, @posters).deliver 
+        PosterMailer.new_job_alert(current_user.id, @date, @job.id).deliver
       end
 
       redirect_to @poster_overview, notice: 'Your job was finalized.'

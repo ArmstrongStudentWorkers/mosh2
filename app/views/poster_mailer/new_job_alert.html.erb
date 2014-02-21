@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <h1>New Poster Job #<%= @job_id %>!</h1>
+    <p>
+      A new poster order has been placed by <%= @user.name %>, due on <%= @date %>. Please log in to MOSH and to view the poster job's details.<br/>
+    </p>
+    <p>
+      Link: <%= @url %> 
+    </p><br/>
+    <p>Thank you!</p>
+    <p>MOSH System Admin</p>
+  </body>
+</html>

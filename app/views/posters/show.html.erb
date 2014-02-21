@@ -2,7 +2,7 @@
 
 <h2>Poster Details</h2>
 
-<% if !current_user.management %>
+<% if !current_user.management and @poster.job.finalize %>
   <div class="row text-center" id="poster_directions">
     <h5>Please review your poster specs. Press Edit to make changes, or Save once you are ready to submit.</h5>
   </div>
@@ -51,10 +51,10 @@
 
     <div class="row job-actions">
       <div class="span2">    
-        <%= link_to('Edit', edit_poster_path(@poster), :class => 'btn btn-block btn-medium btn-warning') %>
+        <%= link_to('Edit', edit_poster_path(@poster), :class => 'btn btn-block btn-medium btn-warning') unless @poster.job.finalize %>
       </div>
       <div class="span2">
-        <%= link_to('Save', @poster.job, :class => 'btn btn-block btn-medium btn-success') %>
+        <%= link_to('Save', @poster.job, :class => 'btn btn-block btn-medium btn-success') unless @poster.job.finalize %>
       </div>
     </div>
     <div class="row">    

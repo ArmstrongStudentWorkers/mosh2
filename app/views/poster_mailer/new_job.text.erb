@@ -1,6 +1,11 @@
-Hello, <%= @user.name %>, your poster job # <%= @poster_overview.id %> has been received.
+Hello, <%= @user.name %>, your poster job #<%= @poster_overview.id %> has been received.
 
-The due date of this poster is <%= @date %>. Please note that poster orders received within 48 hours of their due date are not guaranteed.
+Your order contains the following:
+<% @posters.each do |poster| %>
+  <%= poster.name %>
+<% end %>
+
+The due date of this poster job is <%= @date %>. Please note that poster orders received within 48 hours of their due date are not guaranteed.
 
 You may view the status of your job as this link: <%= @url %>.
 

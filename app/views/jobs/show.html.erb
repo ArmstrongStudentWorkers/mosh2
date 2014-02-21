@@ -7,7 +7,7 @@
     <div class="row job-actions">
 
       <div class="span3">
-        <%= link_to 'Add Poster to Job', new_job_poster_path(@job), class: 'btn btn-block btn-large btn-primary' %>
+        <%= link_to 'Add Poster to Job', new_job_poster_path(@job), class: 'btn btn-block btn-large btn-primary' unless @job.finalize %>
       </div>
       <div class="span3">      
         <%= link_to 'Finalize Job', job_finalize_path(@job), method: :put, class: 'btn btn-large btn-block btn-success' unless @job.finalize %>
