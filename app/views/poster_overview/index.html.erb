@@ -1,0 +1,25 @@
+<h1>Your Poster Jobs</h1>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Job ID</th>
+    <th>User</th>
+    <th>Created at</th>
+    <th>Due date</th>
+    <th># Posters</th>
+    <th>Status</th>
+  </tr>
+
+  <% current_user.jobs.each do |job| %>
+    <tr>
+      <td><%= link_to job.id, job %></td>
+      <td><%= job.user.email if job.user %></td>
+      <td><%= job.created_at.to_date %></td>
+      <td><%= job.due_date.to_date if job.due_date %></td>
+      <td><%= job.posters.count %></td>
+      <td><%= show_status(job.job_status.name) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @jobs %>

@@ -1,0 +1,44 @@
+<h2>Your Poster Job Details</h2>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <div class="row">
+      <table class="table table-bordered">
+        <tr>
+          <th>Job ID:</th>
+          <td><%= @job.id %></td>
+        </tr>
+        <tr>
+          <th>User:</th>
+          <td><%= @job.user.email %></td>
+        </tr>
+        <tr>
+          <th>Created at:</th>
+          <td><%= @job.created_at.to_date %></td>
+        </tr>
+        <tr>
+          <th>Due date:</th>
+          <td><%= @job.due_date.to_date %></td>
+        </tr>
+        <tr>
+          <th>Posters:</th>
+          <td>
+            <% @job.posters.each do |poster| %>
+              <%= show_status(poster.poster_status.name) %>  <%= link_to poster.name, poster %><br>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>Job status:</th>
+          <td><%= show_status(@job.job_status.name) %></td>
+        </tr>
+        <tr>
+          <th>Your number in the queue:</th>
+          <td><%= get_queue(@job) %></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
