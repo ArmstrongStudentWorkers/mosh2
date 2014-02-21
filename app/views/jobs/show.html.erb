@@ -43,11 +43,11 @@
         </tr>
         <tr>
           <th>Created at:</th>
-          <td><%= @job.created_at.to_date %></td>
+          <td><%= format_date(@job.created_at) %></td>
         </tr>
         <tr>
           <th>Due date:</th>
-          <td><%= @job.due_date.to_date %></td>
+          <td><%= format_date(@job.due_date) %></td>
         </tr>
         <tr>
           <th>Posters:</th>

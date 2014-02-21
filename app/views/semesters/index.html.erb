@@ -18,10 +18,10 @@
     <td><%= link_to semester.name, semester %></td>
     <td><%= semester.term.name %></td>
     <td><%= semester.year %></td>
-    <td><%= semester.start_date.to_date %></td>
-    <td><%= semester.end_date.to_date %></td>
-    <td><%= semester.advisement_start.to_date %></td>
-    <td><%= semester.advisement_end.to_date %></td>
+    <td><%= format_date(semester.start_date) %></td>
+    <td><%= format_date(semester.end_date) %></td>
+    <td><%= format_date(semester.advisement_start) %></td>
+    <td><%= format_date(semester.advisement_end) %></td>
     <td><%= link_to 'Edit', edit_semester_path(semester) %></td>
     <td><%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

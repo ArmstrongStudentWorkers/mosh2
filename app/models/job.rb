@@ -18,6 +18,10 @@ class Job < ActiveRecord::Base
   belongs_to :job_status
   has_paper_trail
 
+  def format_date
+    self.due_date.strftime('%m/%d/%Y')
+  end
+
   def set_pending
     self.job_status = JobStatus.where(name: "Pending").first
   end

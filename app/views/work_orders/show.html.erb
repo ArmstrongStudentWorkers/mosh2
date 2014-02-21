@@ -22,11 +22,11 @@
       </tr>
       <tr>
         <th>Request date:</th>
-        <td><%= @work_order.created_at.to_date %></td>
+        <td><%= format_date(@work_order.created_at) %></td>
       </tr>
       <tr>
         <th>Closed date:</th>
-        <td><%= @work_order.closed_date.to_date %></td>
+        <td><%= format_date(@work_order.closed_date) %></td>
       </tr>
       <tr>
         <th>Assigned to:</th>

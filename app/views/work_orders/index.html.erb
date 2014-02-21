@@ -22,8 +22,8 @@
       <td><%= work_order.assignee %></td>
       <td><%= work_order.other_number %></td>
       <td><%= work_order.user.name %></td>
-      <td><%= work_order.created_at.to_date %></td>
-      <td><%= work_order.closed_date.to_date %></td>
+      <td><%= format_date(work_order.created_at) %></td>
+      <td><%= format_date(work_order.closed_date) %></td>
       <td>
         <%= link_to edit_work_order_path(work_order) do %>
           <i class="fa fa-edit"></i>

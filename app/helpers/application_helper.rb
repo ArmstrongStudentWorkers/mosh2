@@ -33,6 +33,9 @@ module ApplicationHelper
     end
   end
 
+  def format_date(datetime)
+    datetime.strftime('%m/%d/%Y')
+  end
 
   def active_page?(page, current_step)
     'active' if page == current_step
