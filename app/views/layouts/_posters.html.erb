@@ -1,10 +1,15 @@
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <i class="fa fa-print"></i> Posters
-    <b class="caret"></b>
-  </a>
-  <ul class="dropdown-menu">
-    <li><%= link_to 'Create New Poster Job', new_job_path %></li>
-    <li><%= link_to 'View my Poster Jobs', jobs_path %></li>
-  </ul>
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+  <i class="fa fa-print"></i> Posters
+  <b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+  <li><%= link_to 'Create New Poster Job', new_job_path %></li>
+  <li><%= link_to 'View My Poster Jobs', poster_overview_index_path %></li>
+  <% if current_user.management %>
+    <li class="divider"></li>
+    <li><%= link_to 'All Poster Jobs', jobs_path %></li>
+    <li><%= link_to 'All Posters', posters_path %></li> 
+  <% end %>
+</ul>
 </li>
