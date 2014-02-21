@@ -7,15 +7,26 @@ class PosterMailer < ActionMailer::Base
     @date = date
     @url = "http://mosh.c-mccarthy.com:3000/poster_overview/#{poster_overview_id}"
     @posters = posters
-    mail(to: @user.email, subject: "Your Poster Job #{poster_overview_id}")
+    mail(to: @user.email, subject: "Your Poster Job ##{poster_overview_id}")
   end
 
-  def new_job_alert(current_user_id, date, job_id)
-    @user = User.where(id: current_user_id).first
+  def new_job_alert(user_id, date, job_id)
+    @user = User.where(id: user_id).first
     @date = date
     @url = "http://mosh.c-mccarthy.com:3000/jobs/#{job_id}"
     @job_id = job_id
-    mail(to: "mosh.system@gmail.com", subject: "New Poster Job received, due #{date}")
+    mail(to: "mosh.system@gmail.com", subject: "New Poster Job ##{job_id} received, due #{date}")
   end
 
+  def job_finished(job_id, user_id)
+    @user = User.where(id: user_id).first
+    @job_id = job_id
+    mail(to: @user.email, subject: "Your Poster Job ##{job_id} is complete")
+  end
+
+  def job_finished_alert(job_id, user_id)
+    @user = User.where(id: user_id).first
+    @job_id = job_id
+    mail(to: "mosh.system@gmail.com", subject: "Poster Job ##{job_id} is complete")
+  end
 end

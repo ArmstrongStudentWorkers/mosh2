@@ -84,7 +84,7 @@ class JobsController < ApplicationController
         @date = @job.format_date
         @posters = @job.posters
         PosterMailer.new_job(@poster_overview.id, current_user.id, @date, @posters).deliver 
-        PosterMailer.new_job_alert(current_user.id, @date, @job.id).deliver
+        PosterMailer.new_job_alert(@job.user.id, @date, @job.id).deliver
       end
 
       redirect_to @poster_overview, notice: 'Your job was finalized.'
@@ -98,6 +98,8 @@ class JobsController < ApplicationController
     @job.set_finished
 
     if @job.save
+      PosterMailer.job_finished(@job.id, @job.user.id).deliver
+      PosterMailer.job_finished_alert(@job.id, @job.user.id).deliver
       redirect_to @job, notice: 'Job was successfully finished.'
     else
       redirect_to @job, notice: 'Job could not be finished.'
