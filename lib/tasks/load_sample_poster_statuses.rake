@@ -4,7 +4,7 @@ namespace :test_data do
     puts 'Deleting all PosterStatuses.'
     PosterStatus.delete_all
 
-    names = ['Pending', 'Finished', 'Denied']
+    names = ['Pending', 'Printing', 'Finished', 'Denied']
     names.each do |name|
       puts "Creating Poster Status: #{name}."
       PosterStatus.create!(name: name)
