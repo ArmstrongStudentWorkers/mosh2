@@ -1,41 +1,60 @@
 <h1>Listing posters</h1>
 
-<table class="table table-bordered table-striped">
-  <tr>
-    <th>Job</th>
-    <th>User</th>
-    <th>Title</th>
-    <th>Length</th>
-    <th>Width</th>
-    <th>Special request</th>
-    <th>Poster status</th>
-    <th></th>
-    <th>Edit</th>
-    <th>Destroy</th>
-  </tr>
+<p>
+<div class="row">
+  <div class="span2.5 poster-index-label">
+    <p>Search by status:</p>
+  </div>
+  <div class="span4">
+    <%= form_tag(posters_path, method: 'get', class: 'form-inline') do %>
+      <%= select_tag('poster_status', options_from_collection_for_select(@poster_statuses, :id, :name)) %>
+      <%= submit_tag('Search', class: 'btn btn-medium btn-info') %>
+    <% end %>
+  </div>
+</div>
+</p>
 
-  <% @posters.each do |poster| %>
+<% if @posters %>
+
+  <h5><%= @poster_status.name %> Posters:</h5>
+  <table class="table table-bordered table-striped">
     <tr>
-      <td><%= link_to "Job #{poster.job_id}", poster.job %></td>
-      <td><%= poster.job.user.email if poster.job %></td>
-      <td><%= link_to poster.name, poster %></td>
-      <td><%= poster.length %></td>
-      <td><%= poster.width %></td>
-      <td><%= poster.special_request %></td>
-      <td><%= show_status(poster.poster_status.name) %></td>
-      <td><%= link_to 'Attachment url', poster.attachment.url %></td>
-      <td>
-        <%= link_to edit_poster_path(poster) do %>
-          <i class="fa fa-edit"></i>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to poster, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="fa fa-trash-o"></i>
-        <% end %>
-      </td>
+      <th>Job</th>
+      <th>User</th>
+      <th>Title</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th>Special request</th>
+      <th>Poster status</th>
+      <th></th>
+      <th>Edit</th>
+      <th>Destroy</th>
     </tr>
-  <% end %>
-</table>
 
-<%= will_paginate @posters %>
+    <% @posters.each do |poster| %>
+      <tr>
+        <td><%= link_to "Job #{poster.job_id}", poster.job %></td>
+        <td><%= poster.job.user.email if poster.job %></td>
+        <td><%= link_to poster.name, poster %></td>
+        <td><%= poster.length %></td>
+        <td><%= poster.width %></td>
+        <td><%= poster.special_request %></td>
+        <td><%= show_status(poster.poster_status.name) %></td>
+        <td><%= link_to 'Attachment url', poster.attachment.url %></td>
+        <td>
+          <%= link_to edit_poster_path(poster) do %>
+            <i class="fa fa-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to poster, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate @posters %>
+
+<% end %>

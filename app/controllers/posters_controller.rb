@@ -2,8 +2,13 @@ class PostersController < ApplicationController
   # GET /posters
   # GET /posters.json
   def index
-    @posters = Poster.page(params[:page])
+    @poster_statuses = PosterStatus.all
 
+    if params[:poster_status]
+      @poster_status = PosterStatus.find(params[:poster_status])
+      @posters = @poster_status.posters.page(params[:page])
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posters }
