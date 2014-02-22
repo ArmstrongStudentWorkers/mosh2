@@ -1,73 +1,71 @@
 <%= render 'shared/progress', page: 'review' %>
 <h2>Poster Job Details</h2>
 
+
+<div class="row job-actions">
+  <div class="span3 offset3">
+    <%= link_to 'Add Poster to Job', new_job_poster_path(@job), class: 'btn btn-block btn-large btn-primary' unless @job.finalize %>
+  </div>
+  <div class="span3">      
+    <%= link_to 'Finalize Job', job_finalize_path(@job), method: :put, class: 'btn btn-large btn-block btn-success' unless @job.finalize %>
+  </div>      
+</div>      
+
+<div class="row job-actions">
+  <% if current_user.management %>
+    <% if @job.job_status.name == "Pending" %>
+      <div class="span3 offset3">
+        <%= link_to 'Finish Job', job_finish_path(@job), method: :put, class: 'btn btn-medium btn-block btn-info' %>
+      </div>
+      <div class="span3">        
+        <%= link_to 'Deny Job', job_deny_path(@job), method: :put, class: 'btn btn-medium btn-block btn-danger' %>
+      </div>
+    <% else %>
+      <div class="span3 offset3">  
+        <%= link_to 'Pend Job', job_pend_path(@job), method: :put, class: 'btn btn-block btn-medium btn-warning' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="row">
   <div class="span6 offset3">
-
-    <div class="row job-actions">
-
-      <div class="span3">
-        <%= link_to 'Add Poster to Job', new_job_poster_path(@job), class: 'btn btn-block btn-large btn-primary' unless @job.finalize %>
-      </div>
-      <div class="span3">      
-        <%= link_to 'Finalize Job', job_finalize_path(@job), method: :put, class: 'btn btn-large btn-block btn-success' unless @job.finalize %>
-      </div>      
-    </div>      
-
-    <div class="row job-actions">
-      <% if current_user.management %>
-        <% if @job.job_status.name == "Pending" %>
-          <div class="span3">
-            <%= link_to 'Finish Job', job_finish_path(@job), method: :put, class: 'btn btn-medium btn-block btn-info' %>
-          </div>
-          <div class="span3">        
-            <%= link_to 'Deny Job', job_deny_path(@job), method: :put, class: 'btn btn-medium btn-block btn-danger' %>
-          </div>
-        <% else %>
-          <div class="span3">  
-            <%= link_to 'Pend Job', job_pend_path(@job), method: :put, class: 'btn btn-block btn-medium btn-warning' %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="row">
-      <table class="table table-bordered">
-        <tr>
-          <th>Job ID:</th>
-          <td><%= @job.id %></td>
-        </tr>
-        <tr>
-          <th>User:</th>
-          <td><%= @job.user.email %></td>
-        </tr>
-        <tr>
-          <th>Created at:</th>
-          <td><%= format_date(@job.created_at) %></td>
-        </tr>
-        <tr>
-          <th>Due date:</th>
-          <td><%= format_date(@job.due_date) %></td>
-        </tr>
-        <tr>
-          <th>Posters:</th>
-          <td>
-            <% @job.posters.each do |poster| %>
-              <%= show_status(poster.poster_status.name) %>  <%= link_to poster.name, poster %><br>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>Job status:</th>
-          <td><%= show_status(@job.job_status.name) %></td>
-        </tr>
-        <tr>
-          <th>Your number in the queue:</th>
-          <td><%= get_queue(@job) %></td>
-        </tr>
-      </table>
-    </div>
+    <table class="table table-bordered">
+      <tr>
+        <th>Job ID:</th>
+        <td><%= @job.id %></td>
+      </tr>
+      <tr>
+        <th>User:</th>
+        <td><%= @job.user.email %></td>
+      </tr>
+      <tr>
+        <th>Created at:</th>
+        <td><%= format_date(@job.created_at) %></td>
+      </tr>
+      <tr>
+        <th>Due date:</th>
+        <td><%= format_date(@job.due_date) %></td>
+      </tr>
+      <tr>
+        <th>Posters:</th>
+        <td>
+          <% @job.posters.each do |poster| %>
+            <%= show_status(poster.poster_status.name) %>  <%= link_to poster.name, poster %><br>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>Job status:</th>
+        <td><%= show_status(@job.job_status.name) %></td>
+      </tr>
+      <tr>
+        <th>Your number in the queue:</th>
+        <td><%= get_queue(@job) %></td>
+      </tr>
+    </table>
 
     <%= link_to 'Edit Job', edit_job_path(@job) %> | <%= link_to 'Back', jobs_path %>
   </div>
 </div>
+

@@ -44,7 +44,11 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = current_user.jobs.new(params[:job])
+    if params[:user] 
+      @job = Job.new(params[:job])
+    else
+      @job = current_user.jobs.new(params[:job])
+    end
     @job.set_pending
     @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
     @job.finalize = false;
