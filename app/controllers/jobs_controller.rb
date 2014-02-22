@@ -2,8 +2,12 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.page(params[:page])
+    @job_statuses = JobStatus.all
 
+    if params[:job_status]
+      @job_status = JobStatus.find(params[:job_status])
+      @jobs = @job_status.jobs.page(params[:page])
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @jobs }

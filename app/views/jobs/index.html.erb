@@ -1,37 +1,56 @@
-<h1>All Poster Jobs</h1>
+<h1>View Poster Jobs</h1>
 
-<table class="table table-bordered table-striped">
-  <tr>
-    <th>Job ID</th>
-    <th>User</th>
-    <th>Created at</th>
-    <th>Due date</th>
-    <th># Posters</th>
-    <th>Status</th>
-    <th>Edit</th>
-    <th>Destroy</th>
-  </tr>
+<p>
+<div class="row">
+  <div class="span2.5 job-index-label">
+    <p>Search by status:</p>
+  </div>
+  <div class="span4">
+    <%= form_tag(jobs_path, method: 'get', class: 'form-inline') do %>
+      <%= select_tag('job_status', options_from_collection_for_select(@job_statuses, :id, :name)) %>
+      <%= submit_tag('Search', class: 'btn btn-medium btn-info') %>
+    <% end %>
+  </div>
+</div>
+</p> 
 
-  <% @jobs.each do |job| %>
+<% if @jobs %> 
+  
+  <h5><%= @job_status.name %> Jobs:</h5>
+  <table class="table table-bordered table-striped">
     <tr>
-      <td><%= link_to job.id, job %></td>
-      <td><%= job.user.email if job.user %></td>
-      <td><%= format_date(job.created_at) %></td>
-      <td><%= format_date(job.due_date) if job.due_date %></td>
-      <td><%= job.posters.count %></td>
-      <td><%= show_status(job.job_status.name) %></td>
-      <td>
-        <%= link_to edit_job_path(job) do %>
-          <i class="fa fa-edit"></i>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to job, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="fa fa-trash-o"></i>
-        <% end %>
-      </td>
+      <th>Job ID</th>
+      <th>User</th>
+      <th>Created at</th>
+      <th>Due date</th>
+      <th># Posters</th>
+      <th>Status</th>
+      <th>Edit</th>
+      <th>Destroy</th>
     </tr>
-  <% end %>
-</table>
 
-<%= will_paginate @jobs %>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to job.id, job %></td>
+        <td><%= job.user.email if job.user %></td>
+        <td><%= format_date(job.created_at) %></td>
+        <td><%= format_date(job.due_date) if job.due_date %></td>
+        <td><%= job.posters.count %></td>
+        <td><%= show_status(job.job_status.name) %></td>
+        <td>
+          <%= link_to edit_job_path(job) do %>
+            <i class="fa fa-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to job, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate @jobs %>
+
+<% end %>
