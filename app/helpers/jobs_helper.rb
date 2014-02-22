@@ -1,5 +1,13 @@
 module JobsHelper
 
+  def get_finalized(finalize)
+    if finalize
+      "<span class='label label-important'>Not Finalized</span>".html_safe      
+    else
+      "<span class='label label-success'>Ok!</span>".html_safe
+    end
+  end
+
   def get_queue(job)
     if job.job_status.name != "Pending" 
       "n/a"
