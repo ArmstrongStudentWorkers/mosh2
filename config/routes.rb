@@ -44,5 +44,9 @@ Mosh2::Application.routes.draw do
   
   devise_for :users
   
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   root to: 'home#index'
 end

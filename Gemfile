@@ -23,6 +23,8 @@ end
 
 group :development do
   gem 'annotate', '>=2.5.0'
+  gem 'letter_opener', '~> 1.2.0'
+  gem 'letter_opener_web', '~> 1.1.2'
 
   # capistrano
   gem 'capistrano', '~> 3.1', require: false
