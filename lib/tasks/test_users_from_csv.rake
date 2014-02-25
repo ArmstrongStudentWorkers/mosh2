@@ -12,19 +12,19 @@ namespace :test_data do
       CSV.foreach(file) do |row|
         name = row[0].strip
         email = row[1].strip
-        admin = row[2].strip
-        management = row[3].strip
+        admin = row[3].strip
+        management = row[2].strip
         noncsit = row[4].strip
 
         if !User.find_by_email(email)
-          create_user(name, email, admin, management, noncsit)
+          create_user(name, email, management, admin, noncsit)
         else
           puts "User already exists: #{name}"
         end
       end
     end
 
-    def create_user(name, email, admin, management, noncsit)
+    def create_user(name, email, management, admin, noncsit)
       password = Devise.friendly_token.first(8)
       puts "email: #{email}, admin: #{admin}, management: #{management}, noncsit: #{noncsit}"
       new_user = User.create(email: email, name: name, password: password, password_confirmation: password, admin: admin, management: management, noncsit: noncsit)
@@ -36,7 +36,7 @@ namespace :test_data do
       end
     end
 
-    make_user_from_file("#{Rails.root}/lib/tasks/fake_users.csv")
+    make_user_from_file("#{Rails.root}/lib/assets/fake_users.csv")
 
   end
 end
