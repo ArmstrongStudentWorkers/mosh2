@@ -27,4 +27,4 @@ config/database.yml
 config/initializers/smtp_settings.rb
 
 # Ignore csv files of production data
-lib/tasks/*.csv
+lib/assets/*.csv
