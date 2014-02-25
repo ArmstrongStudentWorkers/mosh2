@@ -26,21 +26,13 @@ namespace :test_data do
 
     def create_user(name, email, admin, management, noncsit)
       password = Devise.friendly_token.first(8)
-      #token = User.reset_password_token
       puts "email: #{email}, admin: #{admin}, management: #{management}, noncsit: #{noncsit}"
-      if new_user = User.create({email: email, name: name, password: password, password_confirmation: password, admin: admin, management: management, noncsit: noncsit})
-        puts "Created User: #{name}"
-        #new_user.reset_password_token = token
-        #new_user.reset_password_sent_at = DateTime.now
-        if new_user.save!
-          #puts "Sending welcome email."
-          #UserMailer.welcome_email(new_user).deliver
-          new_user.send_reset_password_instructions
-        else
-          puts "Could not save user with reset password token."
-        end
+      new_user = User.create(email: email, name: name, password: password, password_confirmation: password, admin: admin, management: management, noncsit: noncsit)
+      puts "Created User: #{name}"
+      if new_user.save!
+        new_user.send_reset_password_instructions
       else
-        puts "Could not create user."
+        puts "Could not save user."
       end
     end
 
