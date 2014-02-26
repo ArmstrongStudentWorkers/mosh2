@@ -5,7 +5,7 @@
     <%= f.association :term %>
     <%= f.input :year, placeholder: 'e.g. 2014' %>
 
-    <% [:start_date, :end_date, :advisement_start, :advisement_end].each do |d| %>
+    <% [:start_date, :end_date, :advisement_start, :advisement_end, :midterm].each do |d| %>
       <%= f.input d, as: :string, input_html: { data: { behavior: 'datepicker' } } %>
     <% end %>
   </div>

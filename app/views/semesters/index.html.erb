@@ -22,6 +22,7 @@
     <td><%= format_date(semester.end_date) %></td>
     <td><%= format_date(semester.advisement_start) %></td>
     <td><%= format_date(semester.advisement_end) %></td>
+    <td><%= format_date(semester.midterm) %></td>
     <td><%= link_to 'Edit', edit_semester_path(semester) %></td>
     <td><%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

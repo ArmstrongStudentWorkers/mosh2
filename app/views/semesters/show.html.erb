@@ -18,19 +18,23 @@
       </tr>
       <tr>
         <th>Start date:</th>
-        <td><%= @semester.start_date %></td>
+        <td><%= format_date(semester.start_date) %></td>
       </tr>
       <tr>
         <th>End date:</th>
-        <td><%= @semester.end_date %></td>
+        <td><%= format_date(semester.end_date) %></td>
       </tr>
       <tr>
         <th>Advisement start:</th>
-        <td><%= @semester.advisement_start %></td>
+        <td><%= format_date(semester.advisement_start) %></td>
       </tr>
       <tr>
         <th>Advisement end:</th>
-        <td><%= @semester.advisement_end %></td>
+        <td><%= format_date(semester.advisement_end) %></td>
+      </tr>
+      <tr>
+        <th>Midterm:</th>
+        <td><%= format_date(semester.midterm) %></td>
       </tr>
     </table>
 
