@@ -3,7 +3,7 @@ namespace :db do
   task :locations => :environment do
 
     def make_location(name, room, comment, type)
-      puts 'Creating location: #{name}'
+      puts "Creating location: #{name}"
       Location.create!(name: name, room: room, comment: comment, location_type_id: type.id)
     end
 

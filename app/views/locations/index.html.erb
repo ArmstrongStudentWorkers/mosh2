@@ -24,8 +24,6 @@
 <% end %>
 </table>
 
-<br />
-
+<%= will_paginate @locations %>
 <%= link_to 'New Location', new_location_path %>
 
-<%= will_paginate @locations %>

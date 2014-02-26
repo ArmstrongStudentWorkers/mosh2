@@ -7,7 +7,7 @@ before_filter :management_filter
 # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.page(params[:page])
+    @locations = Location.all
 
     respond_to do |format|
       format.html # index.html.erb
