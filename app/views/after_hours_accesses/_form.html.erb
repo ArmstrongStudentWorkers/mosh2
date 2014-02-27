@@ -5,7 +5,7 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :sid %>
-    <%= f.association :user, label: "Authorized By:", selected: current_user %>
+    <%= f.association :user, label: "Authorized By:", selected: current_user.id %>
     <%= f.association :location %>
     <%= f.association :semester, label: "Expiration Semester:" %>
   </div>
