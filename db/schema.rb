@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226204734) do
+ActiveRecord::Schema.define(:version => 20140227232725) do
 
   create_table "after_hours_accesses", :force => true do |t|
     t.string   "first_name"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20140226204734) do
     t.datetime "updated_at",    :null => false
     t.integer  "job_status_id"
     t.boolean  "finalize"
+    t.text     "denial"
   end
 
   create_table "location_types", :force => true do |t|
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20140226204734) do
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.text     "denied"
+    t.text     "denial"
   end
 
   create_table "semesters", :force => true do |t|
