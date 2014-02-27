@@ -4,14 +4,16 @@ require "#{Rails.root}/lib/mosh_modules/management_module"
 include MoshModules::ManagementModule
 before_filter :management_filter
 
-# GET /locations
+  # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @locations }
+      format.html do @locations = Location.page(params[:page]) end # index.html.erb
+      format.json do
+        @locations = Location.all
+        render json: @locations
+      end
     end
   end
 
