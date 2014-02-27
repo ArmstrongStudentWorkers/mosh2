@@ -1,0 +1,14 @@
+<div class="modal hide denyModal" id="denyJobModal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Why was this job denied?</h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for @job, remote: true do |f| %>
+      <%= f.input :denial %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button type="submit", class="btn btn-large btn-primary", data-dismiss="modal">Submit</button>
+  </div>
+</div>

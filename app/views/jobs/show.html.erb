@@ -1,4 +1,5 @@
 <%= render 'shared/progress', page: 'review' %>
+<%= render 'deny_modal' %>
 <h2>Poster Job Details</h2>
 
 
@@ -18,7 +19,7 @@
         <%= link_to 'Finish Job', job_finish_path(@job), method: :put, class: 'btn btn-medium btn-block btn-info' %>
       </div>
       <div class="span3">        
-        <%= link_to 'Deny Job', job_deny_path(@job), method: :put, class: 'btn btn-medium btn-block btn-danger' %>
+        <a data-toggle="modal" href="#denyJobModal" class="btn btn-medium btn-block btn-danger">Deny Job</a>
       </div>
     <% else %>
       <div class="span3 offset3">  
