@@ -1,0 +1,3 @@
+$(function () {
+     $('#warningModal').modal('toggle');
+});

@@ -4,4 +4,17 @@
 
 <%= render 'form' %>
 
+<div class="modal" id="warningModal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">x</button>
+    <h3>Notice</h3>
+  </div>
+  <div class="modal-body">
+    <p>Poster jobs submitted within 48 hours of due date are not guaranteed!</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn btn-medium btn-info">Close</button>
+  </div>
+</div>
+
 <%= link_to 'Back', jobs_path %>
