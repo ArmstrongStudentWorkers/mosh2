@@ -5,7 +5,7 @@ class PosterMailer < ActionMailer::Base
     @user = User.where(id: current_user_id).first
     @poster_overview = PosterOverview.where(id: poster_overview_id).first
     @date = date
-    @url = "http://mosh.c-mccarthy.com:3000/poster_overview/#{poster_overview_id}"
+    @url = "http://mosh.c-mccarthy.com/poster_overview/#{poster_overview_id}"
     @posters = posters
     mail(to: @user.email, subject: "Your Poster Job ##{poster_overview_id}")
   end
@@ -13,7 +13,7 @@ class PosterMailer < ActionMailer::Base
   def new_job_alert(user_id, date, job_id)
     @user = User.where(id: user_id).first
     @date = date
-    @url = "http://mosh.c-mccarthy.com:3000/jobs/#{job_id}"
+    @url = "http://mosh.c-mccarthy.com/jobs/#{job_id}"
     @job_id = job_id
     mail(to: "mosh.system@gmail.com", subject: "New Poster Job ##{job_id} received, due #{date}")
   end
