@@ -4,11 +4,17 @@
     <h3>Why was this job denied?</h3>
   </div>
   <div class="modal-body">
-    <%= simple_form_for @job, remote: true do |f| %>
-      <%= f.input :denial %>
+    <%= form_for @job, method: :put do |f| %>
+      <div class="row">
+        <div class="span5">
+          <%= f.text_area :denial, class: 'denial-reason' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4">
+          <%= f.submit 'Deny Job', class: 'btn btn-large btn-primary' %>
+        </div>
+      </div>
     <% end %>
-  </div>
-  <div class="modal-footer">
-    <button type="submit", class="btn btn-large btn-primary", data-dismiss="modal">Submit</button>
   </div>
 </div>

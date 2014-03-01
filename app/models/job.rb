@@ -11,7 +11,7 @@
 #
 
 class Job < ActiveRecord::Base
-  attr_accessible :due_date, :user_id, :job_status_id, :finalize
+  attr_accessible :due_date, :user_id, :job_status_id, :finalize, :denial
   has_one :poster_overview
   has_many :posters
   belongs_to :user

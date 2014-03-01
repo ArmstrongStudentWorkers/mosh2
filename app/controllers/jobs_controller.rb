@@ -44,7 +44,7 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    if params[:user] 
+    if params[:user]
       @job = Job.new(params[:job])
     else
       @job = current_user.jobs.new(params[:job])
@@ -68,8 +68,12 @@ class JobsController < ApplicationController
   # PUT /jobs/1.json
   def update
     @job = Job.find(params[:id])
-    @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
-
+    if params[:job][:due_date]
+      @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
+    end
+    if params[:job][:denial]
+      @job.set_denied
+    end
     respond_to do |format|
       if @job.update_attributes(params[:job])
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
@@ -91,7 +95,7 @@ class JobsController < ApplicationController
       if @poster_overview.save
         @date = @job.format_date
         @posters = @job.posters
-        PosterMailer.new_job(@poster_overview.id, current_user.id, @date, @posters).deliver 
+        PosterMailer.new_job(@poster_overview.id, current_user.id, @date, @posters).deliver
         PosterMailer.new_job_alert(@job.user.id, @date, @job.id).deliver
       end
 
@@ -111,17 +115,6 @@ class JobsController < ApplicationController
       redirect_to @job, notice: 'Job was successfully finished.'
     else
       redirect_to @job, notice: 'Job could not be finished.'
-    end
-  end
-
-  def deny
-    @job = Job.find(params[:job_id])
-    @job.set_denied
-
-    if @job.save
-      redirect_to @job, notice: 'Job was denied.'
-    else
-      redirect_to @job, notice: 'Job could not be denied.'
     end
   end
 

@@ -177,4 +177,11 @@ edit_location_after_hours_access GET    /locations/:location_id/after_hours_acce
           edit_user_registration GET    /users/edit(.:format)                                           devise/registrations#edit
                                  PUT    /users(.:format)                                                devise/registrations#update
                                  DELETE /users(.:format)                                                devise/registrations#destroy
+               letter_opener_web        /letter_opener                                                  LetterOpenerWeb::Engine
                             root        /                                                               home#index
+
+Routes for LetterOpenerWeb::Engine:
+clear_letters DELETE /clear(.:format)                 letter_opener_web/letters#clear
+      letters GET    /                                letter_opener_web/letters#index
+       letter GET    /:id(/:style)(.:format)          letter_opener_web/letters#show
+              GET    /:id/attachments/:file(.:format) letter_opener_web/letters#attachment
