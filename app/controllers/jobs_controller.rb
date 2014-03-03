@@ -90,7 +90,6 @@ class JobsController < ApplicationController
     @job.set_finalize
 
     if @job.save
-
       @poster_overview = PosterOverview.create!(id: @job.id, job_id: @job.id)
       if @poster_overview.save
         @date = @job.format_date

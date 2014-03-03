@@ -18,8 +18,15 @@ class Job < ActiveRecord::Base
   belongs_to :job_status
   has_paper_trail
 
+  validate :check_date
+
   def format_date
     self.due_date.strftime('%m/%d/%Y')
+  end
+  def check_date
+    if due_date.present? && due_date < Date.today
+      errors.add(:due_date, "Posters cannot be due before today!")
+    end
   end
 
   def set_pending
