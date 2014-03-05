@@ -1,3 +1,3 @@
 $(function() {
-  $('[data-behavior~=datepicker]').datepicker();
+  $('[data-behavior~=datepicker]').val("").datepicker();
 });
