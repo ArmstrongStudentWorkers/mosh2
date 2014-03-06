@@ -76,6 +76,9 @@ class JobsController < ApplicationController
     end
     respond_to do |format|
       if @job.update_attributes(params[:job])
+        if @job.denial
+          PosterMailer.job_denial(@job.id, current_user.id, @job.denial)
+        end
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { head :no_content }
       else
@@ -120,6 +123,7 @@ class JobsController < ApplicationController
   def pend
     @job = Job.find(params[:job_id])
     @job.set_pending
+    @job.denial = nil
 
     if @job.save
       redirect_to @job, notice: 'Job is pending.'

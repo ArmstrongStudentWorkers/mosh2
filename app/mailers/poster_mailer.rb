@@ -29,4 +29,13 @@ class PosterMailer < ActionMailer::Base
     @job_id = job_id
     mail(to: "mosh.system@gmail.com", subject: "Poster Job ##{job_id} is complete")
   end
+
+  def job_denial(job_id, user_id, denial)
+    @user = User.where(id: user_id).first
+    @url = "http://mosh.c-mccarthy.com/poster_overview/#{job_id}"
+    @job_id = job_id
+    @denial = denial
+    mail(to: @user.email, subject: "Your Poster Job ##{job_id} has been denied")
+  end
+
 end

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your Poster #<%= link_to @job_id, @url %> has been denied for the following reason:</h1>
+    <p>
+      <%= @denial %>
+    </p>
+    <p>
+      Let us know if you have any questions.
+    </p>
+    <p>Thank you,</p>
+    <p>MOSH Admin</p>
+  </body>
+</html>
