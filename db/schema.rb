@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140227232725) do
+ActiveRecord::Schema.define(:version => 20140306213853) do
 
   create_table "after_hours_accesses", :force => true do |t|
     t.string   "first_name"
@@ -128,7 +128,6 @@ ActiveRecord::Schema.define(:version => 20140227232725) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
-    t.text     "denied"
     t.text     "denial"
   end
 
