@@ -36,6 +36,10 @@ Go into the project
 
     cd mosh2
 
+If bundler is not installed, install it
+
+    gem intall bundler
+
 Install the project's dependencies
 
     bundle install
