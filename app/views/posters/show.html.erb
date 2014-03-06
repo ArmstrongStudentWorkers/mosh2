@@ -1,4 +1,5 @@
 <%= render 'shared/progress', page: 'poster' %>
+<%= render 'deny_poster_modal' %>
 
 <h2>Poster Details</h2>
 
@@ -13,72 +14,72 @@
     <object data="<%= get_url(@poster.attachment.url) %>" width="600" height="450" border-style="ridge" type="application/pdf"></object>
   </div>
 
-    <div class="span4">
-      <table class="table table-bordered">
-        <tr>
-          <th>Job:</th>
-          <td><%= link_to @poster.job_id, @poster.job %></td>
-        </tr>
-        <tr>
-          <th>User:</th>
-          <td><%= @poster.job.user.email if @poster.job %></td>
-        </tr>
-        <tr>
-          <th>Title:</th>
-          <td><%= @poster.name %></td>
-        </tr>
-        <tr>
-          <th>Length:</th>
-          <td><%= @poster.length %></td>
-        </tr>
-        <tr>
-          <th>Width:</th>
-          <td><%= @poster.width %></td>
-        </tr>
-        <tr>
-          <th>Special request:</th>
-          <td><%= @poster.special_request %></td>
-        </tr>
-        <tr>
-          <th>Poster status:</th>
-          <td><%= show_status(@poster.poster_status.name) %></td>
-        </tr>
-        <tr>
-          <th>Attachment url:</th>
-          <td><%=link_to 'Attachment url', @poster.attachment.url %></td>
-        </tr>
-      </table>
+  <div class="span4">
+    <table class="table table-bordered">
+      <tr>
+        <th>Job:</th>
+        <td><%= link_to @poster.job_id, @poster.job %></td>
+      </tr>
+      <tr>
+        <th>User:</th>
+        <td><%= @poster.job.user.email if @poster.job %></td>
+      </tr>
+      <tr>
+        <th>Title:</th>
+        <td><%= @poster.name %></td>
+      </tr>
+      <tr>
+        <th>Length:</th>
+        <td><%= @poster.length %></td>
+      </tr>
+      <tr>
+        <th>Width:</th>
+        <td><%= @poster.width %></td>
+      </tr>
+      <tr>
+        <th>Special request:</th>
+        <td><%= @poster.special_request %></td>
+      </tr>
+      <tr>
+        <th>Poster status:</th>
+        <td><%= show_status(@poster.poster_status.name) %></td>
+      </tr>
+      <tr>
+        <th>Attachment url:</th>
+        <td><%=link_to 'Attachment url', @poster.attachment.url %></td>
+      </tr>
+    </table>
 
-      <div class="row job-actions">
-        <div class="span2">    
-          <%= link_to('Edit', edit_poster_path(@poster), :class => 'btn btn-block btn-medium btn-warning') unless @poster.job.finalize %>
-        </div>
-        <div class="span2">
-          <%= link_to('Save', @poster.job, :class => 'btn btn-block btn-medium btn-success') unless @poster.job.finalize %>
-        </div>
+    <div class="row job-actions">
+      <div class="span2">
+        <%= link_to('Edit', edit_poster_path(@poster), :class => 'btn btn-block btn-medium btn-warning') unless @poster.job.finalize %>
       </div>
-      <div class="row">    
-        <div class="span1">
-          Set Status:
-        </div>
-
-        <% if current_user.management %>
-          <% if @poster.poster_status.name == "Pending" %>
-            <div class="span1">
-              <%= link_to 'Printing', poster_print_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-info' %>
-            </div>
-            <div class="span1">
-              <%= link_to 'Finished', poster_finish_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-success' %>
-            </div>
-            <div class="span1">
-              <%= link_to 'Denied', poster_deny_path(@poster), method: :put, class: 'btn btn-medium btn-block btn-danger' %>
-            </div>      
-          <% else %>
-            <div class="span2">
-              <%= link_to 'Pend Poster', poster_pend_path(@poster), method: :put, class: 'btn btn-medium btn-warning btn-block' %>
-            </div>
-          <% end %>
-        <% end %>
+      <div class="span2">
+        <%= link_to('Save', @poster.job, :class => 'btn btn-block btn-medium btn-success') unless @poster.job.finalize %>
       </div>
     </div>
+    <div class="row">
+      <div class="span1">
+        Set Status:
+      </div>
+
+      <% if current_user.management %>
+        <% if @poster.poster_status.name == "Pending" %>
+          <div class="span1">
+            <%= link_to 'Printing', poster_print_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-info' %>
+          </div>
+          <div class="span1">
+            <%= link_to 'Finished', poster_finish_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-success' %>
+          </div>
+          <div class="span1">
+            <a data-toggle="modal" href="#denyPosterModal" class="btn btn-medium btn-block btn-danger">Deny</a>
+          </div>
+        <% else %>
+          <div class="span2">
+            <%= link_to 'Pend Poster', poster_pend_path(@poster), method: :put, class: 'btn btn-medium btn-warning btn-block' %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
+</div>

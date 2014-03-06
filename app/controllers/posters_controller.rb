@@ -8,7 +8,7 @@ class PostersController < ApplicationController
       @poster_status = PosterStatus.find(params[:poster_status])
       @posters = @poster_status.posters.page(params[:page])
     end
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posters }
@@ -66,6 +66,9 @@ class PostersController < ApplicationController
   def update
     @poster = Poster.find(params[:id])
 
+    if params[:poster][:denial]
+      @poster.set_denied
+    end
     respond_to do |format|
       if @poster.update_attributes(params[:poster])
         format.html { redirect_to @poster, notice: 'Poster was successfully updated.' }

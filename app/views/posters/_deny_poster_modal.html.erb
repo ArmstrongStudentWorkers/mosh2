@@ -1,0 +1,20 @@
+<div class="modal hide denyModal" id="denyPosterModal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">x</button>
+    <h3>Why was this poster denied?</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for @poster, method: :put do |f| %>
+      <div class="row">
+        <div class="span5">
+          <%= f.text_area :denial, class: 'denial-reason' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4">
+          <%= f.submit 'Deny Poster', class: 'btn btn-large btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
