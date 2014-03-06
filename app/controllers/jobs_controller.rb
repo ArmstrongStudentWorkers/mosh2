@@ -77,7 +77,7 @@ class JobsController < ApplicationController
     respond_to do |format|
       if @job.update_attributes(params[:job])
         if @job.denial
-          PosterMailer.job_denial(@job.id, current_user.id, @job.denial)
+          PosterMailer.job_denial(@job.id, current_user.id, @job.denial).deliver
         end
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { head :no_content }
