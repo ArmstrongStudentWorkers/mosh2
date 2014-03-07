@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Your Poster #<%= link_to @job_id, @url %> has been denied for the following reason:</h1>
+    <h1>Your <%= link_to "Poster Job #@job_id", @url %> has been denied for the following reason:</h1>
     <p>
       <%= @denial %>
     </p>
