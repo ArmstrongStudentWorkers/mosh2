@@ -57,13 +57,16 @@
       <div class="span2">
         <%= link_to('Save', @poster.job, :class => 'btn btn-block btn-medium btn-success') unless @poster.job.finalize %>
       </div>
-    </div>
-    <div class="row">
-      <div class="span1">
-        Set Status:
+      <div class="span4">
+        <%= button_to "Delete Poster", @poster, method: :delete, class: 'btn btn-block btn-medium btn-danger', data: { confirm: 'Are you sure? This cannot be undone.' } %>
       </div>
+    </div>
+    <% if current_user.management %>
+      <div class="row">
+        <div class="span1">
+          Set Status:
+        </div>
 
-      <% if current_user.management %>
         <% if @poster.poster_status.name == "Pending" %>
           <div class="span1">
             <%= link_to 'Printing', poster_print_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-info' %>
@@ -79,7 +82,7 @@
             <%= link_to 'Pend Poster', poster_pend_path(@poster), method: :put, class: 'btn btn-medium btn-warning btn-block' %>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
