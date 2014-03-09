@@ -71,6 +71,9 @@ class PostersController < ApplicationController
     end
     respond_to do |format|
       if @poster.update_attributes(params[:poster])
+        if @poster.denial
+          PosterMailer.poster_denial(@poster, @poster.name, current_user.id, @poster.denial).deliver
+        end
         format.html { redirect_to @poster, notice: 'Poster was successfully updated.' }
         format.json { head :no_content }
       else
@@ -90,7 +93,7 @@ class PostersController < ApplicationController
       redirect_to @poster, notice: 'Poster status could not be set to Printing.'
     end
   end
-  
+
   def finish
     @poster = Poster.find(params[:poster_id])
     @poster.set_finished
@@ -102,20 +105,10 @@ class PostersController < ApplicationController
     end
   end
 
-  def deny
-    @poster = Poster.find(params[:poster_id])
-    @poster.set_denied
-
-    if @poster.save
-      redirect_to @poster.job, notice: 'Poster was denied.'
-    else
-      redirect_to @poster, notice: 'Poster could not be denied.'
-    end
-  end
-
   def pend
     @poster = Poster.find(params[:poster_id])
     @poster.set_pending
+    @poster.denial = nil
 
     if @poster.save
       redirect_to @poster, notice: 'Poster is pending.'
