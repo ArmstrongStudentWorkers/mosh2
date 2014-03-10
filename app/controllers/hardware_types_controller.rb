@@ -7,11 +7,13 @@ before_filter :management_filter
   # GET /hardware_types
   # GET /hardware_types.json
   def index
-    @hardware_types = HardwareType.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @hardware_types }
+      format.html do @hardware_types = HardwareType.page(params[:page]) end # index.html.erb
+      format.json do
+        @hardware_types = HardwareType.all
+        render json: @hardware_types
+      end
     end
   end
 
