@@ -38,7 +38,7 @@ Go into the project
 
 If bundler is not installed, install it
 
-    gem intall bundler
+    gem install bundler
 
 Install the project's dependencies
 
