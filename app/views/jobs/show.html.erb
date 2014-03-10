@@ -66,6 +66,9 @@
       </tr>
     </table>
 
+    <div clas="span6">
+      <%= button_to "Delete Poster Job", @job, method: :delete, class: 'btn btn-block btn-medium btn-danger', data: { confirm: 'Are you sure? This cannot be undone.' } %>
+    </div>
     <%= link_to 'Edit Job', edit_job_path(@job) %> | <%= link_to 'Back', jobs_path %>
   </div>
 </div>

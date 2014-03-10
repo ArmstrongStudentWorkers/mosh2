@@ -6,7 +6,7 @@ class JobsController < ApplicationController
 
     if params[:job_status]
       @job_status = JobStatus.find(params[:job_status])
-      @jobs = @job_status.jobs.page(params[:page])
+      @jobs = @job_status.jobs.joins(:user).order('email').page(params[:page])
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -44,10 +44,9 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    if params[:user]
-      @job = Job.new(params[:job])
-    else
-      @job = current_user.jobs.new(params[:job])
+    @job = Job.new(params[:job])
+    if !params[:job][:user_id]
+      @job.user_id = current_user.id
     end
     @job.set_pending
     @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
@@ -68,6 +67,7 @@ class JobsController < ApplicationController
   # PUT /jobs/1.json
   def update
     @job = Job.find(params[:id])
+    p params.inspect
     if params[:job][:due_date]
       @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
     end
@@ -93,15 +93,12 @@ class JobsController < ApplicationController
     @job.set_finalize
 
     if @job.save
-      @poster_overview = PosterOverview.create!(id: @job.id, job_id: @job.id)
-      if @poster_overview.save
-        @date = @job.format_date
-        @posters = @job.posters
-        PosterMailer.new_job(@poster_overview.id, current_user.id, @date, @posters).deliver
-        PosterMailer.new_job_alert(@job.user.id, @date, @job.id).deliver
-      end
+      @date = @job.format_date
+      @posters = @job.posters
+      PosterMailer.new_job(@job.id, current_user.id, @date, @posters).deliver
+      PosterMailer.new_job_alert(@job.user.id, @date, @job.id).deliver
 
-      redirect_to @poster_overview, notice: 'Your job was finalized.'
+      redirect_to @job, notice: 'Your job was finalized.'
     else
       redirect_to @job, notice: 'Your job could not be finalized.'
     end

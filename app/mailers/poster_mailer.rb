@@ -1,13 +1,13 @@
 class PosterMailer < ActionMailer::Base
   default from: "mosh.system@gmail.com"
 
-  def new_job(poster_overview_id, current_user_id, date, posters)
+  def new_job(job_id, current_user_id, date, posters)
     @user = User.where(id: current_user_id).first
-    @poster_overview = PosterOverview.where(id: poster_overview_id).first
     @date = date
-    @url = "http://mosh.c-mccarthy.com/poster_overview/#{poster_overview_id}"
+    @url = "http://mosh.c-mccarthy.com/jobs/#{job_id}"
     @posters = posters
-    mail(to: @user.email, subject: "Your Poster Job ##{poster_overview_id}")
+    @job_id = job_id
+    mail(to: @user.email, subject: "Your Poster Job ##{job_id}")
   end
 
   def new_job_alert(user_id, date, job_id)
@@ -32,7 +32,7 @@ class PosterMailer < ActionMailer::Base
 
   def job_denial(job_id, user_id, denial)
     @user = User.where(id: user_id).first
-    @url = "http://mosh.c-mccarthy.com/poster_overview/#{job_id}"
+    @url = "http://mosh.c-mccarthy.com/jobs/#{job_id}"
     @job_id = job_id
     @denial = denial
     mail(to: @user.email, subject: "Your Poster Job ##{job_id} has been denied")
@@ -40,7 +40,7 @@ class PosterMailer < ActionMailer::Base
 
   def poster_denial(poster, name, user_id, denial)
     @user = User.where(id: user_id).first
-    @url = "http://mosh.c-mccarthy.com/poster_overview/#{poster.job_id}"
+    @url = "http://mosh.c-mccarthy.com/jobs/#{poster.job_id}"
     @denial = denial
     @name = name
     mail(to: @user.email, subject: "Your Poster ##{name} has been denied")
