@@ -2,6 +2,11 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
+    if !current_user.management
+      @jobs = Job.where(user_id: current_user.id).page(params[:page])
+    else
+      @jobs = Job.joins(:user).order('email').page(params[:page])
+    end
     @job_statuses = JobStatus.all
 
     if params[:job_status]

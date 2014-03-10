@@ -14,9 +14,7 @@
 </div>
 </p> 
 
-<% if @jobs %> 
-  
-  <h5><%= @job_status.name %> Jobs:</h5>
+  <h5><%= @job_status.name if @job_status %> Jobs:</h5>
   <table class="table table-bordered table-striped">
     <tr>
       <th>Job ID</th>
@@ -55,4 +53,3 @@
 
   <%= will_paginate @jobs %>
 
-<% end %>
