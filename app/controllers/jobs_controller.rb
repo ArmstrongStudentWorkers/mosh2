@@ -5,13 +5,13 @@ class JobsController < ApplicationController
     if !current_user.management
       @jobs = Job.where(user_id: current_user.id).page(params[:page])
     else
-      @jobs = Job.joins(:user).order('email').page(params[:page])
+      @jobs = Job.page(params[:page])
     end
     @job_statuses = JobStatus.all
 
     if params[:job_status]
       @job_status = JobStatus.find(params[:job_status])
-      @jobs = @job_status.jobs.joins(:user).order('email').page(params[:page])
+      @jobs = @job_status.jobs.page(params[:page])
     end
     respond_to do |format|
       format.html # index.html.erb
