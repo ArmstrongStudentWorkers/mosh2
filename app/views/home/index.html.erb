@@ -1,51 +1,46 @@
 <% if user_signed_in? %>
-<div id="container" style="height:530px">
-  <!--<% if user_signed_in? %>->
-  <!-- <h2>Welcome <%= current_user.email %></h2>->
-  <!--<% end %>-->
+
+  <div id="container" style="height:530px">
+
+    <!- Left ->
     <div id="Column1" class="column">
       <div class="sections">
         <div class="title-box">
-                           Services
+          Welcome!
         </div>
         <div class="comment-box">
-                                Labs<br><br>
-          <ol>
-            <li><%= link_to 'Lab Overview', '#' %></li>
-            <li><%= link_to 'Hardware', '#' %></li>
-            <li><%= link_to 'Image', '#' %></li>
-            <li><%= link_to 'After Hours', '#' %></li>
-          </ol>
 
-          <%= link_to 'Posters', '#' %> <br><br>
-                                Work Orders<br><br>
-                                Supplies<br><br>
-                                Advisement
         </div>
       </div>
     </div>
+
+    <!- Right ->
     <div id="Column2" class="column">
+
       <div class="sections">
         <div class="title-box">
-                           Deadlines
+          Important Dates
         </div>
         <div class="comment-box">
-                                No Deadlines
+          No Deadlines
         </div>
       </div>
 
       <div class="sections">
         <div class="title-box">
-                           Need Help?
+          Need Help?
         </div>
         <div class="comment-box">
-                                Faqs <br/>
-                                See Online Manual <br/>
-                                Email Tech Team <br/>
+          <ul>
+            <li><%= link_to 'Poster Guidelines', '#' %></li>
+            <li><%= mail_to 'mosh.system@gmail.com', 'Email Mosh Admim' %></li>
+          </ul>
         </div>
       </div>
     </div>
-<% else %>
+
+  <% else %>
+
     <div class="center hero-unit">
       <div id="headline" class="row">
         <div id="welcome" class="span6">
@@ -58,7 +53,7 @@
 
       <h2>MOSH is the McCarthy Online Support Hub</h2>
       <%= link_to "Sign in now!", new_user_session_path,
-      class: "btn btn-large btn-primary" %>
+        class: "btn btn-large btn-primary" %>
     </div>
 
-<% end %>
+  <% end %>
