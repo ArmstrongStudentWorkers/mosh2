@@ -72,13 +72,15 @@ class JobsController < ApplicationController
   # PUT /jobs/1.json
   def update
     @job = Job.find(params[:id])
-    p params.inspect
     if params[:job][:due_date]
-      @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
+      params[:job][:due_date] = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
+      puts params[:job][:due_date]
     end
     if params[:job][:denial]
+      puts 'in denial block'
       @job.set_denied
     end
+
     respond_to do |format|
       if @job.update_attributes(params[:job])
         if @job.denial
