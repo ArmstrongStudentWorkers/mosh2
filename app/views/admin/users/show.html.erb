@@ -13,15 +13,19 @@
       </tr>
       <tr>
         <th>Admin:</th>
-        <td><%= get_admin(@user.admin) %></td>
+        <td><%= get_check(@user.admin) %></td>
       </tr>
       <tr>
         <th>Management:</th>
-        <td><%= get_management(@user.management) %></td>
+        <td><%= get_check(@user.management) %></td>
       </tr>
       <tr>
         <th>Non-CSIT Faculty or Staff:</th>
-        <td><%= get_noncsit(@user.noncsit) %></td>
+        <td><%= get_check(@user.noncsit) %></td>
+      </tr>
+      <tr>
+        <th>Student:</th>
+        <td><%= get_check(@user.student) %></td>
       </tr>
       <tr>
         <th>Created at:</th>

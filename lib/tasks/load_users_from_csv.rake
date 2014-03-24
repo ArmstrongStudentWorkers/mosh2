@@ -11,19 +11,20 @@ namespace :db do
         management = row[2].strip
         admin = row[3].strip
         noncsit = row[4].strip
+        student = row[5].strip
 
         if !User.find_by_email(email)
-          create_user(name, email, management, admin, noncsit)
+          create_user(name, email, management, admin, noncsit, student)
         else
           puts "User already exists: #{name}"
         end
       end
     end
 
-    def create_user(name, email, management, admin, noncsit)
+    def create_user(name, email, management, admin, noncsit, student)
       password = Devise.friendly_token.first(8)
-      puts "email: #{email}, admin: #{admin}, management: #{management}, noncsit: #{noncsit}"
-      new_user = User.create(email: email, name: name, password: password, password_confirmation: password, admin: admin, management: management, noncsit: noncsit)
+      puts "email: #{email}, admin: #{admin}, management: #{management}, noncsit: #{noncsit}, student: #{student}"
+      new_user = User.create(email: email, name: name, password: password, password_confirmation: password, admin: admin, management: management, noncsit: noncsit, student: student)
       puts "Created user: #{name}"
       if new_user.save!
         new_user.send_reset_password_instructions

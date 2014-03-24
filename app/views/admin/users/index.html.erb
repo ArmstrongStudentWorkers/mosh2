@@ -13,6 +13,7 @@
     <th>Admin</th>
     <th>Management</th>
     <th>Non-CSIT</th>
+    <th>Student</th>
     <th>Created at</th>
     <th>Last sign-in</th>
     <th>Last IP</th>
@@ -24,9 +25,10 @@
     <tr>
       <td><%= link_to user.name, admin_user_path(user) %></td>
       <td><%= user.email %></td>
-      <td><%= get_admin(user.admin) %></td>
-      <td><%= get_management(user.management) %></td>
-      <td><%= get_noncsit(user.noncsit) %></td>
+      <td><%= get_check(user.admin) %></td>
+      <td><%= get_check(user.management) %></td>
+      <td><%= get_check(user.noncsit) %></td>
+      <td><%= get_check(user.student) %></td>
       <td><%= user.created_at %></td>
       <td><%= user.last_sign_in_at %></td>
       <td><%= user.last_sign_in_ip %></td>
