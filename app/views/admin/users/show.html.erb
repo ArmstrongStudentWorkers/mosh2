@@ -20,6 +20,10 @@
         <td><%= get_check(@user.management) %></td>
       </tr>
       <tr>
+        <th>CSIT Faculty or Staff:</th>
+        <td><%= get_check(@user.faculty) %></td>
+      </tr>
+      <tr>
         <th>Non-CSIT Faculty or Staff:</th>
         <td><%= get_check(@user.noncsit) %></td>
       </tr>
