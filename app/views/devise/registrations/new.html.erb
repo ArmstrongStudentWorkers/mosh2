@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<h2>Student Sign up</h2>
+
+<p>This form is for student sign-up only. Faculty and staff, please check your armstrong.edu email for your login information. Go <%= link_to 'HERE', new_user_password_path %> if you cannot find your login information.
+</p>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
