@@ -28,8 +28,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,  :name, :management, :admin, :noncsit, :student
+  attr_accessible :email, :password, :password_confirmation, :remember_me,  :name, :management, :admin, :noncsit, :student, :faculty
   # attr_accessible :title, :body
+
+  before_create :default_student
+  after_create :send_welcome_email
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :name, presence: true, length: { maximum: 255 }
@@ -40,4 +43,18 @@ class User < ActiveRecord::Base
   has_many :work_orders
   has_many :jobs
   has_paper_trail
+
+  private
+  def send_welcome_email
+    if self.student
+      UserMailer.welcome_email(self).deliver
+    end
+  end
+  def default_student
+    if self.management || self.admin || self.noncsit || self.faculty
+      self.student ||= false
+    else
+      self.student ||= true
+    end
+  end
 end
