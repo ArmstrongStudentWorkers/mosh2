@@ -1,22 +1,14 @@
 <div class="row">
   <div class="span12">
     <footer class="footer">
-      <small>
-        <%= link_to 'The McCarthy Online Support Hub', root_path %>
+      <div class="span2">
+        <%= link_to image_tag("MOSH.gif", alt: "MOSH") %>
+      </div>
+      <div class="span3 pull-right">
+        <small>
+          See a bug? Email <%= mail_to 'mosh.system@gmail.com', 'Mosh Admin' %>
       </small>
-      <nav>
-        <ul>
-          <li><%= link_to "Labs", lab_overview_index_path %></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "Posters", poster_overview_index_path %></li>
-            <% if !current_user.noncsit %>
-              <li><%= link_to "Work Orders", work_orders_path %></li>
-              <li><%= link_to "Supplies", "#" %></li>
-              <li><%= link_to "Advisement", "#" %></li>
-            <% end %>
-          <% end %>
-        </ul>
-      </nav>
-    </footer>
-  </div>
+    </div>
+  </footer>
+</div>
 </div>
