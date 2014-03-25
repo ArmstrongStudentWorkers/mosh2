@@ -26,6 +26,7 @@
       <th>Width</th>
       <th>Special request</th>
       <th>Poster status</th>
+      <th>Mounting</th>
       <th></th>
       <th>Edit</th>
       <th>Destroy</th>
@@ -40,6 +41,7 @@
         <td><%= poster.width %></td>
         <td><%= poster.special_request %></td>
         <td><%= show_status(poster.poster_status.name) %></td>
+        <td><%= get_check(poster.mounting) %></td>
         <td><%= link_to 'Attachment url', poster.attachment.url %></td>
         <td>
           <%= link_to edit_poster_path(poster) do %>

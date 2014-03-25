@@ -45,4 +45,12 @@ class PosterMailer < ActionMailer::Base
     @name = name
     mail(to: @user.email, subject: "Your Poster ##{name} has been denied")
   end
+
+  def mount_poster(poster, date, name, email)
+    @date = date
+    @url = "http://mosh.c-mccarthy.com/posters/#{poster}"
+    @title = name
+    @email = email
+    mail(to: "armstrong.acm@gmail.com", subject: "Poster Mount Request, due #{date}")
+  end
 end

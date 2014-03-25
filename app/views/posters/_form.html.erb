@@ -1,18 +1,24 @@
 <%= simple_form_for([@job, @poster], html: { class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
+  <% if current_user.student %>
+    <p class="text-center">Poster Services are available for a limited time to students close to high-volume events such as TechFest and the Student Symposium.<br>At other times, all posters must be ordered through the MOSH System by a faculty member.</p>
+    <br><br>
+  <% end %>
+
   <div class="form-inputs">
     <%= f.input :name, label: 'Title' %>
-    <%= f.input :length, placeholder: 'in inches', hint: 'Note: One of either width or length must be less than 48 inches.' %>
+    <%= f.input :length, placeholder: 'in inches', hint: 'Note: One of either width or length must be less than 48 inches. Both length and width must be more than 20 inches.' %>
     <%= f.input :width, placeholder: 'in inches' %>
     <%= f.input :special_request %>
+    <%= f.input :mounting, hint: 'Poster mounting services are available through the Student ACM Chapter. Mounting will cost $5 for TechFest posters, or $10 for other posters.' %>
     <div class="control group">
       <div class="controls">
         <%= f.file_field :attachment %>
       </div>
     </div>
     <p class="note">.pdf format only</p>
-    
+
   </div>
 
   <div class="form-actions">

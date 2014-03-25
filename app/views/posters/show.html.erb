@@ -3,12 +3,18 @@
 
 <h2>Poster Details</h2>
 
-<% if !current_user.management and @poster.job.finalize %>
+<% if !current_user.management and !@poster.job.finalize %>
   <div class="row text-center" id="poster_directions">
     <h5>Please review your poster specs. Press Edit to make changes, or Save once you are ready to submit.</h5>
   </div>
 <% end %>
 
+<div class="row">
+  <div class="span6 offset3">
+    <%= link_to('Save Poster!', @poster.job, :class => 'btn btn-block btn-large btn-success') unless @poster.job.finalize %>
+  </div>
+</div>
+<br><br>
 <div class="row">
   <div class="span8" >
     <object data="<%= get_url(@poster.attachment.url) %>" width="600" height="450" border-style="ridge" type="application/pdf"></object>
@@ -45,18 +51,19 @@
         <td><%= show_status(@poster.poster_status.name) %></td>
       </tr>
       <tr>
+        <th>Poster mouting:</th>
+        <td><%= get_check(@poster.mounting) %></td>
+      </tr>
+      <tr>
         <th>Attachment url:</th>
         <td><%=link_to 'Attachment url', @poster.attachment.url %></td>
       </tr>
     </table>
 
     <div class="row job-actions">
-      <div class="span2">
+      <div class="span4">
         <%= link_to('Edit', edit_poster_path(@poster), :class => 'btn btn-block btn-medium btn-warning') unless @poster.job.finalize %>
-      </div>
-      <div class="span2">
-        <%= link_to('Save', @poster.job, :class => 'btn btn-block btn-medium btn-success') unless @poster.job.finalize %>
-      </div>
+      </div><br><br>
       <div class="span4">
         <%= button_to "Delete Poster", @poster, method: :delete, class: 'btn btn-block btn-medium btn-danger', data: { confirm: 'Are you sure? This cannot be undone.' } %>
       </div>

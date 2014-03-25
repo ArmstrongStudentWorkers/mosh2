@@ -52,6 +52,10 @@ class PostersController < ApplicationController
 
     respond_to do |format|
       if @poster.save
+        if params[:poster][:mounting]
+          @date = @poster.job.format_date
+          PosterMailer.mount_poster(@poster.id, @date, @poster.name, @poster.job.user.email).deliver
+        end
         format.html { redirect_to @poster, notice: 'Poster was successfully created.' }
         format.json { render json: @poster, status: :created, location: @poster }
       else

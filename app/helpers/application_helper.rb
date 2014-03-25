@@ -40,4 +40,12 @@ module ApplicationHelper
   def active_page?(page, current_step)
     'active' if page == current_step
   end
+
+  def get_check(bool)
+    if bool
+      tag 'i', class: 'fa fa-check-square-o'
+    else
+      tag 'i', class: 'fa fa-square-o'
+    end
+  end
 end

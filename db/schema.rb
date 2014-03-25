@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140325010844) do
+ActiveRecord::Schema.define(:version => 20140325141955) do
 
   create_table "after_hours_accesses", :force => true do |t|
     t.string   "first_name"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20140325010844) do
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.text     "denial"
+    t.boolean  "mounting"
   end
 
   create_table "semesters", :force => true do |t|
