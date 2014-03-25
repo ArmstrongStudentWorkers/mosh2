@@ -1,20 +1,24 @@
 <h2>Student Sign up</h2>
 
-<p class="text-center">This form is for student sign-up only. Faculty and staff, please check your armstrong.edu email for your login information.<br>Go <%= link_to 'HERE', new_user_password_path %> if you cannot find your login information.</p>
+<p class="text-center">This form is for student sign-up only. Faculty and staff, please check your @armstrong.edu email,<br> or go <%= link_to 'HERE', new_user_password_path %> to get your login information.</p><br><br>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div class="row">
+  <div class="span8 offset2">
+    <%= simple_form_for(resource, :as => resource_name, html: { class: 'form-horizontal' }, :url => registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name, :required => true, :autofocus => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+      <div class="form-inputs">
+        <%= f.input :name, :required => true, :autofocus => true %>
+        <%= f.input :email, :required => true %>
+        <%= f.input :password, :required => true %>
+        <%= f.input :password_confirmation, :required => true %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
