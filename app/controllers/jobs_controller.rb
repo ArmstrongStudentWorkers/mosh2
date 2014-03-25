@@ -11,7 +11,11 @@ class JobsController < ApplicationController
 
     if params[:job_status]
       @job_status = JobStatus.find(params[:job_status])
-      @jobs = @job_status.jobs.page(params[:page])
+      if !current_user.management
+        @jobs = @job_status.jobs.where(user_id: current_user.id).page(params[:page])
+      else
+        @jobs = @job_status.jobs.page(params[:page])
+      end
     end
     respond_to do |format|
       format.html # index.html.erb

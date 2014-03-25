@@ -14,42 +14,42 @@
 </div>
 </p>
 
-  <h5><%= @job_status.name if @job_status %> Jobs:</h5>
-  <table class="table table-bordered table-striped">
+<h5><%= @job_status.name if @job_status %> Jobs:</h5>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Job ID</th>
+    <th>User</th>
+    <th>Created at</th>
+    <th>Due date</th>
+    <th># Posters</th>
+    <th>Status</th>
+    <th>Finalized?</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+
+  <% @jobs.each do |job| %>
     <tr>
-      <th>Job ID</th>
-      <th>User</th>
-      <th>Created at</th>
-      <th>Due date</th>
-      <th># Posters</th>
-      <th>Status</th>
-      <th>Finalized?</th>
-      <th>Edit</th>
-      <th>Destroy</th>
+      <td><%= link_to job.id, job %></td>
+      <td><%= job.user.email if job.user %></td>
+      <td><%= format_date(job.created_at) %></td>
+      <td><%= format_date(job.due_date) if job.due_date %></td>
+      <td><%= job.posters.count %></td>
+      <td><%= show_status(job.job_status.name) %></td>
+      <td><%= get_finalized(job.finalize) %></td>
+      <td>
+        <%= link_to edit_job_path(job) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to job, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </td>
     </tr>
+  <% end %>
+</table>
 
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= link_to job.id, job %></td>
-        <td><%= job.user.email if job.user %></td>
-        <td><%= format_date(job.created_at) %></td>
-        <td><%= format_date(job.due_date) if job.due_date %></td>
-        <td><%= job.posters.count %></td>
-        <td><%= show_status(job.job_status.name) %></td>
-        <td><%= get_finalized(job.finalize) %></td>
-        <td>
-          <%= link_to edit_job_path(job) do %>
-            <i class="fa fa-edit"></i>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to job, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="fa fa-trash-o"></i>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-
-  <%= will_paginate @jobs %>
+<%= will_paginate @jobs %>
 
