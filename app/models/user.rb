@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,  :name, :management, :admin, :noncsit, :student, :faculty
   # attr_accessible :title, :body
 
-  before_create :default_student
   after_create :send_welcome_email
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
@@ -48,13 +47,6 @@ class User < ActiveRecord::Base
   def send_welcome_email
     if self.student
       UserMailer.welcome_email(self).deliver
-    end
-  end
-  def default_student
-    if self.management || self.admin || self.noncsit || self.faculty
-      self.student ||= false
-    else
-      self.student ||= true
     end
   end
 end

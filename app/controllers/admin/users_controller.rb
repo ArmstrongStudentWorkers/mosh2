@@ -14,6 +14,7 @@ class Admin::UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.student = false
   end
 
   def edit
@@ -49,10 +50,19 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_users_path }
+      format.json { head  :no_content }
+    end
+  end
+
   private
 
   def needs_password?(user, params)
     params[:password].present?
   end
-
 end
