@@ -28,8 +28,8 @@ module ApplicationHelper
       "<span class='label label-default'>#{status}</span>".html_safe
     elsif status == "Accepted"
       "<span class='label label-success'>#{status}</span>".html_safe
-    else
-      ""
+    elsif status == "Printing"
+      "<span class='label label-default'>#{status}</span>".html_safe
     end
   end
 
