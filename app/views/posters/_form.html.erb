@@ -8,17 +8,17 @@
 
   <div class="form-inputs">
     <%= f.input :name, label: 'Title' %>
-    <%= f.input :length, placeholder: 'in inches', hint: 'Note: One of either width or length must be less than 48 inches. Both length and width must be more than 20 inches.' %>
+    <%= f.input :length, placeholder: 'in inches', hint: 'Note: One of either width or length must be less than 40 inches. Both length and width must be at least 20 inches.' %>
     <%= f.input :width, placeholder: 'in inches' %>
     <%= f.input :special_request %>
     <%= f.input :mounting, hint: 'Poster mounting services are available through the Student ACM Chapter. Mounting will cost $5 for TechFest posters, or $10 for other posters.' %>
-    <div class="control group">
+    <div class="control-group <%= style_for_errors(@poster) %>">
+      <label class="control-label" for="poster_attachment">Poster PDF</label>
       <div class="controls">
         <%= f.file_field :attachment %>
+        <span class="help-inline"><%= show_attachment_errors(@poster) %></span>
       </div>
     </div>
-    <p class="note">.pdf format only</p>
-
   </div>
 
   <div class="form-actions">

@@ -21,10 +21,20 @@ class Poster < ActiveRecord::Base
   attr_accessible :job_id, :length, :name, :poster_status_id, :special_request, :width, :attachment, :denial, :mounting
   belongs_to :job
   belongs_to :poster_status
+  validates :length, numericality: { greater_than_or_equal_to: 20, less_than_or_equal_to: 40 }
+
   has_attached_file :attachment
-  validates_attachment :attachment, content_type: { content_type: "application/pdf" }
+  validates_attachment_presence :attachment
+  validates_attachment :attachment, content_type: { content_type: "application/pdf" }, message: "Attachment must be a .pdf"
+  #validate :check_content_type
+  # do_not_validate_attachment_file_type :image
   has_paper_trail
 
+  def check_content_type
+    if !"application/pdf".include?(self.attachment_content_type)
+      errors.add_to_base("Attachment must be a .pdf")
+    end
+  end
   def set_printing
     self.poster_status = PosterStatus.where(name: "Printing").first
   end
