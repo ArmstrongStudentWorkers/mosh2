@@ -42,7 +42,7 @@
         <td><%= poster.special_request %></td>
         <td><%= show_status(poster.poster_status.name) %></td>
         <td><%= get_check(poster.mounting) %></td>
-        <td><%= link_to 'Attachment url', poster.attachment.url %></td>
+        <td><%= link_to 'Attachment url', poster.attachment.url, target: "_blank" %></td>
         <td>
           <%= link_to edit_poster_path(poster) do %>
             <i class="fa fa-edit"></i>
