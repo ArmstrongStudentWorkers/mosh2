@@ -10,6 +10,13 @@
           <%-# render 'layouts/workorders' %>
           <%-# render 'layouts/supplies' %>
           <%-# render 'layouts/advisement' %>
+        <% else %>
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <i class="fa fa-cloud-upload"></i>
+              TechFest Sign-Up
+            <% end %>
+          </li>
         <% end %>
       </ul>
 

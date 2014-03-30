@@ -11,7 +11,7 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= link_to('Save Poster!', @poster.job, :class => 'btn btn-block btn-large btn-success') unless @poster.job.finalize %>
+    <%= link_to('Confirm Poster!', @poster.job, :class => 'btn btn-block btn-large btn-success') unless @poster.job.finalize %>
   </div>
 </div>
 <br><br>
@@ -52,12 +52,14 @@
       </tr>
       <tr>
         <th>Poster mouting:</th>
-        <td><%= get_check(@poster.mounting) %></td>
+        <td><%= get_yes_or_no(@poster.mounting) %></td>
       </tr>
-      <tr>
-        <th>Attachment url:</th>
-        <td><%=link_to 'Attachment url', @poster.attachment.url %></td>
-      </tr>
+      <% if current_user.management %>
+        <tr>
+          <th>Attachment url:</th>
+          <td><%=link_to 'Attachment url', @poster.attachment.url, target: "_blank" %></td>
+        </tr>
+      <% end %>
     </table>
 
     <div class="row job-actions">
@@ -91,5 +93,11 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+</div>
+<br><br>
+<div class="row">
+  <div class="span6 offset3">
+    <%= link_to('Confirm Poster!', @poster.job, :class => 'btn btn-block btn-large btn-success') unless @poster.job.finalize %>
   </div>
 </div>

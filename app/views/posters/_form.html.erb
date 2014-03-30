@@ -8,11 +8,11 @@
 
   <div class="form-inputs">
     <%= f.input :name, label: 'Title' %>
-    <%= f.input :length, placeholder: 'in inches', hint: 'Note: One of either width or length must be less than 40 inches. Both length and width must be at least 20 inches.' %>
+    <%= f.input :length, placeholder: 'shorter side, in inches', hint: 'Note: Shorter side must be less than 40 inches. Both length and width must be at least 20 inches.' %>
     <%= f.input :width, placeholder: 'in inches' %>
     <%= f.input :special_request %>
-    <%= f.input :mounting, hint: 'Poster mounting services are available through the Student ACM Chapter. Mounting will cost $5 for TechFest posters, or $10 for other posters.' %>
-    <div class="control-group <%= style_for_errors(@poster) %>">
+    <%= f.input :mounting, hint: 'Check this box if you are interested in having your poster mounted to a foam board. Poster mounting services are available as a fund raiser for the Student ACM Chapter, and may cost up to $10.' %>
+    <div class="control-group <%= style_for_errors(@poster) if @poster.errors.messages[:attachment] %>">
       <label class="control-label" for="poster_attachment">Poster PDF</label>
       <div class="controls">
         <%= f.file_field :attachment %>
@@ -22,6 +22,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit 'Upload Poster to Job', class: "btn btn-primary" %>
   </div>
 <% end %>

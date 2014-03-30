@@ -52,7 +52,7 @@
         <th>Posters:</th>
         <td>
           <% @job.posters.each do |poster| %>
-            <%= show_status(poster.poster_status.name) %>  <%= link_to poster.name, poster %><br>
+            <%= show_status(poster.poster_status.name) %>  <%= link_to poster.name, poster, target: "_blank" %><br>
           <% end %>
         </td>
       </tr>
@@ -67,6 +67,8 @@
     </table>
 
     <div clas="span6">
+      <%= link_to 'Finalize Job', job_finalize_path(@job), method: :put, class: 'btn btn-large btn-block btn-success' unless @job.finalize %>
+     <br>
       <%= button_to "Delete Poster Job", @job, method: :delete, class: 'btn btn-block btn-medium btn-danger', data: { confirm: 'Are you sure? This cannot be undone.' } %>
     </div>
     <%= link_to 'Edit Job', edit_job_path(@job) %> | <%= link_to 'Back', jobs_path %>

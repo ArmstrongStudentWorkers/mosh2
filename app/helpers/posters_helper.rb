@@ -20,8 +20,16 @@ module PostersHelper
     end
   end
 
+  def get_yes_or_no(boolean)
+    if boolean
+      "Yes"
+    else
+      "No"
+    end
+  end
+
   private
   def has_attachment_error(poster)
-    !poster.errors.messages[:attachment].empty?
+    !poster.nil? || !poster.errors.messages[:attachment].empty?
   end
 end
