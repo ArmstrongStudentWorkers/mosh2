@@ -1,4 +1,7 @@
 Mosh2::Application.routes.draw do
+  resources :settings
+
+
   namespace :admin do
     resources :users
   end

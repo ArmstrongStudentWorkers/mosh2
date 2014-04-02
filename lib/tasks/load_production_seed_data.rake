@@ -2,6 +2,8 @@ namespace :db do
   desc 'Load seed data.'
   task :load_seed_data => :environment do |t, args|
 
+    Setting.create(name: "include_mounting", set: true)
+
     hardware_status_names = ['Active', 'Defective', 'Overstock', 'Surplus - In Waiting', 'Surplus - Shipped']
     hardware_status_names.each do |name|
       puts "Creating hardware status: #{name}"

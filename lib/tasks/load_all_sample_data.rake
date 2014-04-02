@@ -2,6 +2,7 @@ namespace :test_data do
   desc 'Load all sample data'
   task :all => :environment do
 
+    Rake::Task["test_data:settings"].execute  # Load sample settings
     Rake::Task["test_data:users"].execute    # Load sample users
     Rake::Task["test_data:terms"].execute    # Load sample terms
     Rake::Task["test_data:semesters"].execute    # Load sample semesters
