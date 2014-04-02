@@ -6,11 +6,11 @@ namespace :test_data do
     Setting.delete_all
     puts 'Creating sample Settings'
 
-    def make_setting(name, set)
-      setting = Setting.create!(name: name, set: set)
+    def make_setting(name, set, description)
+      setting = Setting.create!(name: name, set: set, description: description)
       puts "Created Setting: #{name}"
     end
 
-    make_setting("include_mounting", true)
+    make_setting("include_mounting", true, "Enable Poster Mounting Option")
   end
 end

@@ -1,3 +1,3 @@
 class Setting < ActiveRecord::Base
-  attr_accessible :name, :set
+  attr_accessible :name, :set, :description
 end

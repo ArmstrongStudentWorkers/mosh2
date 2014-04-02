@@ -1,15 +1,25 @@
+<h2><%= @setting.name %> Details</h2>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @setting.name %>
-</p>
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Setting:</th>
+        <td><%= @setting.name %></td>
+      </tr>
+      <tr>
+        <th>Set:</th>
+        <td><%= get_check(@setting.set) %></td>
+      </tr>
+      <tr>
+        <th>Description:</th>
+        <td><%= @setting.description %></td>
+      </tr>
+    </table>
 
-<p>
-  <b>Set:</b>
-  <%= @setting.set %>
-</p>
+    <%= link_to 'Edit', edit_setting_path(@setting) %> |
+    <%= link_to 'Back', settings_path %>
 
-
-<%= link_to 'Edit', edit_setting_path(@setting) %> |
-<%= link_to 'Back', settings_path %>
+  </div>
+</div>

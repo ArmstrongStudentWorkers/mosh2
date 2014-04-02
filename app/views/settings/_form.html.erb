@@ -1,12 +1,13 @@
-<%= simple_form_for(@setting) do |f| %>
+<%= simple_form_for(@setting, html: { class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :set %>
+    <%= f.input :description %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit 'Submit Setting', class: 'btn btn-primary' %>
   </div>
 <% end %>
