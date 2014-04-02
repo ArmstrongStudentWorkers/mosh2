@@ -13,7 +13,7 @@
   </ul>
   <p>The due date of this poster job is <%= @date %>. Please note that poster orders received within 48 hours of their due date are not guaranteed.</p>
   <p>You may view the status of your job at this link: <%= @url %>.</p>
-  <p>You will be notified once your order is complete. Please reply if you have any questions.</p><br>
+  <p>You will be notified once your order is complete. Please reply if you have any questions. <% if @mounting %>If you requested information regarding mounting services, expect an email from the <%= mail_to 'armstrong.acm@gmail.com', 'Student ACM' %> chapter.<% end %></p><br>
   <p>Thank you,</p>
   <p>MOSH Admin</p>
   </body>

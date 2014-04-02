@@ -9,7 +9,7 @@ The due date of this poster job is <%= @date %>. Please note that poster orders 
 
 You may view the status of your job as this link: <%= @url %>.
 
-You will be notified once your order is complete. Please reply if you have any questions.
+You will be notified once your order is complete. Please reply if you have any questions. <% if @mounting %>If you requested information regarding mounting services, expect and email from the <%= mail_to 'armstrong.acm@gmail.com', 'Student ACM' %> chapter.<% end %>
 
 Thank you,
 MOSH Admin

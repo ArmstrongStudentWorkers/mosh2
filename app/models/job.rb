@@ -42,4 +42,13 @@ class Job < ActiveRecord::Base
     self.finalize = true
   end
 
+  def get_mounting
+    mount = false
+    self.posters.each do |poster|
+      if poster.mounting
+        mount = true
+      end
+    end
+    mount
+  end
 end
