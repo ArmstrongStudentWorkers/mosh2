@@ -11,7 +11,7 @@
     <%= f.input :length, placeholder: 'shorter side, in inches', hint: 'Note: Shorter side must be less than 40 inches. Both length and width must be at least 20 inches.' %>
     <%= f.input :width, placeholder: 'in inches' %>
     <%= f.input :special_request %>
-    <%= f.input :mounting, hint: 'Check this box if you are interested in having your poster mounted to a foam board. Poster mounting services are available as a fund raiser for the Student ACM Chapter, and may cost up to $10.' %>
+    <%= f.input :mounting, hint: 'Check this box if you are interested in having your poster mounted to a foam board. Poster mounting services are available as a fund raiser for the Student ACM Chapter, and may cost up to $10.' if mounting_is_enabled %>
     <div class="control-group <%= style_for_errors(@poster) if @poster.errors.messages[:attachment] %>">
       <label class="control-label" for="poster_attachment">Poster PDF</label>
       <div class="controls">

@@ -80,4 +80,15 @@ class SettingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def toggle
+    @setting = Setting.find(params[:setting_id])
+    @setting.toggle_set
+
+    if @setting.save
+      redirect_to settings_url, notice: 'Setting was changed.'
+    else
+      redirect_to settings_url, notice: 'Setting could not be changed.'
+    end
+  end
 end

@@ -1,5 +1,7 @@
 Mosh2::Application.routes.draw do
-  resources :settings
+  resources :settings do
+    put "toggle"
+  end
 
 
   namespace :admin do

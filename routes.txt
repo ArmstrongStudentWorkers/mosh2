@@ -1,3 +1,11 @@
+                  setting_toggle PUT    /settings/:setting_id/toggle(.:format)                          settings#toggle
+                        settings GET    /settings(.:format)                                             settings#index
+                                 POST   /settings(.:format)                                             settings#create
+                     new_setting GET    /settings/new(.:format)                                         settings#new
+                    edit_setting GET    /settings/:id/edit(.:format)                                    settings#edit
+                         setting GET    /settings/:id(.:format)                                         settings#show
+                                 PUT    /settings/:id(.:format)                                         settings#update
+                                 DELETE /settings/:id(.:format)                                         settings#destroy
                      admin_users GET    /admin/users(.:format)                                          admin/users#index
                                  POST   /admin/users(.:format)                                          admin/users#create
                   new_admin_user GET    /admin/users/new(.:format)                                      admin/users#new
@@ -13,7 +21,6 @@
                                  PUT    /poster_statuses/:id(.:format)                                  poster_statuses#update
                                  DELETE /poster_statuses/:id(.:format)                                  poster_statuses#destroy
                    poster_finish PUT    /posters/:poster_id/finish(.:format)                            posters#finish
-                     poster_deny PUT    /posters/:poster_id/deny(.:format)                              posters#deny
                      poster_pend PUT    /posters/:poster_id/pend(.:format)                              posters#pend
                     poster_print PUT    /posters/:poster_id/print(.:format)                             posters#print
                          posters GET    /posters(.:format)                                              posters#index
@@ -31,7 +38,6 @@
                                  PUT    /job_statuses/:id(.:format)                                     job_statuses#update
                                  DELETE /job_statuses/:id(.:format)                                     job_statuses#destroy
                       job_finish PUT    /jobs/:job_id/finish(.:format)                                  jobs#finish
-                        job_deny PUT    /jobs/:job_id/deny(.:format)                                    jobs#deny
                         job_pend PUT    /jobs/:job_id/pend(.:format)                                    jobs#pend
                     job_finalize PUT    /jobs/:job_id/finalize(.:format)                                jobs#finalize
                      job_posters GET    /jobs/:job_id/posters(.:format)                                 posters#index

@@ -1,31 +1,33 @@
-<h1>Listing settings</h1>
+<h2>Settings</h2>
 
-<table class="table table-striped table-bordered">
+<table class="table">
   <tr>
+    <th>Current Setting</th>
+    <th>Change Setting</th>
     <th>Name</th>
-    <th>Set</th>
     <th>Description</th>
     <th>Edit</th>
     <th>Delete</th>
   </tr>
 
-<% @settings.each do |setting| %>
-  <tr>
-    <td><%= link_to setting.name, setting %></td>
-    <td><%= get_check(setting.set) %></td>
-    <td><%= setting.description %></td>
-    <td>
-      <%= link_to edit_setting_path(setting) do %>
-        <i class="fa fa-edit"></i>
-      <% end %>
+  <% @settings.each do |setting| %>
+    <tr>
+      <td><%= get_on_off(setting.set) %>
+      <td><%= link_to turn_on_off(setting.set), setting_toggle_path(setting), class: get_button(setting.set), method: 'put' %></td>
+      <td><%= link_to setting.name, setting %></td>
+      <td><%= setting.description %></td>
+      <td>
+        <%= link_to edit_setting_path(setting) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
       </td>
       <td>
         <%= link_to setting, method: :delete, data: { confirm: 'Are you sure?' } do %>
           <i class="fa fa-trash-o"></i>
         <% end %>
       </td>
-  </tr>
-<% end %>
+    </tr>
+  <% end %>
 </table>
 
 <br />

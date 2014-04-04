@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def mounting_is_enabled
+    setting = Setting.where(name: 'include_mounting').first
+    setting.set
+  end
+
   # Returns the full title on a per-page basis.
   def full_title(page_title)
     base_title = "MOSH: The McCarthy Online Support Hub"
