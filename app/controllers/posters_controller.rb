@@ -1,4 +1,6 @@
 class PostersController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /posters
   # GET /posters.json
   def index
