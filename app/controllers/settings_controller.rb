@@ -1,4 +1,9 @@
 class SettingsController < ApplicationController
+
+  require "#{Rails.root}/lib/mosh_modules/admin_module"
+  include MoshModules::AdminModule
+  before_filter :admin_filter
+
   # GET /settings
   # GET /settings.json
   def index

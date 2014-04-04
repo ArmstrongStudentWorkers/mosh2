@@ -2,6 +2,9 @@
 <%= render 'deny_job_modal' %>
 <h2>Poster Job Details</h2>
 
+<% if !@job.finalize %>
+  <p class="text-center">Once you are finished adding posters to your job, make sure to click the "Finalize Job" button to finalize your order.</p>
+  <br><% end %>
 
 <div class="row job-actions">
   <div class="span3 offset3">
