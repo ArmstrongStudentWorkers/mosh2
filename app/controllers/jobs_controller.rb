@@ -57,7 +57,10 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(params[:job])
     if !params[:job][:user_id]
-      @job.user_id = current_user.id
+      @user = current_user
+      @job.user_id = @user.id
+    else
+      @user = User.find(params[:job][:user_id])
     end
     @job.set_pending
     @job.due_date = DateTime.strptime(params[:job][:due_date], '%m/%d/%Y').to_date
