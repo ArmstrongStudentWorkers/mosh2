@@ -26,7 +26,7 @@ class Poster < ActiveRecord::Base
   validates :name, :job_id, presence: true
 
   has_attached_file :attachment
-  validates_attachment_presence :attachment
+  validates_attachment_presence :attachment, if: :new_record?
   validates_attachment :attachment, content_type: { content_type: "application/pdf" }
   has_paper_trail
 
