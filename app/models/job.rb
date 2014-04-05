@@ -18,7 +18,7 @@ class Job < ActiveRecord::Base
   belongs_to :job_status
   has_paper_trail
 
-  validate :check_date
+  validate :check_date, if: :should_validate_date?
 
   def format_date
     self.due_date.strftime('%m/%d/%Y')
@@ -28,7 +28,9 @@ class Job < ActiveRecord::Base
       errors.add(:due_date, "Posters cannot be due before today!")
     end
   end
-
+  def should_validate_date?
+   new_record? || due_date_changed?
+  end
   def set_pending
     self.job_status = JobStatus.where(name: "Pending").first
   end
@@ -41,7 +43,6 @@ class Job < ActiveRecord::Base
   def set_finalize
     self.finalize = true
   end
-
   def get_mounting
     mount = false
     self.posters.each do |poster|
