@@ -18,8 +18,8 @@ namespace :deploy do
   after :updating, :symlink_db do
     on roles(:app) do
       execute :ln, '-s',
-        release_path.join('../../shared/database.yml'),
-        release_path.join('config/database.yml')
+        release_path.join('..', '..', 'shared/database.yml'),
+        release_path.join('config', 'database.yml')
     end
   end
 
@@ -27,8 +27,17 @@ namespace :deploy do
   after :updating, :symlink_smtp do
     on roles(:app) do
       execute :ln, '-s',
-        release_path.join('../../shared/smtp_settings.rb'),
-        release_path.join('config/initializers/smtp_settings.rb')
+        release_path.join('..', '..', 'shared', 'smtp_settings.rb'),
+        release_path.join('config', 'initializers', 'smtp_settings.rb')
+    end
+  end
+
+  desc 'Symlinking attachments'
+  after :publishing, :symlink_smtp do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :ln, '-s',
+        release_path.join('..', '..', 'shared', 'attachments'),
+        release_path.join('public', 'system')
     end
   end
 
