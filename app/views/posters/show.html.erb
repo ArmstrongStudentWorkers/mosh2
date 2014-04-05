@@ -56,8 +56,8 @@
       </tr>
       <% if current_user.management %>
         <tr>
-          <th>Attachment url:</th>
-          <td><%=link_to 'Attachment url', @poster.attachment.url, target: "_blank" %></td>
+          <th>Attachment:</th>
+          <td><%=link_to 'Download', @poster.attachment.url, target: "_blank", class: 'btn btn-mini' %></td>
         </tr>
       <% end %>
     </table>
