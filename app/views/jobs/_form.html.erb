@@ -1,11 +1,10 @@
 <%= simple_form_for(@job, html: { class: 'form-horizontal' }) do |f| %>
 
   <div class="form-inputs">
-    
     <% if current_user.management %>
-      <%= f.association :user, selected: current_user.id %>
+      <%= f.association :user %>
     <% end %>
-    <%= f.input :due_date, as: :string, input_html: { data: { behavior: 'datepicker' } }, hint: 'Note: Jobs requested within 48 hours of due date are not guaranteed.' %>
+    <%= f.input :due_date, as: :string, input_html: { data: { behavior: 'datepicker' } }, hint: 'Note: Jobs requested within 48 business hours of due date are not guaranteed.' %>
   </div>
 
   <div class="form-actions">
