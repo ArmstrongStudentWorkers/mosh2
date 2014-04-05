@@ -19,14 +19,18 @@
   <% if current_user.management %>
     <% if @job.job_status.name == "Pending" %>
       <div class="span3 offset3">
-        <%= link_to 'Finish Job', job_finish_path(@job), method: :put, class: 'btn btn-medium btn-block btn-info' %>
+        <%= link_to job_finish_path(@job), method: :put, class: 'btn btn-medium btn-block btn-info' do %>
+          <i class="fa fa-cogs"></i> Finish Job
+        <% end %>
       </div>
       <div class="span3">
-        <a data-toggle="modal" href="#denyJobModal" class="btn btn-medium btn-block btn-danger">Deny Job</a>
+        <a data-toggle="modal" href="#denyJobModal" class="btn btn-medium btn-block btn-danger"><i class="fa fa-cogs"></i> Deny Job</a>
       </div>
     <% else %>
       <div class="span3 offset3">
-        <%= link_to 'Pend Job', job_pend_path(@job), method: :put, class: 'btn btn-block btn-medium btn-warning' %>
+        <%= link_to job_pend_path(@job), method: :put, class: 'btn btn-block btn-medium btn-warning' do %>
+          <i class="fa fa-cogs"></i> Pend Job
+        <% end %>
       </div>
     <% end %>
   <% end %>

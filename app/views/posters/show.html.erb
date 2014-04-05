@@ -78,13 +78,17 @@
 
         <% if @poster.poster_status.name == "Pending" %>
           <div class="span1">
-            <%= link_to 'Printing', poster_print_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-info' %>
+            <%= link_to poster_print_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-info' do %>
+              <i class="fa fa-cogs"></i> Printing
+            <% end %>
           </div>
           <div class="span1">
-            <%= link_to 'Finished', poster_finish_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-success' %>
+            <%= link_to poster_finish_path(@poster), method: :put, class: 'btn btn-block btn-medium btn-success' do %>
+              <i class="fa fa-cogs"></i> Finished
+            <% end %>
           </div>
           <div class="span1">
-            <a data-toggle="modal" href="#denyPosterModal" class="btn btn-medium btn-block btn-danger">Denied</a>
+            <a data-toggle="modal" href="#denyPosterModal" class="btn btn-medium btn-block btn-danger"><i class="fa fa-cogs"></i> Denied</a>
           </div>
         <% else %>
           <div class="span2">
