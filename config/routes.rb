@@ -1,4 +1,7 @@
 Mosh2::Application.routes.draw do
+  resources :student_events
+
+
   resources :settings do
     put "toggle"
   end

@@ -1,0 +1,14 @@
+<%= simple_form_for(@student_event, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, hint: 'e.g. TechFest 2014' %>
+    <%= f.input :start_date, as: :string, input_html: { data: { behavior: 'datepicker' } }, hint: 'When may students begin to log in?' %>
+    <%= f.input :end_date, as: :string, input_html: { data: { behavior: 'datepicker' } }, hint: 'When is the end of the student log in period?' %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

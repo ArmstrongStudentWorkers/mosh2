@@ -1,3 +1,10 @@
+                  student_events GET    /student_events(.:format)                                       student_events#index
+                                 POST   /student_events(.:format)                                       student_events#create
+               new_student_event GET    /student_events/new(.:format)                                   student_events#new
+              edit_student_event GET    /student_events/:id/edit(.:format)                              student_events#edit
+                   student_event GET    /student_events/:id(.:format)                                   student_events#show
+                                 PUT    /student_events/:id(.:format)                                   student_events#update
+                                 DELETE /student_events/:id(.:format)                                   student_events#destroy
                   setting_toggle PUT    /settings/:setting_id/toggle(.:format)                          settings#toggle
                         settings GET    /settings(.:format)                                             settings#index
                                  POST   /settings(.:format)                                             settings#create

@@ -1,0 +1,25 @@
+<h2><%= @student_event.name %> Detail</h2>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered">
+      <tr>
+        <th>Start date:</th>
+        <td><%= format_date(@student_event.start_date) %></td>
+      </tr>
+      <tr>
+        <th>End date:</th>
+        <td><%= format_date(@student_event.end_date) %></td>
+      </tr>
+      <tr>
+        <th>Description:</th>
+        <td><%= @student_event.description %></td>
+      </tr>
+    </table>
+
+    <%= link_to 'Edit', edit_student_event_path(@student_event) %> |
+    <%= link_to 'Back', student_events_path %>
+
+  </div>
+</div>

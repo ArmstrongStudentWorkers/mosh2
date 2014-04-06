@@ -1,0 +1,2 @@
+module StudentEventsHelper
+end

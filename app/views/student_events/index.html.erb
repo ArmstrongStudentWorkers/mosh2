@@ -1,0 +1,39 @@
+<h2>Student Events</h2>
+
+<p>Student logins are only permitted within student event time periods. Add an event to allow student access to MOSH</p>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Event Name</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @student_events.each do |student_event| %>
+    <tr>
+      <td><%= link_to student_event.name, student_event %></td>
+      <td><%= format_date(student_event.start_date) %></td>
+      <td><%= format_date(student_event.end_date) %></td>
+      <td><%= student_event.description %></td>
+      <td>
+        <%= link_to edit_student_event_path(student_event) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to student_event, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to new_student_event_path, class: "btn btn-primary" do %>
+  <i class="fa fa-plus"></i> Add Student Event
+<% end %>
