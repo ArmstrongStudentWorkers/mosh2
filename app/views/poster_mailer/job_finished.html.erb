@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Good news, Poster Job #<%= @job_id %> is complete!</h1>
-    <p>
-      Please come by SC129 to pick up your poster(s).<br/>
-    </p>
-    <p>Have a great day!</p>
-    <p>Mosh Admin</p>
-  </body>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Good news, Poster Job #<%= @job_id %> is complete!</h1>
+<p>
+Please come by SC129 to pick up your poster(s).<br/>
+</p>
+<p>
+SC129 Hours:
+<ul>
+  <li>Monday: <%= @hours.monday %></li>
+  <li>Tuesday: <%= @hours.tuesday %></li>
+  <li>Wednesday: <%= @hours.wednesday %></li>
+  <li>Thursday: <%= @hours.thursday %></li>
+  <li>Friday: <%= @hours.friday %></li>
+  <li>Saturday: <%= @hours.saturday %></li>
+  <li>Sunday: <%= @hours.sunday %></li>
+</ul>
+</p>
+
+
+<p>Have a great day!</p>
+<p>Mosh Admin</p>
+</body>
 </html>
 
