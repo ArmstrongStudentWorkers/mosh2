@@ -5,7 +5,7 @@ module PostersHelper
   end
 
   def show_attachment_errors(poster)
-    errors = ""
+    errors = "Poster "
     if has_attachment_error(poster)
       poster.errors.messages[:attachment].each do |message|
         errors += message
