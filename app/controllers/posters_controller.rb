@@ -54,7 +54,7 @@ class PostersController < ApplicationController
 
     respond_to do |format|
       if @poster.save
-        if params[:poster][:mounting]
+        if params[:poster][:mounting] == true
           @date = @poster.job.format_date
           PosterMailer.mount_poster(@poster.id, @date, @poster.name, @poster.job.user.email).deliver
         end
