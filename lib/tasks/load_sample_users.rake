@@ -6,7 +6,7 @@ namespace :test_data do
     User.delete_all
     puts 'Creating sample Users.'
 
-    def make_user(email, name, management, admin, noncsit, student)
+    def make_user(email, name, management, admin, noncsit, student, faculty)
       password = 'password'
       User.create!(email: email, password: password, password_confirmation: password, name: name, management: management, admin: admin, noncsit: noncsit, student: student, faculty: faculty)
       puts "Created User: #{name}"
