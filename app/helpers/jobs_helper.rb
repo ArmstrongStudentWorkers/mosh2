@@ -17,13 +17,12 @@ module JobsHelper
       "n/a"
     else
       count = 0
-      pending = (Job.where(job_status_id: JobStatus.where(name: "Pending").first.id) && Job.where("id < ?", job.id))
+      jobs = JobStatus.where(name: "Pending").first.jobs.where("id < ?", job.id)
 
-      pending.each do |j|
+      jobs.each do |j|
         count += j.posters.count
       end
       count
-
     end
   end
 end
