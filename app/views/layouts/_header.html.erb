@@ -4,19 +4,12 @@
       <%= link_to "MOSH", root_path, id: "logo" %>
 
       <ul class="nav">
-        <%= render 'layouts/labs' %>
+        <%-# render 'layouts/labs' %>
         <% if user_signed_in? %>
           <%= render 'layouts/posters' %>
-          <%= render 'layouts/workorders' %>
-          <%= render 'layouts/supplies' %>
-          <%= render 'layouts/advisement' %>
-        <% else %>
-          <li>
-            <%= link_to new_user_registration_path do %>
-              <i class="fa fa-cloud-upload"></i>
-              TechFest Sign-Up
-            <% end %>
-          </li>
+          <%-# render 'layouts/workorders' %>
+          <%-# render 'layouts/supplies' %>
+          <%-# render 'layouts/advisement' %>
         <% end %>
       </ul>
 
