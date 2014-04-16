@@ -14,6 +14,18 @@ namespace :test_data do
     location.location_type = type
     location.save!
 
+    name = 'Science Center - 1503A'
+    room = 'SC1503A'
+    location = Location.create!(name: name, room: room)
+    location.location_type = type
+    location.save!
+
+    name = 'Science Center - 1503B'
+    room = 'SC1503B'
+    location = Location.create!(name: name, room: room)
+    location.location_type = type
+    location.save!
+
     name = 'Science Center - 2506'
     room = 'SC2506'
     comment = ''

@@ -11,9 +11,10 @@ namespace :test_data do
     thursday = '8AM to 6PM'
     friday = '8AM to 12PM'
     saturday = '11AM to 3PM'
+    sunday = 'Closed'
     location = Location.where(name: 'Science Center - 129').first
 
-    Hour.create!(monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday, friday: friday, saturday: saturday, location_id: location.id)
+    Hour.create!(monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday, friday: friday, saturday: saturday, sunday: sunday, location_id: location.id)
     puts "Hours created"
   end
 end
