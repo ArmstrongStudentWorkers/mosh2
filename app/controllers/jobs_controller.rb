@@ -30,9 +30,13 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @job }
+    if authorized_user?(current_user, @job)
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @job }
+      end
+    else
+      render file: "#{Rails.root}/public/404.html", status: 404, layout: false
     end
   end
 
@@ -155,5 +159,10 @@ class JobsController < ApplicationController
       format.html { redirect_to jobs_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def authorized_user?(user, job)
+    user == job.user || user.management
   end
 end
