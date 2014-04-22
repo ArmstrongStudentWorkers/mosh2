@@ -4,7 +4,6 @@
   <%= f.error_notification %>
 
   <%= f.input :reset_password_token, :as => :hidden %>
-  <%= f.full_error :reset_password_token %>
 
   <div class="form-inputs">
     <%= f.input :password, :label => "New password", :required => true, :autofocus => true %>
@@ -12,8 +11,9 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
+    <%= f.button :submit, "Confirm new password", class: 'btn btn-primary' %>
+    <div class="pull-right reset-password-link">
+      <%= link_to 'Reset my password', new_user_password_path %>
+    </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
