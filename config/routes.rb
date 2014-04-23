@@ -47,11 +47,12 @@ Mosh2::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :labs, only: [:index, :show] do
-        resources :workstations, only: [:index, :show]
+        resources :workstations, only: :index
       end
-      resources :workstations, only: [:index, :show] do
-        resources :hardwares, only: [:index, :show]
+      resources :workstations, only: :show do
+        resources :hardwares, only: :index
       end
+      resources :hardwares, only: :show
     end
   end
 
