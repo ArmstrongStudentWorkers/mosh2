@@ -1,11 +1,7 @@
 Mosh2::Application.routes.draw do
-  resources :student_events
-
-
   resources :settings do
     put "toggle"
   end
-
 
   namespace :admin do
     resources :users
@@ -31,24 +27,33 @@ Mosh2::Application.routes.draw do
   resources :terms
 
   resources :locations do
-    resources :workstations
-    resources :after_hours_accesses
+    resources :workstations, only: [:index, :new, :create]
   end
 
   resources :location_types
-  resources :hardwares
+  resources :hardwares, except: [:new, :create]
   resources :hardware_statuses
   resources :hardware_types
 
-  resources :workstations do
-    resources :hardwares
+  resources :workstations, except: [:new, :create] do
+    resources :hardwares, only: [:index, :new, :create]
   end
 
   resources :workstation_types
   resources :hours
   resources :lab_overview, only: :index
   resources :inventory, only: :index
-  resources :poster_overview, only: [:index, :show]
+
+  namespace :api do
+    namespace :v1 do
+      resources :labs, only: [:index, :show] do
+        resources :workstations, only: [:index, :show]
+      end
+      resources :workstations, only: [:index, :show] do
+        resources :hardwares, only: [:index, :show]
+      end
+    end
+  end
 
   devise_for :users
 
