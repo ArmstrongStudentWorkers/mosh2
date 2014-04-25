@@ -34,7 +34,7 @@ namespace :db do
       end
     end
 
-    make_user_from_file("#{Rails.root}/lib/assets/mosh_users.csv")
+    make_user_from_file("#{Rails.root}/lib/assets/missing_mosh_users.csv")
 
   end
 end
