@@ -1,4 +1,6 @@
 Mosh2::Application.routes.draw do
+  get "static_pages/about"
+
   resources :settings do
     put "toggle"
   end

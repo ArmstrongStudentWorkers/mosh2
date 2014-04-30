@@ -1,3 +1,4 @@
+      static_pages_about GET    /static_pages/about(.:format)                         static_pages#about
           setting_toggle PUT    /settings/:setting_id/toggle(.:format)                settings#toggle
                 settings GET    /settings(.:format)                                   settings#index
                          POST   /settings(.:format)                                   settings#create
