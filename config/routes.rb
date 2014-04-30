@@ -44,6 +44,18 @@ Mosh2::Application.routes.draw do
   resources :lab_overview, only: :index
   resources :inventory, only: :index
 
+  namespace :api do
+    namespace :v1 do
+      resources :labs, only: [:index, :show] do
+        resources :workstations, only: :index
+      end
+      resources :workstations, only: :show do
+        resources :hardwares, only: :index
+      end
+      resources :hardwares, only: :show
+    end
+  end
+
   devise_for :users
 
   if Rails.env.development?

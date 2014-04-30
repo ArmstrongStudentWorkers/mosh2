@@ -1,169 +1,175 @@
-          setting_toggle PUT    /settings/:setting_id/toggle(.:format)                settings#toggle
-                settings GET    /settings(.:format)                                   settings#index
-                         POST   /settings(.:format)                                   settings#create
-             new_setting GET    /settings/new(.:format)                               settings#new
-            edit_setting GET    /settings/:id/edit(.:format)                          settings#edit
-                 setting GET    /settings/:id(.:format)                               settings#show
-                         PUT    /settings/:id(.:format)                               settings#update
-                         DELETE /settings/:id(.:format)                               settings#destroy
-             admin_users GET    /admin/users(.:format)                                admin/users#index
-                         POST   /admin/users(.:format)                                admin/users#create
-          new_admin_user GET    /admin/users/new(.:format)                            admin/users#new
-         edit_admin_user GET    /admin/users/:id/edit(.:format)                       admin/users#edit
-              admin_user GET    /admin/users/:id(.:format)                            admin/users#show
-                         PUT    /admin/users/:id(.:format)                            admin/users#update
-                         DELETE /admin/users/:id(.:format)                            admin/users#destroy
-         poster_statuses GET    /poster_statuses(.:format)                            poster_statuses#index
-                         POST   /poster_statuses(.:format)                            poster_statuses#create
-       new_poster_status GET    /poster_statuses/new(.:format)                        poster_statuses#new
-      edit_poster_status GET    /poster_statuses/:id/edit(.:format)                   poster_statuses#edit
-           poster_status GET    /poster_statuses/:id(.:format)                        poster_statuses#show
-                         PUT    /poster_statuses/:id(.:format)                        poster_statuses#update
-                         DELETE /poster_statuses/:id(.:format)                        poster_statuses#destroy
-           poster_finish PUT    /posters/:poster_id/finish(.:format)                  posters#finish
-             poster_pend PUT    /posters/:poster_id/pend(.:format)                    posters#pend
-            poster_print PUT    /posters/:poster_id/print(.:format)                   posters#print
-                 posters GET    /posters(.:format)                                    posters#index
-                         POST   /posters(.:format)                                    posters#create
-              new_poster GET    /posters/new(.:format)                                posters#new
-             edit_poster GET    /posters/:id/edit(.:format)                           posters#edit
-                  poster GET    /posters/:id(.:format)                                posters#show
-                         PUT    /posters/:id(.:format)                                posters#update
-                         DELETE /posters/:id(.:format)                                posters#destroy
-            job_statuses GET    /job_statuses(.:format)                               job_statuses#index
-                         POST   /job_statuses(.:format)                               job_statuses#create
-          new_job_status GET    /job_statuses/new(.:format)                           job_statuses#new
-         edit_job_status GET    /job_statuses/:id/edit(.:format)                      job_statuses#edit
-              job_status GET    /job_statuses/:id(.:format)                           job_statuses#show
-                         PUT    /job_statuses/:id(.:format)                           job_statuses#update
-                         DELETE /job_statuses/:id(.:format)                           job_statuses#destroy
-              job_finish PUT    /jobs/:job_id/finish(.:format)                        jobs#finish
-                job_pend PUT    /jobs/:job_id/pend(.:format)                          jobs#pend
-            job_finalize PUT    /jobs/:job_id/finalize(.:format)                      jobs#finalize
-             job_posters GET    /jobs/:job_id/posters(.:format)                       posters#index
-                         POST   /jobs/:job_id/posters(.:format)                       posters#create
-          new_job_poster GET    /jobs/:job_id/posters/new(.:format)                   posters#new
-         edit_job_poster GET    /jobs/:job_id/posters/:id/edit(.:format)              posters#edit
-              job_poster GET    /jobs/:job_id/posters/:id(.:format)                   posters#show
-                         PUT    /jobs/:job_id/posters/:id(.:format)                   posters#update
-                         DELETE /jobs/:job_id/posters/:id(.:format)                   posters#destroy
-                    jobs GET    /jobs(.:format)                                       jobs#index
-                         POST   /jobs(.:format)                                       jobs#create
-                 new_job GET    /jobs/new(.:format)                                   jobs#new
-                edit_job GET    /jobs/:id/edit(.:format)                              jobs#edit
-                     job GET    /jobs/:id(.:format)                                   jobs#show
-                         PUT    /jobs/:id(.:format)                                   jobs#update
-                         DELETE /jobs/:id(.:format)                                   jobs#destroy
-             work_orders GET    /work_orders(.:format)                                work_orders#index
-                         POST   /work_orders(.:format)                                work_orders#create
-          new_work_order GET    /work_orders/new(.:format)                            work_orders#new
-         edit_work_order GET    /work_orders/:id/edit(.:format)                       work_orders#edit
-              work_order GET    /work_orders/:id(.:format)                            work_orders#show
-                         PUT    /work_orders/:id(.:format)                            work_orders#update
-                         DELETE /work_orders/:id(.:format)                            work_orders#destroy
-          order_statuses GET    /order_statuses(.:format)                             order_statuses#index
-                         POST   /order_statuses(.:format)                             order_statuses#create
-        new_order_status GET    /order_statuses/new(.:format)                         order_statuses#new
-       edit_order_status GET    /order_statuses/:id/edit(.:format)                    order_statuses#edit
-            order_status GET    /order_statuses/:id(.:format)                         order_statuses#show
-                         PUT    /order_statuses/:id(.:format)                         order_statuses#update
-                         DELETE /order_statuses/:id(.:format)                         order_statuses#destroy
-    after_hours_accesses GET    /after_hours_accesses(.:format)                       after_hours_accesses#index
-                         POST   /after_hours_accesses(.:format)                       after_hours_accesses#create
-  new_after_hours_access GET    /after_hours_accesses/new(.:format)                   after_hours_accesses#new
- edit_after_hours_access GET    /after_hours_accesses/:id/edit(.:format)              after_hours_accesses#edit
-      after_hours_access GET    /after_hours_accesses/:id(.:format)                   after_hours_accesses#show
-                         PUT    /after_hours_accesses/:id(.:format)                   after_hours_accesses#update
-                         DELETE /after_hours_accesses/:id(.:format)                   after_hours_accesses#destroy
-               semesters GET    /semesters(.:format)                                  semesters#index
-                         POST   /semesters(.:format)                                  semesters#create
-            new_semester GET    /semesters/new(.:format)                              semesters#new
-           edit_semester GET    /semesters/:id/edit(.:format)                         semesters#edit
-                semester GET    /semesters/:id(.:format)                              semesters#show
-                         PUT    /semesters/:id(.:format)                              semesters#update
-                         DELETE /semesters/:id(.:format)                              semesters#destroy
-                   terms GET    /terms(.:format)                                      terms#index
-                         POST   /terms(.:format)                                      terms#create
-                new_term GET    /terms/new(.:format)                                  terms#new
-               edit_term GET    /terms/:id/edit(.:format)                             terms#edit
-                    term GET    /terms/:id(.:format)                                  terms#show
-                         PUT    /terms/:id(.:format)                                  terms#update
-                         DELETE /terms/:id(.:format)                                  terms#destroy
-   location_workstations GET    /locations/:location_id/workstations(.:format)        workstations#index
-                         POST   /locations/:location_id/workstations(.:format)        workstations#create
-new_location_workstation GET    /locations/:location_id/workstations/new(.:format)    workstations#new
-               locations GET    /locations(.:format)                                  locations#index
-                         POST   /locations(.:format)                                  locations#create
-            new_location GET    /locations/new(.:format)                              locations#new
-           edit_location GET    /locations/:id/edit(.:format)                         locations#edit
-                location GET    /locations/:id(.:format)                              locations#show
-                         PUT    /locations/:id(.:format)                              locations#update
-                         DELETE /locations/:id(.:format)                              locations#destroy
-          location_types GET    /location_types(.:format)                             location_types#index
-                         POST   /location_types(.:format)                             location_types#create
-       new_location_type GET    /location_types/new(.:format)                         location_types#new
-      edit_location_type GET    /location_types/:id/edit(.:format)                    location_types#edit
-           location_type GET    /location_types/:id(.:format)                         location_types#show
-                         PUT    /location_types/:id(.:format)                         location_types#update
-                         DELETE /location_types/:id(.:format)                         location_types#destroy
-               hardwares GET    /hardwares(.:format)                                  hardwares#index
-           edit_hardware GET    /hardwares/:id/edit(.:format)                         hardwares#edit
-                hardware GET    /hardwares/:id(.:format)                              hardwares#show
-                         PUT    /hardwares/:id(.:format)                              hardwares#update
-                         DELETE /hardwares/:id(.:format)                              hardwares#destroy
-       hardware_statuses GET    /hardware_statuses(.:format)                          hardware_statuses#index
-                         POST   /hardware_statuses(.:format)                          hardware_statuses#create
-     new_hardware_status GET    /hardware_statuses/new(.:format)                      hardware_statuses#new
-    edit_hardware_status GET    /hardware_statuses/:id/edit(.:format)                 hardware_statuses#edit
-         hardware_status GET    /hardware_statuses/:id(.:format)                      hardware_statuses#show
-                         PUT    /hardware_statuses/:id(.:format)                      hardware_statuses#update
-                         DELETE /hardware_statuses/:id(.:format)                      hardware_statuses#destroy
-          hardware_types GET    /hardware_types(.:format)                             hardware_types#index
-                         POST   /hardware_types(.:format)                             hardware_types#create
-       new_hardware_type GET    /hardware_types/new(.:format)                         hardware_types#new
-      edit_hardware_type GET    /hardware_types/:id/edit(.:format)                    hardware_types#edit
-           hardware_type GET    /hardware_types/:id(.:format)                         hardware_types#show
-                         PUT    /hardware_types/:id(.:format)                         hardware_types#update
-                         DELETE /hardware_types/:id(.:format)                         hardware_types#destroy
-   workstation_hardwares GET    /workstations/:workstation_id/hardwares(.:format)     hardwares#index
-                         POST   /workstations/:workstation_id/hardwares(.:format)     hardwares#create
-new_workstation_hardware GET    /workstations/:workstation_id/hardwares/new(.:format) hardwares#new
-            workstations GET    /workstations(.:format)                               workstations#index
-        edit_workstation GET    /workstations/:id/edit(.:format)                      workstations#edit
-             workstation GET    /workstations/:id(.:format)                           workstations#show
-                         PUT    /workstations/:id(.:format)                           workstations#update
-                         DELETE /workstations/:id(.:format)                           workstations#destroy
-       workstation_types GET    /workstation_types(.:format)                          workstation_types#index
-                         POST   /workstation_types(.:format)                          workstation_types#create
-    new_workstation_type GET    /workstation_types/new(.:format)                      workstation_types#new
-   edit_workstation_type GET    /workstation_types/:id/edit(.:format)                 workstation_types#edit
-        workstation_type GET    /workstation_types/:id(.:format)                      workstation_types#show
-                         PUT    /workstation_types/:id(.:format)                      workstation_types#update
-                         DELETE /workstation_types/:id(.:format)                      workstation_types#destroy
-                   hours GET    /hours(.:format)                                      hours#index
-                         POST   /hours(.:format)                                      hours#create
-                new_hour GET    /hours/new(.:format)                                  hours#new
-               edit_hour GET    /hours/:id/edit(.:format)                             hours#edit
-                    hour GET    /hours/:id(.:format)                                  hours#show
-                         PUT    /hours/:id(.:format)                                  hours#update
-                         DELETE /hours/:id(.:format)                                  hours#destroy
-      lab_overview_index GET    /lab_overview(.:format)                               lab_overview#index
-         inventory_index GET    /inventory(.:format)                                  inventory#index
-        new_user_session GET    /users/sign_in(.:format)                              devise/sessions#new
-            user_session POST   /users/sign_in(.:format)                              devise/sessions#create
-    destroy_user_session DELETE /users/sign_out(.:format)                             devise/sessions#destroy
-           user_password POST   /users/password(.:format)                             devise/passwords#create
-       new_user_password GET    /users/password/new(.:format)                         devise/passwords#new
-      edit_user_password GET    /users/password/edit(.:format)                        devise/passwords#edit
-                         PUT    /users/password(.:format)                             devise/passwords#update
-cancel_user_registration GET    /users/cancel(.:format)                               devise/registrations#cancel
-       user_registration POST   /users(.:format)                                      devise/registrations#create
-   new_user_registration GET    /users/sign_up(.:format)                              devise/registrations#new
-  edit_user_registration GET    /users/edit(.:format)                                 devise/registrations#edit
-                         PUT    /users(.:format)                                      devise/registrations#update
-                         DELETE /users(.:format)                                      devise/registrations#destroy
-       letter_opener_web        /letter_opener                                        LetterOpenerWeb::Engine
-                    root        /                                                     home#index
+              setting_toggle PUT    /settings/:setting_id/toggle(.:format)                   settings#toggle
+                    settings GET    /settings(.:format)                                      settings#index
+                             POST   /settings(.:format)                                      settings#create
+                 new_setting GET    /settings/new(.:format)                                  settings#new
+                edit_setting GET    /settings/:id/edit(.:format)                             settings#edit
+                     setting GET    /settings/:id(.:format)                                  settings#show
+                             PUT    /settings/:id(.:format)                                  settings#update
+                             DELETE /settings/:id(.:format)                                  settings#destroy
+                 admin_users GET    /admin/users(.:format)                                   admin/users#index
+                             POST   /admin/users(.:format)                                   admin/users#create
+              new_admin_user GET    /admin/users/new(.:format)                               admin/users#new
+             edit_admin_user GET    /admin/users/:id/edit(.:format)                          admin/users#edit
+                  admin_user GET    /admin/users/:id(.:format)                               admin/users#show
+                             PUT    /admin/users/:id(.:format)                               admin/users#update
+                             DELETE /admin/users/:id(.:format)                               admin/users#destroy
+             poster_statuses GET    /poster_statuses(.:format)                               poster_statuses#index
+                             POST   /poster_statuses(.:format)                               poster_statuses#create
+           new_poster_status GET    /poster_statuses/new(.:format)                           poster_statuses#new
+          edit_poster_status GET    /poster_statuses/:id/edit(.:format)                      poster_statuses#edit
+               poster_status GET    /poster_statuses/:id(.:format)                           poster_statuses#show
+                             PUT    /poster_statuses/:id(.:format)                           poster_statuses#update
+                             DELETE /poster_statuses/:id(.:format)                           poster_statuses#destroy
+               poster_finish PUT    /posters/:poster_id/finish(.:format)                     posters#finish
+                 poster_pend PUT    /posters/:poster_id/pend(.:format)                       posters#pend
+                poster_print PUT    /posters/:poster_id/print(.:format)                      posters#print
+                     posters GET    /posters(.:format)                                       posters#index
+                             POST   /posters(.:format)                                       posters#create
+                  new_poster GET    /posters/new(.:format)                                   posters#new
+                 edit_poster GET    /posters/:id/edit(.:format)                              posters#edit
+                      poster GET    /posters/:id(.:format)                                   posters#show
+                             PUT    /posters/:id(.:format)                                   posters#update
+                             DELETE /posters/:id(.:format)                                   posters#destroy
+                job_statuses GET    /job_statuses(.:format)                                  job_statuses#index
+                             POST   /job_statuses(.:format)                                  job_statuses#create
+              new_job_status GET    /job_statuses/new(.:format)                              job_statuses#new
+             edit_job_status GET    /job_statuses/:id/edit(.:format)                         job_statuses#edit
+                  job_status GET    /job_statuses/:id(.:format)                              job_statuses#show
+                             PUT    /job_statuses/:id(.:format)                              job_statuses#update
+                             DELETE /job_statuses/:id(.:format)                              job_statuses#destroy
+                  job_finish PUT    /jobs/:job_id/finish(.:format)                           jobs#finish
+                    job_pend PUT    /jobs/:job_id/pend(.:format)                             jobs#pend
+                job_finalize PUT    /jobs/:job_id/finalize(.:format)                         jobs#finalize
+                 job_posters GET    /jobs/:job_id/posters(.:format)                          posters#index
+                             POST   /jobs/:job_id/posters(.:format)                          posters#create
+              new_job_poster GET    /jobs/:job_id/posters/new(.:format)                      posters#new
+             edit_job_poster GET    /jobs/:job_id/posters/:id/edit(.:format)                 posters#edit
+                  job_poster GET    /jobs/:job_id/posters/:id(.:format)                      posters#show
+                             PUT    /jobs/:job_id/posters/:id(.:format)                      posters#update
+                             DELETE /jobs/:job_id/posters/:id(.:format)                      posters#destroy
+                        jobs GET    /jobs(.:format)                                          jobs#index
+                             POST   /jobs(.:format)                                          jobs#create
+                     new_job GET    /jobs/new(.:format)                                      jobs#new
+                    edit_job GET    /jobs/:id/edit(.:format)                                 jobs#edit
+                         job GET    /jobs/:id(.:format)                                      jobs#show
+                             PUT    /jobs/:id(.:format)                                      jobs#update
+                             DELETE /jobs/:id(.:format)                                      jobs#destroy
+                 work_orders GET    /work_orders(.:format)                                   work_orders#index
+                             POST   /work_orders(.:format)                                   work_orders#create
+              new_work_order GET    /work_orders/new(.:format)                               work_orders#new
+             edit_work_order GET    /work_orders/:id/edit(.:format)                          work_orders#edit
+                  work_order GET    /work_orders/:id(.:format)                               work_orders#show
+                             PUT    /work_orders/:id(.:format)                               work_orders#update
+                             DELETE /work_orders/:id(.:format)                               work_orders#destroy
+              order_statuses GET    /order_statuses(.:format)                                order_statuses#index
+                             POST   /order_statuses(.:format)                                order_statuses#create
+            new_order_status GET    /order_statuses/new(.:format)                            order_statuses#new
+           edit_order_status GET    /order_statuses/:id/edit(.:format)                       order_statuses#edit
+                order_status GET    /order_statuses/:id(.:format)                            order_statuses#show
+                             PUT    /order_statuses/:id(.:format)                            order_statuses#update
+                             DELETE /order_statuses/:id(.:format)                            order_statuses#destroy
+        after_hours_accesses GET    /after_hours_accesses(.:format)                          after_hours_accesses#index
+                             POST   /after_hours_accesses(.:format)                          after_hours_accesses#create
+      new_after_hours_access GET    /after_hours_accesses/new(.:format)                      after_hours_accesses#new
+     edit_after_hours_access GET    /after_hours_accesses/:id/edit(.:format)                 after_hours_accesses#edit
+          after_hours_access GET    /after_hours_accesses/:id(.:format)                      after_hours_accesses#show
+                             PUT    /after_hours_accesses/:id(.:format)                      after_hours_accesses#update
+                             DELETE /after_hours_accesses/:id(.:format)                      after_hours_accesses#destroy
+                   semesters GET    /semesters(.:format)                                     semesters#index
+                             POST   /semesters(.:format)                                     semesters#create
+                new_semester GET    /semesters/new(.:format)                                 semesters#new
+               edit_semester GET    /semesters/:id/edit(.:format)                            semesters#edit
+                    semester GET    /semesters/:id(.:format)                                 semesters#show
+                             PUT    /semesters/:id(.:format)                                 semesters#update
+                             DELETE /semesters/:id(.:format)                                 semesters#destroy
+                       terms GET    /terms(.:format)                                         terms#index
+                             POST   /terms(.:format)                                         terms#create
+                    new_term GET    /terms/new(.:format)                                     terms#new
+                   edit_term GET    /terms/:id/edit(.:format)                                terms#edit
+                        term GET    /terms/:id(.:format)                                     terms#show
+                             PUT    /terms/:id(.:format)                                     terms#update
+                             DELETE /terms/:id(.:format)                                     terms#destroy
+       location_workstations GET    /locations/:location_id/workstations(.:format)           workstations#index
+                             POST   /locations/:location_id/workstations(.:format)           workstations#create
+    new_location_workstation GET    /locations/:location_id/workstations/new(.:format)       workstations#new
+                   locations GET    /locations(.:format)                                     locations#index
+                             POST   /locations(.:format)                                     locations#create
+                new_location GET    /locations/new(.:format)                                 locations#new
+               edit_location GET    /locations/:id/edit(.:format)                            locations#edit
+                    location GET    /locations/:id(.:format)                                 locations#show
+                             PUT    /locations/:id(.:format)                                 locations#update
+                             DELETE /locations/:id(.:format)                                 locations#destroy
+              location_types GET    /location_types(.:format)                                location_types#index
+                             POST   /location_types(.:format)                                location_types#create
+           new_location_type GET    /location_types/new(.:format)                            location_types#new
+          edit_location_type GET    /location_types/:id/edit(.:format)                       location_types#edit
+               location_type GET    /location_types/:id(.:format)                            location_types#show
+                             PUT    /location_types/:id(.:format)                            location_types#update
+                             DELETE /location_types/:id(.:format)                            location_types#destroy
+                   hardwares GET    /hardwares(.:format)                                     hardwares#index
+               edit_hardware GET    /hardwares/:id/edit(.:format)                            hardwares#edit
+                    hardware GET    /hardwares/:id(.:format)                                 hardwares#show
+                             PUT    /hardwares/:id(.:format)                                 hardwares#update
+                             DELETE /hardwares/:id(.:format)                                 hardwares#destroy
+           hardware_statuses GET    /hardware_statuses(.:format)                             hardware_statuses#index
+                             POST   /hardware_statuses(.:format)                             hardware_statuses#create
+         new_hardware_status GET    /hardware_statuses/new(.:format)                         hardware_statuses#new
+        edit_hardware_status GET    /hardware_statuses/:id/edit(.:format)                    hardware_statuses#edit
+             hardware_status GET    /hardware_statuses/:id(.:format)                         hardware_statuses#show
+                             PUT    /hardware_statuses/:id(.:format)                         hardware_statuses#update
+                             DELETE /hardware_statuses/:id(.:format)                         hardware_statuses#destroy
+              hardware_types GET    /hardware_types(.:format)                                hardware_types#index
+                             POST   /hardware_types(.:format)                                hardware_types#create
+           new_hardware_type GET    /hardware_types/new(.:format)                            hardware_types#new
+          edit_hardware_type GET    /hardware_types/:id/edit(.:format)                       hardware_types#edit
+               hardware_type GET    /hardware_types/:id(.:format)                            hardware_types#show
+                             PUT    /hardware_types/:id(.:format)                            hardware_types#update
+                             DELETE /hardware_types/:id(.:format)                            hardware_types#destroy
+       workstation_hardwares GET    /workstations/:workstation_id/hardwares(.:format)        hardwares#index
+                             POST   /workstations/:workstation_id/hardwares(.:format)        hardwares#create
+    new_workstation_hardware GET    /workstations/:workstation_id/hardwares/new(.:format)    hardwares#new
+                workstations GET    /workstations(.:format)                                  workstations#index
+            edit_workstation GET    /workstations/:id/edit(.:format)                         workstations#edit
+                 workstation GET    /workstations/:id(.:format)                              workstations#show
+                             PUT    /workstations/:id(.:format)                              workstations#update
+                             DELETE /workstations/:id(.:format)                              workstations#destroy
+           workstation_types GET    /workstation_types(.:format)                             workstation_types#index
+                             POST   /workstation_types(.:format)                             workstation_types#create
+        new_workstation_type GET    /workstation_types/new(.:format)                         workstation_types#new
+       edit_workstation_type GET    /workstation_types/:id/edit(.:format)                    workstation_types#edit
+            workstation_type GET    /workstation_types/:id(.:format)                         workstation_types#show
+                             PUT    /workstation_types/:id(.:format)                         workstation_types#update
+                             DELETE /workstation_types/:id(.:format)                         workstation_types#destroy
+                       hours GET    /hours(.:format)                                         hours#index
+                             POST   /hours(.:format)                                         hours#create
+                    new_hour GET    /hours/new(.:format)                                     hours#new
+                   edit_hour GET    /hours/:id/edit(.:format)                                hours#edit
+                        hour GET    /hours/:id(.:format)                                     hours#show
+                             PUT    /hours/:id(.:format)                                     hours#update
+                             DELETE /hours/:id(.:format)                                     hours#destroy
+          lab_overview_index GET    /lab_overview(.:format)                                  lab_overview#index
+             inventory_index GET    /inventory(.:format)                                     inventory#index
+     api_v1_lab_workstations GET    /api/v1/labs/:lab_id/workstations(.:format)              api/v1/workstations#index
+                 api_v1_labs GET    /api/v1/labs(.:format)                                   api/v1/labs#index
+                  api_v1_lab GET    /api/v1/labs/:id(.:format)                               api/v1/labs#show
+api_v1_workstation_hardwares GET    /api/v1/workstations/:workstation_id/hardwares(.:format) api/v1/hardwares#index
+          api_v1_workstation GET    /api/v1/workstations/:id(.:format)                       api/v1/workstations#show
+             api_v1_hardware GET    /api/v1/hardwares/:id(.:format)                          api/v1/hardwares#show
+            new_user_session GET    /users/sign_in(.:format)                                 devise/sessions#new
+                user_session POST   /users/sign_in(.:format)                                 devise/sessions#create
+        destroy_user_session DELETE /users/sign_out(.:format)                                devise/sessions#destroy
+               user_password POST   /users/password(.:format)                                devise/passwords#create
+           new_user_password GET    /users/password/new(.:format)                            devise/passwords#new
+          edit_user_password GET    /users/password/edit(.:format)                           devise/passwords#edit
+                             PUT    /users/password(.:format)                                devise/passwords#update
+    cancel_user_registration GET    /users/cancel(.:format)                                  devise/registrations#cancel
+           user_registration POST   /users(.:format)                                         devise/registrations#create
+       new_user_registration GET    /users/sign_up(.:format)                                 devise/registrations#new
+      edit_user_registration GET    /users/edit(.:format)                                    devise/registrations#edit
+                             PUT    /users(.:format)                                         devise/registrations#update
+                             DELETE /users(.:format)                                         devise/registrations#destroy
+           letter_opener_web        /letter_opener                                           LetterOpenerWeb::Engine
+                        root        /                                                        home#index
 
 Routes for LetterOpenerWeb::Engine:
 clear_letters DELETE /clear(.:format)                 letter_opener_web/letters#clear
