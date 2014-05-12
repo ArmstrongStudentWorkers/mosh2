@@ -4,12 +4,12 @@
       <%= link_to "MOSH", root_path, id: "logo" %>
 
       <ul class="nav">
-        <%-# render 'layouts/labs' %>
+        <%= render 'layouts/labs' %>
         <% if user_signed_in? %>
           <%= render 'layouts/posters' %>
-          <%-# render 'layouts/workorders' %>
-          <%-# render 'layouts/supplies' %>
-          <%-# render 'layouts/advisement' %>
+          <%= render 'layouts/workorders' %>
+          <%= render 'layouts/supplies' %>
+          <%= render 'layouts/advisement' %>
         <% end %>
       </ul>
 

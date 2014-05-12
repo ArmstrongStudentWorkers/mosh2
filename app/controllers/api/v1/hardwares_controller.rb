@@ -15,5 +15,17 @@ class Api::V1::HardwaresController < ApplicationController
       format.json { render json: @hardware }
     end
   end
+
+  def new
+    @workstation = Workstation.find(params[:workstation_id])
+    @hardware = Hardware.new
+  end
+
+  def create
+    workstation = Workstation.find(params[:workstation_id])
+    @hardware = workstation.hardwares.new(params[:hardware])
+    @hardware.name_hardware
+    @hardware.save
+  end
 end
 

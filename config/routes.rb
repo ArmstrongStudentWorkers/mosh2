@@ -50,7 +50,7 @@ Mosh2::Application.routes.draw do
         resources :workstations, only: :index
       end
       resources :workstations, only: :show do
-        resources :hardwares, only: :index
+        resources :hardwares, only: [:index, :new, :create]
       end
       resources :hardwares, only: :show
     end
