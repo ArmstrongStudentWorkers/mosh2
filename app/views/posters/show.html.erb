@@ -105,3 +105,8 @@
     <%= link_to('Confirm Poster!', @poster.job, :class => 'btn btn-block btn-large btn-success') unless @poster.job.finalize %>
   </div>
 </div>
+<br><br>
+<div class="row">
+  <%= link_to 'Edit Job', edit_job_path(@poster.job) %> |
+  <%= link_to 'Back', edit_poster_path(@poster) %>
+</div>
