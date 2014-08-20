@@ -35,7 +35,7 @@ class Job < ActiveRecord::Base
     self.job_status = JobStatus.where(name: "Pending").first
   end
   def set_finished
-    self.job_status = JobStatus.where(name: "Finished").first
+    self.job_status = JobStatus.where(name: "Finished").first unless bool == false
   end
   def set_denied
     self.job_status = JobStatus.where(name: "Denied").first

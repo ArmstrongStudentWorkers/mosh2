@@ -19,8 +19,10 @@
   <% if current_user.management %>
     <% if @job.job_status.name == "Pending" %>
       <div class="span3 offset3">
-        <%= link_to job_finish_path(@job), method: :put, class: 'btn btn-medium btn-block btn-info' do %>
-          <i class="fa fa-cogs"></i> Finish Job
+        <% if all_finished(@job.posters) %>
+          <%= link_to job_finish_path(@job), method: :put, class: 'btn btn-medium btn-block btn-info' do %>
+            <i class="fa fa-cogs"></i> Finish Job
+          <% end %>
         <% end %>
       </div>
       <div class="span3">

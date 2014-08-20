@@ -8,6 +8,16 @@ module JobsHelper
     end
   end
 
+  def all_finished(posters)
+    bool = true
+    posters.each do |poster|
+      if poster.poster_status != "Finished"
+        bool = false
+      end
+    end
+    bool
+  end
+
   def check_date(due_date)
     due_date < DateTime.now + 2.days
   end
