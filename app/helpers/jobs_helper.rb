@@ -9,13 +9,7 @@ module JobsHelper
   end
 
   def all_finished(posters)
-    bool = true
-    posters.each do |poster|
-      if poster.poster_status != "Finished"
-        bool = false
-      end
-    end
-    bool
+    posters.map { |p| p.poster_status.name == "Finished" }.reduce{ |a, b| a && b }
   end
 
   def check_date(due_date)
