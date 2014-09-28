@@ -32,13 +32,13 @@ class Job < ActiveRecord::Base
    new_record? || due_date_changed?
   end
   def set_pending
-    self.job_status = JobStatus.where(name: "Pending").first
+    job_status = JobStatus.find_by(name: "Pending")
   end
   def set_finished
-    self.job_status = JobStatus.where(name: "Finished").first unless bool == false
+    job_status = JobStatus.find_by(name: "Finished")
   end
   def set_denied
-    self.job_status = JobStatus.where(name: "Denied").first
+    job_status = JobStatus.find_by(name: "Denied")
   end
   def set_finalize
     self.finalize = true
