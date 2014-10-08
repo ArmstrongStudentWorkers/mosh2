@@ -13,7 +13,7 @@
 class Job < ActiveRecord::Base
   attr_accessible :due_date, :user_id, :job_status_id, :finalize, :denial
   has_one :poster_overview
-  has_many :posters
+  has_many :posters, :dependent => :destroy
   belongs_to :user
   belongs_to :job_status
   has_paper_trail
