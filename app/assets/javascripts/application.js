@@ -15,3 +15,15 @@
 //= require bootstrap
 //= require bootstrap-datepicker/core
 //= require_tree .
+
+$(function() {
+  $("#products th a, #products .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  
+  $("#jobs_search input").keyup(function() {
+    $.get($("#jobs_search").attr("action"), $("#jobs_search").serialize(), null, "script");
+    return false;
+  });
+});

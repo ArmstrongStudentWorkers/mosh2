@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   has_many :after_hours_accesses
   has_many :work_orders
-  has_many :jobs
+  has_many :jobs, :dependent => :destroy
   has_paper_trail
 
   private

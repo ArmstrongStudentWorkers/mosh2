@@ -1,22 +1,35 @@
 class JobsController < ApplicationController
   before_filter :authenticate_user!
+  helper_method :sort_column, :sort_direction
 
   # GET /jobs
   # GET /jobs.json
   def index
+
+    @per_page = params[:per_page] || 25
     if !current_user.management
-      @jobs = Job.where(user_id: current_user.id).page(params[:page])
+      @jobs = Job.where(user_id: current_user.id)
+                .search(params[:search])
+                .order(sort_column + " " + sort_direction)
+                .paginate(:per_page => @per_page, :page => params[:page])
+      @isManagement = false
     else
-      @jobs = Job.page(params[:page])
+      @jobs = Job.search(params[:search])
+                .order("#{sort_column} #{sort_direction}")
+                .paginate(:per_page => @per_page, :page => params[:page])
+      @isManagement = true
     end
     @job_statuses = JobStatus.all
 
     if params[:job_status]
       @job_status = JobStatus.find(params[:job_status])
       if !current_user.management
-        @jobs = @job_status.jobs.where(user_id: current_user.id).page(params[:page])
+        @jobs = @job_status.jobs.where(user_id: current_user.id)
+                          .order(sort_column + " " + sort_direction)
+                          .paginate(:per_page =>@per_page, :page => params[:page])
       else
-        @jobs = @job_status.jobs.page(params[:page])
+        @jobs = @job_status.jobs.order(sort_column + " " + sort_direction)
+                          .paginate(:per_page =>@per_page, :page => params[:page])
       end
     end
     respond_to do |format|
@@ -162,7 +175,19 @@ class JobsController < ApplicationController
   end
 
   private
+  def sort_column
+    Job.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
   def authorized_user?(user, job)
     user == job.user || user.management
+  end
+
+  def set_number_of_entries_per_page(number)
+
   end
 end

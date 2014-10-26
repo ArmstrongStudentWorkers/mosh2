@@ -14,7 +14,7 @@ class Job < ActiveRecord::Base
   attr_accessible :due_date, :user_id, :job_status_id, :finalize, :denial
   has_one :poster_overview
   has_many :posters, :dependent => :destroy
-  belongs_to :user
+  belongs_to :user, :class_name => "User", :foreign_key => :user_id
   belongs_to :job_status
   has_paper_trail
 
@@ -51,5 +51,12 @@ class Job < ActiveRecord::Base
       end
     end
     mount
+  end
+  def self.search(search)
+    if search
+      joins(:user).where('email LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
   end
 end
